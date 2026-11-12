@@ -150,6 +150,26 @@ $('#spec')?.addEventListener('click', (e) => {
   b.setAttribute('aria-expanded', String(open));
 });
 
+/* ---------- Archivo: las piezas aparecen de una en una al llegar ---------- */
+if (colsEl && !reduce) {
+  colsEl.classList.add('arch-anim');
+  let pending = Array.from(colsEl.querySelectorAll<HTMLElement>('.piece'));
+  pending.forEach((p, i) => p.style.setProperty('--rot', (i % 2 ? 3 : -3) + 'deg'));
+  const check = () => {
+    if (!pending.length) return;
+    const vh = innerHeight;
+    // Las que llegan a la vez se encadenan de arriba abajo y de izquierda a derecha
+    const ready = pending.filter((p) => { const r = p.getBoundingClientRect(); return r.top < vh * 0.88 && r.bottom > 0; })
+      .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top || a.getBoundingClientRect().left - b.getBoundingClientRect().left);
+    ready.forEach((p, i) => { p.style.setProperty('--d', (i * 0.16).toFixed(2) + 's'); p.classList.add('in'); });
+    pending = pending.filter((p) => !ready.includes(p));
+  };
+  addEventListener('scroll', check, { passive: true });
+  addEventListener('resize', check);
+  addEventListener('load', check);
+  check();
+}
+
 /* ---------- Galería: ver imagen en grande ---------- */
 const lb = $<HTMLDialogElement>('#lb');
 if (lb) {
