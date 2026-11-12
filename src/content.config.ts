@@ -17,8 +17,6 @@ const projects = defineCollection({
     services: z.string(),
     tools: z.string(),
     url: z.string().url().optional(),
-    /** Enlace al documento o presentación completa (Canva, PDF...) */
-    document: z.string().url().optional(),
     art: z.enum(['pweb', 'psocial', 'pseo']).optional(),
     cover: z.string().optional(),
     challenge: z.string(),

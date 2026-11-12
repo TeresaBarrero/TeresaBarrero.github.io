@@ -303,13 +303,7 @@ body.menu-open .menu li a{transform:none}
 .gal .g-mob img{border-radius:18px;border:6px solid #0e0f12;max-width:300px}
 .gal .g-post{grid-column:span 3}
 .gal figcaption{font-family:var(--f-mono);font-size:var(--s-xs);color:#B8C2C3;padding:10px 12px;letter-spacing:.04em}
-.gal .g-wide{grid-column:span 6;background:var(--paper-2)}
-.gal .g-wide figcaption{color:var(--muted)}
-.case-links{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px 28px}
-.prose{grid-column:5/span 7;max-width:60ch;font-size:clamp(1rem,1.4vw,1.15rem)}
-.prose ul{margin:0;padding-left:1.1em;display:grid;gap:8px}
-.prose p{margin:0 0 12px}
-@media (max-width:760px){.gal .g-long,.gal .g-mob,.gal .g-wide,.prose{grid-column:1/-1}.gal .g-post{grid-column:span 6}}
+@media (max-width:760px){.gal .g-long,.gal .g-mob{grid-column:1/-1}.gal .g-post{grid-column:span 6}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
