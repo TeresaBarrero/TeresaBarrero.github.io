@@ -140,7 +140,7 @@ const jsonLd = {
       <div class="cols" id="cols">
         {cols.map((c) => (
           <div class="col">{c.map((a) => (
-            <figure class="piece" style="margin:0"><img src={img(a.src)} width="640" height="800" alt={a[lang]} loading="lazy" decoding="async" /><figcaption>{a[lang]}</figcaption></figure>
+            <figure class="piece" style="margin:0"><img src={img(a.src)} width={a.w} height={a.h} alt={a[lang]} loading="lazy" decoding="async" /><figcaption>{a[lang]}</figcaption></figure>
           ))}</div>
         ))}
       </div>

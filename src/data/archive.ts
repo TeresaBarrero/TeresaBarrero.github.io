@@ -1,12 +1,10 @@
 // Piezas del Archivo. Para añadir una: copia la imagen en public/images/ y añade una línea aquí.
-// col: columna en escritorio (1, 2 o 3).
+// col: columna en escritorio (1, 2 o 3; en móvil solo se ven la 1 y la 2). w y h: tamaño real de la imagen.
 export const archive = [
-  { src: 'post-puertas-abiertas.webp', col: 1, es: 'Instagram · Puertas abiertas', en: 'Instagram · Open days' },
-  { src: 'post-horario-clases.webp', col: 1, es: 'Instagram · Horario de clases', en: 'Instagram · Class timetable' },
-  { src: 'post-horarios-tarifas.webp', col: 1, es: 'Instagram · Horarios y tarifas', en: 'Instagram · Hours & prices' },
-  { src: 'post-abrimos.webp', col: 2, es: 'Instagram · Apertura', en: 'Instagram · Opening' },
-  { src: 'post-promocion.webp', col: 2, es: 'Instagram · Promoción de apertura', en: 'Instagram · Opening offer' },
-  { src: 'post-empezamos.webp', col: 3, es: 'Instagram · Empezamos', en: 'Instagram · We start' },
-  { src: 'post-app.webp', col: 3, es: 'Instagram · App de reservas', en: 'Instagram · Booking app' },
-  { src: 'post-aprende.webp', col: 3, es: 'Instagram · Aprende a entrenar', en: 'Instagram · Learn to train' },
+  { src: 'post-abrimos.webp', w: 640, h: 800, col: 1, es: 'Panthera Fitness · Apertura', en: 'Panthera Fitness · Opening' },
+  { src: 'castuo-post.webp', w: 330, h: 330, col: 1, es: 'Castúo · Post de Instagram', en: 'Castúo · Instagram post' },
+  { src: 'castuo-historia.webp', w: 286, h: 507, col: 2, es: 'Castúo · Historia de Instagram', en: 'Castúo · Instagram story' },
+  { src: 'post-horarios-tarifas.webp', w: 640, h: 800, col: 2, es: 'Panthera Fitness · Horarios y tarifas', en: 'Panthera Fitness · Hours & prices' },
+  { src: 'post-promocion.webp', w: 640, h: 800, col: 3, es: 'Panthera Fitness · Promoción de apertura', en: 'Panthera Fitness · Opening offer' },
+  { src: 'castuo-landing-vino.webp', w: 779, h: 428, col: 3, es: 'Castúo · Landing page', en: 'Castúo · Landing page' },
 ] as const;
