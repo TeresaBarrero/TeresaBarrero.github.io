@@ -24,7 +24,8 @@ const projects = defineCollection({
     challenge: z.string(),
     solution: z.string(),
     highlights: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
-    gallery: z.array(z.object({ src: z.string(), alt: z.string(), layout: z.enum(['long', 'mobile', 'post', 'wide', 'full']) })).default([]),
+    /** group: título de bloque en la galería (p. ej. «Redes sociales»); las piezas seguidas con el mismo group van juntas */
+    gallery: z.array(z.object({ src: z.string(), alt: z.string(), layout: z.enum(['long', 'mobile', 'post', 'wide', 'full', 'fit', 'social']), group: z.string().optional() })).default([]),
     draft: z.boolean().default(false),
   }),
 });

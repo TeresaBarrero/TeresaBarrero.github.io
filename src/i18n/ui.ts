@@ -33,7 +33,7 @@ export const ui = {
     time: 'Hora local', grid: 'Ver retícula (G)', built: 'Hecho con Astro · GitHub Pages',
     'case.back': 'Trabajo', role2: 'Rol', year: 'Año', services: 'Servicios', tools: 'Herramientas',
     challenge: 'El reto', solution: 'La solución', results: 'Claves', gallery: 'Galería', more: 'Más detalles',
-    next: 'Siguiente proyecto', live: 'Ver en vivo ↗', doc: 'Ver la presentación completa ↗',
+    next: 'Siguiente proyecto', live: 'Ver en vivo ↗', doc: 'Ver la presentación completa ↗', docBtn: 'Ver proyecto completo', zoom: 'Ampliar imagen', closeImg: 'Cerrar imagen',
   },
   en: {
     'meta.title': 'María Teresa Barrero · Full Stack Marketer',
@@ -65,7 +65,7 @@ export const ui = {
     time: 'Local time', grid: 'Show grid (G)', built: 'Built with Astro · GitHub Pages',
     'case.back': 'Work', role2: 'Role', year: 'Year', services: 'Services', tools: 'Tools',
     challenge: 'The challenge', solution: 'The solution', results: 'Key points', gallery: 'Gallery', more: 'More details',
-    next: 'Next project', live: 'See it live ↗', doc: 'See the full presentation ↗',
+    next: 'Next project', live: 'See it live ↗', doc: 'See the full presentation ↗', docBtn: 'See full project', zoom: 'Enlarge image', closeImg: 'Close image',
   },
 } as const;
 

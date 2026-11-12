@@ -18,16 +18,16 @@ highlights:
   - { value: "26", label: "publicaciones planificadas en redes" }
   - { value: "2.388,99 €", label: "presupuesto total del plan" }
 gallery:
-  - { src: castuo-web.webp, alt: "Rediseño de la web · inicio y secciones", layout: wide }
-  - { src: castuo-newsletter-1.webp, alt: "Newsletter 1 · buyer persona 1", layout: wide }
-  - { src: castuo-blog.webp, alt: "Blog · entrada de presentación", layout: full }
-  - { src: castuo-landing-vino.webp, alt: "Landing page · enoturismo (buyer persona 1)", layout: wide }
-  - { src: castuo-landing-cocina.webp, alt: "Landing page · producto artesano (buyer persona 2)", layout: wide }
-  - { src: castuo-newsletter-2.webp, alt: "Newsletter 2 · buyer persona 2", layout: full }
-  - { src: castuo-carrusel.webp, alt: "Instagram · carrusel", layout: post }
-  - { src: castuo-post.webp, alt: "Instagram · post", layout: post }
-  - { src: castuo-reels.webp, alt: "Instagram · portadas de reels", layout: post }
-  - { src: castuo-historia.webp, alt: "Instagram · historia", layout: post }
+  - { src: castuo-web.webp, alt: "Rediseño de la web · inicio y secciones", layout: fit, group: "Web y blog" }
+  - { src: castuo-blog.webp, alt: "Blog · entrada de presentación", layout: full, group: "Web y blog" }
+  - { src: castuo-landing-vino.webp, alt: "Enoturismo · buyer persona 1", layout: wide, group: "Landing pages" }
+  - { src: castuo-landing-cocina.webp, alt: "Producto artesano · buyer persona 2", layout: wide, group: "Landing pages" }
+  - { src: castuo-newsletter-1.webp, alt: "Newsletter 1 · buyer persona 1", layout: wide, group: "Newsletters" }
+  - { src: castuo-newsletter-2.webp, alt: "Newsletter 2 · buyer persona 2", layout: wide, group: "Newsletters" }
+  - { src: castuo-carrusel.webp, alt: "Carrusel", layout: social, group: "Redes sociales" }
+  - { src: castuo-post.webp, alt: "Post", layout: social, group: "Redes sociales" }
+  - { src: castuo-reels.webp, alt: "Portadas de reels", layout: social, group: "Redes sociales" }
+  - { src: castuo-historia.webp, alt: "Historia", layout: social, group: "Redes sociales" }
 ---
 
 ## Competencia

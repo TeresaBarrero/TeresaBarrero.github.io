@@ -18,16 +18,16 @@ highlights:
   - { value: "26", label: "social media posts planned" }
   - { value: "€2,388.99", label: "total plan budget" }
 gallery:
-  - { src: castuo-web.webp, alt: "Website redesign · home & sections", layout: wide }
-  - { src: castuo-newsletter-1.webp, alt: "Newsletter 1 · buyer persona 1", layout: wide }
-  - { src: castuo-blog.webp, alt: "Blog · launch post", layout: full }
-  - { src: castuo-landing-vino.webp, alt: "Landing page · wine tourism (buyer persona 1)", layout: wide }
-  - { src: castuo-landing-cocina.webp, alt: "Landing page · artisan produce (buyer persona 2)", layout: wide }
-  - { src: castuo-newsletter-2.webp, alt: "Newsletter 2 · buyer persona 2", layout: full }
-  - { src: castuo-carrusel.webp, alt: "Instagram · carousel", layout: post }
-  - { src: castuo-post.webp, alt: "Instagram · post", layout: post }
-  - { src: castuo-reels.webp, alt: "Instagram · reel covers", layout: post }
-  - { src: castuo-historia.webp, alt: "Instagram · story", layout: post }
+  - { src: castuo-web.webp, alt: "Website redesign · home & sections", layout: fit, group: "Website & blog" }
+  - { src: castuo-blog.webp, alt: "Blog · launch post", layout: full, group: "Website & blog" }
+  - { src: castuo-landing-vino.webp, alt: "Wine tourism · buyer persona 1", layout: wide, group: "Landing pages" }
+  - { src: castuo-landing-cocina.webp, alt: "Artisan produce · buyer persona 2", layout: wide, group: "Landing pages" }
+  - { src: castuo-newsletter-1.webp, alt: "Newsletter 1 · buyer persona 1", layout: wide, group: "Newsletters" }
+  - { src: castuo-newsletter-2.webp, alt: "Newsletter 2 · buyer persona 2", layout: wide, group: "Newsletters" }
+  - { src: castuo-carrusel.webp, alt: "Carousel", layout: social, group: "Social media" }
+  - { src: castuo-post.webp, alt: "Post", layout: social, group: "Social media" }
+  - { src: castuo-reels.webp, alt: "Reel covers", layout: social, group: "Social media" }
+  - { src: castuo-historia.webp, alt: "Story", layout: social, group: "Social media" }
 ---
 
 ## Competitors

@@ -150,6 +150,42 @@ $('#spec')?.addEventListener('click', (e) => {
   b.setAttribute('aria-expanded', String(open));
 });
 
+/* ---------- Galería: ver imagen en grande ---------- */
+const lb = $<HTMLDialogElement>('#lb');
+if (lb) {
+  const lbImg = $<HTMLImageElement>('#lbImg')!;
+  const lbCap = $('#lbCap')!;
+  const lbSc = $('#lbSc')!;
+  const close = () => lb.close();
+  document.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.gal .zoom');
+    if (!b) return;
+    const src = b.querySelector('img')!;
+    lbImg.src = src.currentSrc || src.src;
+    lbImg.alt = src.alt;
+    lbCap.textContent = src.alt;
+    lb.classList.remove('zoomed');
+    lbImg.style.width = '';
+    lb.showModal();
+    document.documentElement.classList.add('lb-open');
+    lbSc.scrollTo(0, 0);
+  });
+  // Clic en la imagen: alterna entre «encajada en pantalla» y tamaño real (para leer los textos)
+  lbImg.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const r = lbImg.getBoundingClientRect();
+    const fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+    const on = lb.classList.toggle('zoomed');
+    // Tamaño real, y al menos 1,8 veces lo que se veía, para que el texto se lea
+    lbImg.style.width = on ? Math.round(Math.max(lbImg.naturalWidth, r.width * 1.8)) + 'px' : '';
+    if (on) lbSc.scrollTo(fx * lbSc.scrollWidth - lbSc.clientWidth / 2, fy * lbSc.scrollHeight - lbSc.clientHeight / 2);
+  });
+  $('#lbClose')!.addEventListener('click', close);
+  lbSc.addEventListener('click', (e) => { if (e.target === lbSc) close(); });
+  lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+  lb.addEventListener('close', () => document.documentElement.classList.remove('lb-open'));
+}
+
 /* ---------- Cursor ---------- */
 const cur = $('#cur');
 if (cur && fine && !reduce) {
@@ -158,7 +194,7 @@ if (cur && fine && !reduce) {
   const loop = () => { cx += (mx - cx) * 0.2; cy += (my - cy) * 0.2; cur.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); };
   loop();
   document.addEventListener('pointerover', (e) => {
-    cur.classList.toggle('big', !!(e.target as HTMLElement).closest('.card:not(.soon),.d-btn,.name,.piece,.next'));
+    cur.classList.toggle('big', !!(e.target as HTMLElement).closest('.card:not(.soon),.d-btn,.name,.piece,.next,.gal .zoom'));
   });
 } else if (cur) cur.style.display = 'none';
 

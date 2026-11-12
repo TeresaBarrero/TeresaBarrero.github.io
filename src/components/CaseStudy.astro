@@ -20,7 +20,14 @@ const next = list[(i + 1) % list.length];
 const d = p.data;
 const { Content } = await render(p);
 const hasBody = Boolean(p.body && p.body.trim());
-const layoutClass = { long: 'g-long', mobile: 'g-mob', post: 'g-post', wide: 'g-wide', full: 'g-full' } as const;
+const layoutClass = { long: 'g-long', mobile: 'g-mob', post: 'g-post', wide: 'g-wide', full: 'g-full', fit: 'g-full g-fit', social: 'g-soc' } as const;
+// Piezas seguidas con el mismo group forman un bloque con título
+const groups = d.gallery.reduce<{ title: string; items: typeof d.gallery }[]>((acc, g) => {
+  const t = g.group ?? '';
+  const last = acc[acc.length - 1];
+  if (last && last.title === t) last.items.push(g); else acc.push({ title: t, items: [g] });
+  return acc;
+}, []);
 const workHref = `${home(lang)}#trabajo`;
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -53,7 +60,7 @@ const jsonLd = {
           <div><span class="mono muted">{s.services}</span>{d.services}</div>
           <div><span class="mono muted">{s.tools}</span>{d.tools}</div>
         </div>
-        <div class="case-cover"><ProjectArt art={d.art} cover={d.cover} /></div>
+        <div class={d.art ? "case-cover" : "case-cover is-photo"}><ProjectArt art={d.art} cover={d.cover} /></div>
         {(d.url || d.document) && (
           <p class="case-links">
             {d.url && <a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a>}
@@ -74,11 +81,24 @@ const jsonLd = {
       {d.gallery.length > 0 && (
         <section class="wrap">
           <h2 class="mono muted" style="padding-bottom:16px;margin:0;font-weight:400">{s.gallery}</h2>
-          <div class="gal">{d.gallery.map((g) => (
-            <figure class={layoutClass[g.layout]}><img src={img(g.src)} alt={g.alt} loading="lazy" decoding="async" /><figcaption>{g.alt}</figcaption></figure>
-          ))}</div>
+          {groups.map((gr) => (
+            <div class="gal-grp">
+              {gr.title && <h3 class="gal-t">{gr.title}</h3>}
+              <div class="gal">{gr.items.map((g) => (
+                <figure class={layoutClass[g.layout]}><button type="button" class="zoom" aria-label={`${s.zoom}: ${g.alt}`}><img src={img(g.src)} alt={g.alt} loading="lazy" decoding="async" /></button><figcaption>{g.alt}</figcaption></figure>
+              ))}</div>
+            </div>
+          ))}
         </section>
       )}
+      {d.gallery.length > 0 && (
+        <dialog class="lb" id="lb" aria-label={s.zoom}>
+          <button type="button" class="lb-x" id="lbClose" aria-label={s.closeImg}>✕</button>
+          <div class="lb-sc" id="lbSc"><img id="lbImg" alt="" /></div>
+          <p class="lb-cap mono" id="lbCap"></p>
+        </dialog>
+      )}
+      {d.document && <a class="fab" href={d.document} target="_blank" rel="noopener">{s.docBtn}<span aria-hidden="true">↗</span></a>}
       {list.length > 1 && (
         <div class="wrap"><a class="next" href={projectPath(lang, next.data.uid)}><span class="mono muted">{s.next}</span><br /><span class="t">{next.data.title} <span aria-hidden="true">→</span></span></a></div>
       )}
