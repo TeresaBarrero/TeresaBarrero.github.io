@@ -36,7 +36,10 @@ const ogImage = new URL(u('/og.png'), Astro.site);
     <link rel="alternate" hreflang="es" href={esUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="x-default" href={esUrl} />
+    <link rel="icon" href={u('/favicon.ico')} sizes="48x48" />
     <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={u('/apple-touch-icon.png')} />
+    <link rel="manifest" href={u('/site.webmanifest')} />
     <meta name="theme-color" content="#F2F3EF" />
     <meta name="author" content={profile.name} />
     <meta property="og:type" content="website" />
