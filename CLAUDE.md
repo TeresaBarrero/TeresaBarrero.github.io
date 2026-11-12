@@ -14,6 +14,7 @@ Portfolio bilingüe (es/en) en Astro 5, estático, publicado en GitHub Pages con
 - No inventar proyectos, cifras ni resultados. Los `highlights` son solo datos reales.
 - Panthera Fitness Guareña es un cliente real (web: https://pantherafitnessguarena.com/).
 - La web de anda CONMiGO fue una propuesta que no se llegó a publicar: preséntala como "Propuesta".
+- Castúo Cooperativa es un proyecto académico del máster del CEI (plan de marketing, no ejecutado): sus cifras son objetivos, no resultados. Las imágenes son capturas de su presentación de Canva (https://canva.link/g7xpm00mu21mlgc).
 - Pendiente de añadir: anda CONMiGO (repo privado TeresaBarrero/andaconmigo-web), Nebula (CRM ajustable) y Azara Coffee (marca en creación; hoy solo tarjeta "En proceso").
 - Mantener `public/llms.txt` al día cuando cambien los casos.
 

@@ -54,7 +54,12 @@ const jsonLd = {
           <div><span class="mono muted">{s.tools}</span>{d.tools}</div>
         </div>
         <div class="case-cover"><ProjectArt art={d.art} cover={d.cover} /></div>
-        {d.url && <p style="margin-top:20px"><a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a></p>}
+        {(d.url || d.document) && (
+          <p class="case-links">
+            {d.url && <a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a>}
+            {d.document && <a class="mono" href={d.document} target="_blank" rel="noopener">{s.doc}</a>}
+          </p>
+        )}
       </section>
       <section class="case-body wrap">
         <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.challenge}</h2><p>{d.challenge}</p></div>

@@ -142,6 +142,14 @@ discList?.addEventListener('click', (e) => {
   });
 });
 
+/* ---------- Sobre mí: acordeón (todo recogido al cargar) ---------- */
+$('#spec')?.addEventListener('click', (e) => {
+  const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.sp-btn');
+  if (!b) return;
+  const open = b.closest('.sp-item')!.classList.toggle('open');
+  b.setAttribute('aria-expanded', String(open));
+});
+
 /* ---------- Cursor ---------- */
 const cur = $('#cur');
 if (cur && fine && !reduce) {

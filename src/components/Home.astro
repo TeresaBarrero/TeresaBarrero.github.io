@@ -152,14 +152,25 @@ const jsonLd = {
         <div class="ab-txt">
           <span class="mono muted label">{s['ab.l']}</span>
           <h2>{s['ab.t']}</h2>
-          <dl class="spec">
-            <dt>{s.sp1}</dt><dd>{s.sp1v}</dd>
-            <dt>{s.sp2}</dt><dd><ul class="exp">{experience[lang].map((e) => <li><b>{e[0]}</b><span>{e[2]}</span><em>{e[1]}</em></li>)}</ul></dd>
-            <dt>{s.sp5}</dt><dd><ul class="exp">{education[lang].map((e) => <li><b>{e[0]}</b><span>{e[2]}</span><em>{e[1]}</em></li>)}</ul></dd>
-            <dt>{s.sp3}</dt><dd>{profile.tools}</dd>
-            <dt>{s.sp6}</dt><dd>{s.sp6v}</dd>
-            <dt>{s.sp4}</dt><dd>{s.sp4v}</dd>
-          </dl>
+          <div class="spec" id="spec">
+            {[
+              { k: 'pf', t: s.sp1, text: s.sp1v },
+              { k: 'ex', t: s.sp2, list: experience[lang] },
+              { k: 'ed', t: s.sp5, list: education[lang] },
+              { k: 'to', t: s.sp3, text: profile.tools },
+              { k: 'ce', t: s.sp6, text: s.sp6v },
+              { k: 'id', t: s.sp4, text: s.sp4v },
+            ].map((r) => (
+              <div class="sp-item">
+                <h3><button type="button" class="sp-btn" id={`sp-${r.k}`} aria-expanded="false" aria-controls={`spp-${r.k}`}><span>{r.t}</span><span class="pm" aria-hidden="true"></span></button></h3>
+                <div class="sp-panel" id={`spp-${r.k}`} role="region" aria-labelledby={`sp-${r.k}`}><div><div class="sp-in">
+                  {r.list
+                    ? <ul class="exp">{r.list.map((e) => <li><b>{e[0]}</b><span>{e[2]}</span><em>{e[1]}</em>{e[3] && <p>{e[3]}</p>}</li>)}</ul>
+                    : r.text}
+                </div></div></div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
