@@ -33,7 +33,7 @@ export const ui = {
     time: 'Hora local', grid: 'Ver retícula (G)', built: 'Hecho con Astro · GitHub Pages',
     'cta.work': 'Ver proyectos', 'cta.talk': 'Hablemos', top: 'Volver arriba',
     'case.back': 'Trabajo', role2: 'Rol', year: 'Año', services: 'Servicios', tools: 'Herramientas',
-    challenge: 'El reto', solution: 'La solución', results: 'Claves', gallery: 'Galería', more: 'Más detalles',
+    challenge: 'El reto', solution: 'La solución', results: 'Claves', gallery: 'Galería', more: 'Más detalles', toc: 'En este caso',
     next: 'Siguiente proyecto', live: 'Ver en vivo ↗', doc: 'Ver la presentación completa ↗', docBtn: 'Ver proyecto completo', webFull: 'Ver web completa', zoom: 'Ampliar imagen', closeImg: 'Cerrar imagen',
   },
   en: {
@@ -66,7 +66,7 @@ export const ui = {
     time: 'Local time', grid: 'Show grid (G)', built: 'Built with Astro · GitHub Pages',
     'cta.work': 'See projects', 'cta.talk': 'Let’s talk', top: 'Back to top',
     'case.back': 'Work', role2: 'Role', year: 'Year', services: 'Services', tools: 'Tools',
-    challenge: 'The challenge', solution: 'The solution', results: 'Key points', gallery: 'Gallery', more: 'More details',
+    challenge: 'The challenge', solution: 'The solution', results: 'Key points', gallery: 'Gallery', more: 'More details', toc: 'In this case',
     next: 'Next project', live: 'See it live ↗', doc: 'See the full presentation ↗', docBtn: 'See full project', webFull: 'See full website', zoom: 'Enlarge image', closeImg: 'Close image',
   },
 } as const;

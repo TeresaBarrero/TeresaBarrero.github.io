@@ -19,7 +19,15 @@ const i = list.findIndex((p) => p.data.uid === slug);
 const p = list[i];
 const next = list[(i + 1) % list.length];
 const d = p.data;
-const { Content } = await render(p);
+const { Content, headings } = await render(p);
+// Índice del caso: bloques fijos + secciones (##) del cuerpo + galería
+const toc = [
+  { id: 'reto', t: s.challenge },
+  { id: 'solucion', t: s.solution },
+  ...(d.highlights.length ? [{ id: 'claves', t: s.results }] : []),
+  ...headings.filter((h) => h.depth === 2).map((h) => ({ id: h.slug, t: h.text })),
+  ...(d.gallery.length ? [{ id: 'galeria', t: s.gallery }] : []),
+];
 const bannerStyle = d.bannerColors ? `--bb:${d.bannerColors.bg};--bf:${d.bannerColors.fg}` : undefined;
 const hasBody = Boolean(p.body && p.body.trim());
 const layoutClass = { long: 'g-long', mobile: 'g-mob', post: 'g-post', wide: 'g-wide', full: 'g-full', fit: 'g-full g-fit', social: 'g-soc' } as const;
@@ -73,12 +81,16 @@ const jsonLd = {
           </p>
         )}
       </section>
+      <nav class="case-toc wrap" aria-label={s.toc}>
+        <span class="mono muted">{s.toc}</span>
+        <ol>{toc.map((x, i) => <li><a href={`#${x.id}`}><b>{String(i + 1).padStart(2, '0')}</b>{x.t}</a></li>)}</ol>
+      </nav>
       {d.banners[0] && <div class="cbanner" style={bannerStyle} aria-hidden="true"><div class="cbanner-tr">{[0, 1, 2, 3].map(() => <span>{d.banners[0]}</span>)}</div></div>}
       <section class="case-body wrap">
-        <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.challenge}</h2><p>{d.challenge}</p></div>
-        <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.solution}</h2><p>{d.solution}</p></div>
+        <div class="blk" id="reto"><h2 class="mono muted" style="margin:0;font-weight:400">{s.challenge}</h2><p>{d.challenge}</p></div>
+        <div class="blk" id="solucion"><h2 class="mono muted" style="margin:0;font-weight:400">{s.solution}</h2><p>{d.solution}</p></div>
         {d.highlights.length > 0 && (
-          <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.results}</h2>
+          <div class="blk" id="claves"><h2 class="mono muted" style="margin:0;font-weight:400">{s.results}</h2>
             <div class="metrics">{d.highlights.map((m) => <div class="metric"><b>{m.value}</b><span>{m.label}</span></div>)}</div>
           </div>
         )}
@@ -87,7 +99,7 @@ const jsonLd = {
       </section>
       {d.banners[2] && <div class="cbanner" style={bannerStyle} aria-hidden="true"><div class="cbanner-tr">{[0, 1, 2, 3].map(() => <span>{d.banners[2]}</span>)}</div></div>}
       {d.gallery.length > 0 && (
-        <section class="wrap">
+        <section class="wrap" id="galeria">
           <h2 class="mono muted" style="padding-bottom:16px;margin:0;font-weight:400">{s.gallery}</h2>
           {groups.map((gr) => (
             <div class="gal-grp">
