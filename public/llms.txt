@@ -1,0 +1,27 @@
+# María Teresa Barrero · Full Stack Marketer
+
+> Portfolio de María Teresa Barrero, Full Stack Marketer con formación en periodismo, marketing digital y diseño web. Trabaja en diseño web y UX/UI, SEO y SEM, Paid Media, analítica, contenido para redes sociales y automatización con IA.
+
+- Web: https://teresabarrero.github.io/ (español) · https://teresabarrero.github.io/en/ (English)
+- Email: mariateresabi98@gmail.com
+- LinkedIn: https://www.linkedin.com/in/maria-teresa-barrero-isidoro/
+- GitHub: https://github.com/TeresaBarrero
+
+## Casos de estudio
+
+- [Panthera Fitness · Landing page](https://teresabarrero.github.io/proyectos/panthera-fitness-web/): diseño y desarrollo de la web de un gimnasio en Guareña (Badajoz), mobile first, con formulario propio y GA4 en Consent Mode v2.
+- [Panthera Fitness · Redes](https://teresabarrero.github.io/proyectos/panthera-fitness-redes/): base de marca para Instagram, calendario de pre-apertura y plan de Facebook.
+- [Panthera Fitness · SEO local](https://teresabarrero.github.io/proyectos/panthera-fitness-seo-local/): auditoría SEO, Google Business Profile, datos estructurados y llms.txt.
+
+## Experiencia
+
+- anda CONMiGO · Digital Marketing & Web Specialist (2024–2026)
+- Okdiario · Web & Social Content Specialist (2024)
+- Bornan Sport Technology · Web Data & Systems Specialist (2023–2024)
+- Fundación AVA · RTVA · Digital Content & Communications Specialist (2022–2023)
+
+## Formación
+
+- Máster en Marketing Digital y Diseño Web · CEI (2023–2024)
+- Máster en Investigación en Periodismo · Universidad Complutense de Madrid (2022–2023)
+- Grado en Periodismo · Universidad de Sevilla (2016–2020)

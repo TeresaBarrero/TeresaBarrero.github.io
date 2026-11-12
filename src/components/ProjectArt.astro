@@ -1,0 +1,33 @@
+---
+// Portada de un proyecto: una composición (art) o una imagen (cover).
+import { img } from '../lib/paths';
+interface Props { art?: 'pweb' | 'psocial' | 'pseo'; cover?: string; }
+const { art, cover } = Astro.props;
+---
+{art === 'pweb' && (
+  <div class="art art-pweb">
+    <div class="bw"><i><b></b><b></b><b></b></i><img src={img('pan-desk.webp')} alt="" width="1200" height="750" loading="lazy" decoding="async" /></div>
+    <div class="ph"><img src={img('pan-mob.webp')} alt="" width="390" height="844" loading="lazy" decoding="async" /></div>
+  </div>
+)}
+{art === 'psocial' && (
+  <div class="art art-psocial">
+    <img src={img('post-puertas-abiertas.webp')} alt="" width="640" height="800" loading="lazy" decoding="async" />
+    <img src={img('post-abrimos.webp')} alt="" width="640" height="800" loading="lazy" decoding="async" />
+    <img src={img('post-promocion.webp')} alt="" width="640" height="800" loading="lazy" decoding="async" />
+  </div>
+)}
+{art === 'pseo' && (
+  <div class="art art-pseo">
+    <div class="serp">
+      <div class="q">gimnasio en Guareña</div>
+      <div class="u">Panthera Fitness · pantherafitnessguarena.com</div>
+      <div class="t">Panthera Fitness | Gimnasio en Guareña (Badajoz)</div>
+      <div class="d">Gimnasio en Guareña (Badajoz): musculación, cardio, crosstraining, Hybrid, GAP y funcional. Musculación 35 €/mes.</div>
+      <div class="pin">Polígono Industrial La Alberca, 28 · Guareña</div>
+    </div>
+  </div>
+)}
+{!art && cover && (
+  <div class="art"><img src={img(cover)} alt="" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover" /></div>
+)}

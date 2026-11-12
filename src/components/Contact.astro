@@ -1,0 +1,28 @@
+---
+import { t, type Lang } from '../i18n/ui';
+import { profile } from '../data/profile';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const s = t(lang);
+const mq = Array.from({ length: 4 }).flatMap(() => [s.mq, s.mq]);
+---
+<footer class="contact" id="contacto">
+  <div class="wrap"><span class="mono label">{s['c.l']}</span></div>
+  <div class="mail-mq" aria-hidden="true"><div class="tr">{mq.map((w) => <span>{w}</span>)}</div></div>
+  <div class="wrap" style="padding-top:0">
+    <h2 class="sr-only">{s['menu.contact']}</h2>
+    <div class="c-row">
+      <div class="c-pills">
+        <div class="mail"><code id="mailTxt">{profile.email}</code><button type="button" id="copyBtn" data-copy={s.copy} data-copied={s.copied}>{s.copy}</button></div>
+        <a class="tel" href={profile.phoneHref}>{profile.phone}</a>
+      </div>
+      <div class="socials">{profile.socials.map((x) => <a href={x.href} target="_blank" rel="noopener me">{x.label}</a>)}</div>
+    </div>
+    <div class="foot mono">
+      <span>© {new Date().getFullYear()} {profile.name}</span>
+      <span>{s.time} · <span id="clock">--:--</span></span>
+      <button type="button" id="gridBtn">{s.grid}</button>
+      <span>{s.built}</span>
+    </div>
+  </div>
+</footer>

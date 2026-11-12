@@ -1,0 +1,10 @@
+---
+import type { Lang } from '../i18n/ui';
+interface Props { lang: Lang; alternate: string; }
+const { lang, alternate } = Astro.props;
+---
+<div class="lang" role="group" aria-label="Idioma / Language">
+  {lang === 'es'
+    ? <><a href="#" aria-current="true" lang="es">ES</a><a href={alternate} lang="en" hreflang="en">EN</a></>
+    : <><a href={alternate} lang="es" hreflang="es">ES</a><a href="#" aria-current="true" lang="en">EN</a></>}
+</div>

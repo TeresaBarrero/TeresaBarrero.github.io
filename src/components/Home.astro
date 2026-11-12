@@ -1,0 +1,169 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectArt from './ProjectArt.astro';
+import LangSwitch from './LangSwitch.astro';
+import Contact from './Contact.astro';
+import { t, type Lang } from '../i18n/ui';
+import { profile, experience, education, disciplines, inProgress } from '../data/profile';
+import { archive } from '../data/archive';
+import { getProjects } from '../lib/projects';
+import { home, img, projectPath } from '../lib/paths';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const s = t(lang);
+const projects = await getProjects(lang);
+const other = lang === 'es' ? 'en' : 'es';
+const manifesto = s.man.split(' ').map((w) => ({ w: w.replace(/\*/g, ''), hl: w.includes('*') }));
+const cols = [1, 2, 3].map((c) => archive.filter((a) => a.col === c));
+const stampText = s.stamp;
+const pad = (n: number) => String(n).padStart(2, '0');
+const site = Astro.site!;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.jobTitle,
+  email: `mailto:${profile.email}`,
+  telephone: '+34654433998',
+  url: new URL(home(lang), site).href,
+  image: new URL(img('teresa.webp'), site).href,
+  sameAs: profile.socials.map((x) => x.href),
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Universidad de Sevilla' },
+    { '@type': 'CollegeOrUniversity', name: 'Universidad Complutense de Madrid' },
+  ],
+  knowsLanguage: ['es', 'en', 'fr'],
+  knowsAbout: ['Diseño web', 'UX/UI', 'SEO', 'SEM', 'Google Ads', 'Meta Ads', 'Google Analytics 4', 'Marketing digital', 'Automatización con IA'],
+};
+---
+<Base lang={lang} alternate={home(other)} jsonLd={jsonLd}>
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#inicio" aria-label={profile.name}>{profile.initials}®</a>
+      <div class="top-r">
+        <LangSwitch lang={lang} alternate={home(other)} />
+        <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu"><span>{s.menu}</span><b aria-hidden="true"></b></button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="menu" id="menu" aria-label={s.menu}>
+    <div class="wrap">
+      <ol>
+        <li><a href="#trabajo"><small>A</small><span>{s['menu.work']}</span></a></li>
+        <li><a href="#disciplinas"><small>B</small><span>{s['menu.disc']}</span></a></li>
+        <li><a href="#archivo"><small>C</small><span>{s['menu.archive']}</span></a></li>
+        <li><a href="#sobre-mi"><small>D</small><span>{s['menu.about']}</span></a></li>
+        <li><a href="#contacto"><small>E</small><span>{s['menu.contact']}</span></a></li>
+      </ol>
+      <div class="menu-foot mono"><span>{profile.email} · {profile.phone}</span><span>{s.avail}</span></div>
+    </div>
+  </nav>
+
+  <main id="inicio">
+    <section class="hero" id="contenido">
+      <div class="wrap">
+        <div class="hero-top">
+          <p class="role"><span>{s.role}</span> <span class="flip" id="flip" data-words={JSON.stringify(s.flips)}><span>{s.flips[0]}</span></span></p>
+          <span class="mono muted">{s.ed}</span>
+        </div>
+        <div class="name-wrap">
+          <h1 class="name" id="name" aria-label={profile.name}>
+            {profile.nameLines.map((line, j) => (
+              <span class={`l l${j + 1}`} aria-hidden="true"><span class="lw">{[...line].map((c, i) => (
+                <span class="ch" style={`animation-delay:${(0.04 * (i + (j ? profile.nameLines[0].length : 0))).toFixed(2)}s`}>{c === ' ' ? ' ' : c}</span>
+              ))}</span></span>
+            ))}
+          </h1>
+        </div>
+        <div class="hero-bot">
+          <p>{s.lead}</p>
+          <div class="scroll-hint mono muted"><i></i><span>{s.scroll}</span></div>
+        </div>
+      </div>
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 100 100" id="stamp"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" /></defs>
+          <text><textPath href="#circ">{stampText}</textPath></text>
+          <circle class="dot" cx="50" cy="50" r="7" /></svg>
+      </div>
+    </section>
+
+    <section class="manifesto wrap" aria-label={s['man.l']}>
+      <span class="mono muted label">{s['man.l']}</span>
+      <p id="manifesto">{manifesto.map((m) => <><span class={m.hl ? 'w hl' : 'w'}>{m.w}</span>{' '}</>)}</p>
+    </section>
+
+    <section class="hwork" id="trabajo">
+      <div class="sticky">
+        <div class="wrap hw-head">
+          <div><span class="mono muted label">{s['work.l']}</span><h2>{s['work.t']}</h2></div>
+          <div class="hw-count" aria-hidden="true"><span id="hwNum" data-total={projects.length}>01 / {pad(projects.length)}</span><span class="hw-bar"><i id="hwBar"></i></span></div>
+        </div>
+        <div class="track" id="track">
+          {projects.map((p) => (
+            <a class="card" href={projectPath(lang, p.data.uid)}>
+              <div class="frame" data-view={s.view}><ProjectArt art={p.data.art} cover={p.data.cover} /></div>
+              <div class="meta"><span class="ttl">{p.data.title}</span><span class="mono muted">{p.data.year}</span></div>
+              <span class="sub">{p.data.type}</span>
+            </a>
+          ))}
+          {inProgress[lang].map((w) => (
+            <div class="card soon wip">
+              <div class="frame"><span><i class="mono">● {s.wip}</i>{w.title}</span></div>
+              <div class="meta"><span class="ttl">{w.title}</span><span class="mono muted">{w.year}</span></div>
+              <span class="sub">{w.text}</span>
+            </div>
+          ))}
+          <div class="card soon"><div class="frame"><span><b>+</b>{s.soon}</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="disc wrap" id="disciplinas">
+      <div class="disc-head"><h2 class="mono muted label" style="margin:0;font-weight:400">{s['disc.l']}</h2><span class="mono muted">{s['disc.hint']}</span></div>
+      <div class="disc-list" id="discList">
+        {disciplines[lang].map((d, i) => (
+          <div class={i === 0 ? 'd-item open' : 'd-item'}>
+            <h3 style="margin:0;font:inherit"><button type="button" class="d-btn" id={`d-${i}`} aria-expanded={i === 0 ? 'true' : 'false'} aria-controls={`dp-${i}`}><span class="t">{d.title}</span><span class="pm" aria-hidden="true"></span></button></h3>
+            <div class="d-panel" id={`dp-${i}`} role="region" aria-labelledby={`d-${i}`}><div><div class="d-in"><p>{d.text}</p><ul>{d.items.map((x) => <li>{x[0]}<span>{x[1]}</span></li>)}</ul></div></div></div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="archive wrap" id="archivo">
+      <div class="ar-head">
+        <div style="grid-column:1/span 7"><span class="mono muted label">{s['ar.l']}</span><h2>{s['ar.t']}</h2></div>
+        <p>{s['ar.p']}</p>
+      </div>
+      <div class="cols" id="cols">
+        {cols.map((c) => (
+          <div class="col">{c.map((a) => (
+            <figure class="piece" style="margin:0"><img src={img(a.src)} width="640" height="800" alt={a[lang]} loading="lazy" decoding="async" /><figcaption>{a[lang]}</figcaption></figure>
+          ))}</div>
+        ))}
+      </div>
+    </section>
+
+    <section class="about" id="sobre-mi">
+      <div class="wrap ab">
+        <div class="ab-photo"><span class="mono-bg" aria-hidden="true">{profile.initials}</span><img src={img('teresa.webp')} width="764" height="1019" alt={s['ab.alt']} loading="lazy" decoding="async" /><span class="ab-tag mono">{profile.initials} · 2026</span></div>
+        <div class="ab-txt">
+          <span class="mono muted label">{s['ab.l']}</span>
+          <h2>{s['ab.t']}</h2>
+          <dl class="spec">
+            <dt>{s.sp1}</dt><dd>{s.sp1v}</dd>
+            <dt>{s.sp2}</dt><dd><ul class="exp">{experience[lang].map((e) => <li><b>{e[0]}</b><span>{e[2]}</span><em>{e[1]}</em></li>)}</ul></dd>
+            <dt>{s.sp5}</dt><dd><ul class="exp">{education[lang].map((e) => <li><b>{e[0]}</b><span>{e[2]}</span><em>{e[1]}</em></li>)}</ul></dd>
+            <dt>{s.sp3}</dt><dd>{profile.tools}</dd>
+            <dt>{s.sp6}</dt><dd>{s.sp6v}</dd>
+            <dt>{s.sp4}</dt><dd>{s.sp4v}</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Contact lang={lang} />
+</Base>

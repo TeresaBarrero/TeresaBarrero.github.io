@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectArt from './ProjectArt.astro';
+import LangSwitch from './LangSwitch.astro';
+import Contact from './Contact.astro';
+import { render } from 'astro:content';
+import { t, type Lang } from '../i18n/ui';
+import { profile } from '../data/profile';
+import { getProjects } from '../lib/projects';
+import { home, img, projectPath } from '../lib/paths';
+
+interface Props { lang: Lang; slug: string; }
+const { lang, slug } = Astro.props;
+const s = t(lang);
+const other = lang === 'es' ? 'en' : 'es';
+const list = await getProjects(lang);
+const i = list.findIndex((p) => p.data.uid === slug);
+const p = list[i];
+const next = list[(i + 1) % list.length];
+const d = p.data;
+const { Content } = await render(p);
+const hasBody = Boolean(p.body && p.body.trim());
+const layoutClass = { long: 'g-long', mobile: 'g-mob', post: 'g-post', wide: 'g-wide' } as const;
+const workHref = `${home(lang)}#trabajo`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: d.title,
+  description: d.lead,
+  dateCreated: String(d.year),
+  inLanguage: lang,
+  creator: { '@type': 'Person', name: profile.name, url: new URL(home(lang), Astro.site).href },
+  ...(d.url ? { url: d.url } : {}),
+};
+---
+<Base lang={lang} title={`${d.title} · ${profile.name}`} description={d.lead} alternate={projectPath(other, slug)} jsonLd={jsonLd}>
+  <div class="case-page">
+    <div class="case-top"><div class="wrap">
+      <a class="mono muted" href={workHref} style="text-decoration:none">← {s['case.back']} / {d.title}</a>
+      <div class="top-r">
+        <LangSwitch lang={lang} alternate={projectPath(other, slug)} />
+        <a class="close" href={workHref}><span>{s.close}</span><b aria-hidden="true">✕</b></a>
+      </div>
+    </div></div>
+    <main id="contenido">
+      <section class="case-hero wrap">
+        <span class="mono muted">{d.type} · {d.year}</span>
+        <h1 class="h1"><span class="ln"><span>{d.title}</span></span></h1>
+        <p class="lead">{d.lead}</p>
+        <div class="case-meta">
+          <div><span class="mono muted">{s.role2}</span>{d.role}</div>
+          <div><span class="mono muted">{s.year}</span>{d.year}</div>
+          <div><span class="mono muted">{s.services}</span>{d.services}</div>
+          <div><span class="mono muted">{s.tools}</span>{d.tools}</div>
+        </div>
+        <div class="case-cover"><ProjectArt art={d.art} cover={d.cover} /></div>
+        {d.url && <p style="margin-top:20px"><a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a></p>}
+      </section>
+      <section class="case-body wrap">
+        <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.challenge}</h2><p>{d.challenge}</p></div>
+        <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.solution}</h2><p>{d.solution}</p></div>
+        {d.highlights.length > 0 && (
+          <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.results}</h2>
+            <div class="metrics">{d.highlights.map((m) => <div class="metric"><b>{m.value}</b><span>{m.label}</span></div>)}</div>
+          </div>
+        )}
+        {hasBody && <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.more}</h2><div class="prose"><Content /></div></div>}
+      </section>
+      {d.gallery.length > 0 && (
+        <section class="wrap">
+          <h2 class="mono muted" style="padding-bottom:16px;margin:0;font-weight:400">{s.gallery}</h2>
+          <div class="gal">{d.gallery.map((g) => (
+            <figure class={layoutClass[g.layout]}><img src={img(g.src)} alt={g.alt} loading="lazy" decoding="async" /><figcaption>{g.alt}</figcaption></figure>
+          ))}</div>
+        </section>
+      )}
+      {list.length > 1 && (
+        <div class="wrap"><a class="next" href={projectPath(lang, next.data.uid)}><span class="mono muted">{s.next}</span><br /><span class="t">{next.data.title} <span aria-hidden="true">→</span></span></a></div>
+      )}
+    </main>
+    <Contact lang={lang} />
+  </div>
+</Base>

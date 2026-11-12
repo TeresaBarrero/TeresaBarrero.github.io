@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { u } from '../lib/paths';
+---
+<Base lang="es" title="Página no encontrada · María Teresa Barrero" alternate={u('/en/')}>
+  <main id="contenido" class="wrap" style="min-height:70vh;display:flex;flex-direction:column;justify-content:center;gap:24px;padding-block:120px">
+    <span class="mono muted label">Error 404</span>
+    <h1 class="h2" style="font-family:var(--f-display);font-size:clamp(2.4rem,8vw,6rem);letter-spacing:-.05em;line-height:.95;margin:0;font-weight:500">Esta página no existe.</h1>
+    <p><a href={u("/")} style="font-family:var(--f-display);font-size:1.4rem">Volver al portfolio →</a> · <a href={u('/en/')}>English</a></p>
+  </main>
+</Base>

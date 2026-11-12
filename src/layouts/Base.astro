@@ -1,0 +1,61 @@
+---
+import '@fontsource-variable/bricolage-grotesque/standard.css';
+import '@fontsource-variable/geist';
+import '@fontsource/geist-mono/400.css';
+import '../styles/global.css';
+import { t, type Lang } from '../i18n/ui';
+import { profile } from '../data/profile';
+import { u } from '../lib/paths';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  /** Ruta de esta página en el otro idioma */
+  alternate: string;
+  jsonLd?: Record<string, unknown>;
+}
+const { lang, alternate, jsonLd } = Astro.props;
+const s = t(lang);
+const title = Astro.props.title ?? s['meta.title'];
+const description = Astro.props.description ?? s['meta.description'];
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const altUrl = new URL(alternate, Astro.site);
+const esUrl = lang === 'es' ? canonical : altUrl;
+const enUrl = lang === 'en' ? canonical : altUrl;
+const ogImage = new URL(u('/og.png'), Astro.site);
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={esUrl} />
+    <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+    <meta name="theme-color" content="#F2F3EF" />
+    <meta name="author" content={profile.name} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_GB'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href={u('/sitemap-index.xml')} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a class="skip" href="#contenido">{s.skip}</a>
+    <div class="grid-ov" id="gridOv" aria-hidden="true"><div class="wrap">{Array.from({ length: 12 }).map(() => <i />)}</div></div>
+    <div class="cur" id="cur" aria-hidden="true"><i></i></div>
+    <slot />
+    <script>
+      import '../scripts/main.ts';
+    </script>
+  </body>
+</html>
