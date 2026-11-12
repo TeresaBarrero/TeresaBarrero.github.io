@@ -378,6 +378,10 @@ body.menu-open .menu li a{transform:none}
   .case-btns a.sb:hover,.case-btns a.sb:active{background:var(--accent);color:#fff}
   .case-btns a.sb:active{transform:scale(.97)}
   .case-btns a.sb{flex:1 1 100%}
+  /* Botones de arriba del caso: rejilla de 2 y 2, misma altura */
+  .case-btns.case-nets{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .case-nets a.sb{padding:12px 10px;gap:8px;font-size:var(--s-sm);line-height:1.2;text-align:center;min-height:50px}
+  .case-nets a.sb>span{display:none}
 }
 @media (prefers-reduced-motion:reduce){.gal-more a.sb::after{animation:none;display:none}}
 .case-btns{margin:20px 0 0;display:flex;flex-wrap:wrap;gap:10px}
