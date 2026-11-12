@@ -2,7 +2,7 @@
 /* Layout: una sola página-lienzo; el trabajo se recorre en horizontal y el resto se lee como un índice editorial. */
 :root{
   --paper:#F2F3EF; --paper-2:#E5E7E1; --ink:#0E0F12; --muted:#686C74; --ghost:#A4A8AF; --line:#D4D7D0;
-  --accent:#2E3CF0; --accent-soft:#DCE0FF;
+  --accent:#7A1F2B; --accent-soft:#E9DCCB;
   --f-display:"Bricolage Grotesque Variable","Helvetica Neue",Arial,sans-serif;
   --f-body:"Geist Variable",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"Geist Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
@@ -224,7 +224,7 @@ body.menu-open .menu li a{transform:none}
 .grid-ov{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:0;transition:opacity .4s}
 .grid-ov.on{opacity:1}
 .grid-ov .wrap{height:100%;display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
-.grid-ov .wrap i{background:rgba(46,60,240,.07);border-inline:1px solid rgba(46,60,240,.18)}
+.grid-ov .wrap i{background:rgba(122,31,43,.07);border-inline:1px solid rgba(122,31,43,.18)}
 @media (max-width:860px){.grid-ov .wrap{grid-template-columns:repeat(4,1fr);gap:16px}.grid-ov .wrap i:nth-child(n+5){display:none}}
 .cur{position:fixed;left:0;top:0;z-index:80;pointer-events:none}
 .cur i{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#fff;mix-blend-mode:difference;transition:transform .45s var(--ease)}
@@ -288,8 +288,8 @@ body.menu-open .menu li a{transform:none}
 .art-psocial img:nth-child(1){transform:translate(-128%,-46%) rotate(-7deg)}
 .art-psocial img:nth-child(2){transform:translate(-50%,-54%);z-index:2}
 .art-psocial img:nth-child(3){transform:translate(28%,-46%) rotate(7deg)}
-.art-pseo{background:#DCE0FF;display:grid;place-items:center}
-.serp{width:84%;background:#fff;border-radius:1.6cqw;padding:3.4cqw 3.6cqw;box-shadow:0 3cqw 6cqw -3cqw rgba(46,60,240,.45);font-family:Arial,Helvetica,sans-serif;color:#202124}
+.art-pseo{background:var(--accent-soft);display:grid;place-items:center}
+.serp{width:84%;background:#fff;border-radius:1.6cqw;padding:3.4cqw 3.6cqw;box-shadow:0 3cqw 6cqw -3cqw rgba(122,31,43,.45);font-family:Arial,Helvetica,sans-serif;color:#202124}
 .serp .q{display:flex;align-items:center;gap:1.6cqw;border:1px solid #dfe1e5;border-radius:99px;padding:1.4cqw 2.4cqw;font-size:2.6cqw;margin-bottom:3cqw}
 .serp .q::before{content:"";width:2cqw;height:2cqw;border:.4cqw solid #9aa0a6;border-radius:50%}
 .serp .u{font-size:2.1cqw;color:#4d5156;display:flex;align-items:center;gap:1.2cqw}
