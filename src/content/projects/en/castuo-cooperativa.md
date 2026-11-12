@@ -4,7 +4,7 @@ uid: castuo-cooperativa
 lang: en
 order: 4
 year: 2025
-type: Digital marketing plan · Master’s project
+type: Digital marketing & branding
 lead: A three-month digital marketing plan for a wine and olive oil cooperative from Extremadura, founded in 1965, so its brand and online shop live up to its product.
 role: Strategy, design & content
 services: Analysis, SEO, SEM, Meta Ads, email & social

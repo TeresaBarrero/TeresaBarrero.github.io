@@ -4,7 +4,7 @@ uid: castuo-cooperativa
 lang: es
 order: 4
 year: 2025
-type: Plan de marketing digital · Proyecto de máster
+type: Marketing digital y marca
 lead: Un plan de marketing digital de tres meses para una cooperativa extremeña de vino y aceite fundada en 1965, para que su marca y su tienda online estén a la altura de su producto.
 role: Estrategia, diseño y contenidos
 services: Análisis, SEO, SEM, Meta Ads, email y redes

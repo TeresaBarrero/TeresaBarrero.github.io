@@ -279,6 +279,10 @@ body.menu-open .menu li a{transform:none}
 .art-pweb .bw img{width:100%;height:auto}
 .art-pweb .ph{position:absolute;right:6%;bottom:-14%;width:22%;border-radius:3cqw;overflow:hidden;border:1cqw solid #0e0f12;box-shadow:0 3cqw 6cqw -2cqw rgba(0,0,0,.7)}
 .art-pweb .ph img{width:100%;height:auto}
+/* Panthera: web en escritorio + post + móvil */
+.art-pmix .bw{left:5%;top:9%;width:64%}
+.art-pmix .po{position:absolute;right:5%;top:10%;width:27%;height:auto;border-radius:1cqw;transform:rotate(5deg);box-shadow:0 3cqw 6cqw -2cqw rgba(0,0,0,.7)}
+.art-pmix .ph{right:auto;left:55%;bottom:-16%;width:19%;z-index:2}
 .art-psocial{background:#283033}
 .art-psocial img{position:absolute;width:34%;top:50%;left:50%;border-radius:1cqw;box-shadow:0 3cqw 6cqw -2cqw rgba(0,0,0,.7)}
 .art-psocial img:nth-child(1){transform:translate(-128%,-46%) rotate(-7deg)}
@@ -306,6 +310,11 @@ body.menu-open .menu li a{transform:none}
 .gal .g-wide{grid-column:span 6;align-self:start}
 .gal .g-full{grid-column:1/-1}
 .case-links{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px 28px}
+.case-btns{margin:20px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.case-btns a{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:1px solid var(--ink);border-radius:999px;text-decoration:none;font-size:var(--s-sm);font-weight:500;transition:background .3s,color .3s}
+.case-btns a span{transition:transform .4s var(--ease)}
+.case-btns a:hover{background:var(--ink);color:var(--paper)}
+.case-btns a:hover span{transform:translate(2px,-2px)}
 .case-cover.is-photo{aspect-ratio:12/5}
 .case-cover.is-photo img{object-position:center 45%}
 /* Galería por bloques */

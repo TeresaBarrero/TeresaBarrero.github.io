@@ -61,7 +61,10 @@ const jsonLd = {
           <div><span class="mono muted">{s.tools}</span>{d.tools}</div>
         </div>
         <div class={d.art ? "case-cover" : "case-cover is-photo"}><ProjectArt art={d.art} cover={d.cover} /></div>
-        {(d.url || d.document) && (
+        {d.links.length > 0 && (
+          <p class="case-btns">{d.links.map((l) => <a href={l.href} target="_blank" rel="noopener">{l.label}<span aria-hidden="true">↗</span></a>)}</p>
+        )}
+        {d.links.length === 0 && (d.url || d.document) && (
           <p class="case-links">
             {d.url && <a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a>}
             {d.document && <a class="mono" href={d.document} target="_blank" rel="noopener">{s.doc}</a>}

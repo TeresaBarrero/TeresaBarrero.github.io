@@ -1,7 +1,7 @@
 ---
 // Portada de un proyecto: una composición (art) o una imagen (cover).
 import { img } from '../lib/paths';
-interface Props { art?: 'pweb' | 'psocial' | 'pseo'; cover?: string; }
+interface Props { art?: 'pweb' | 'psocial' | 'pseo' | 'pmix'; cover?: string; }
 const { art, cover } = Astro.props;
 ---
 {art === 'pweb' && (
@@ -26,6 +26,13 @@ const { art, cover } = Astro.props;
       <div class="d">Gimnasio en Guareña (Badajoz): musculación, cardio, crosstraining, Hybrid, GAP y funcional. Musculación 35 €/mes.</div>
       <div class="pin">Polígono Industrial La Alberca, 28 · Guareña</div>
     </div>
+  </div>
+)}
+{art === 'pmix' && (
+  <div class="art art-pweb art-pmix">
+    <div class="bw"><i><b></b><b></b><b></b></i><img src={img('pan-desk.webp')} alt="" width="1200" height="750" loading="lazy" decoding="async" /></div>
+    <img class="po" src={img('post-abrimos.webp')} alt="" width="640" height="800" loading="lazy" decoding="async" />
+    <div class="ph"><img src={img('pan-mob.webp')} alt="" width="390" height="844" loading="lazy" decoding="async" /></div>
   </div>
 )}
 {!art && cover && (

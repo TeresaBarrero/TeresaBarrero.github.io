@@ -19,7 +19,9 @@ const projects = defineCollection({
     url: z.string().url().optional(),
     /** Enlace al documento o presentación completa (Canva, PDF...) */
     document: z.string().url().optional(),
-    art: z.enum(['pweb', 'psocial', 'pseo']).optional(),
+    art: z.enum(['pweb', 'psocial', 'pseo', 'pmix']).optional(),
+    /** Enlaces del proyecto, se muestran como botones (web, redes, Google Business...) */
+    links: z.array(z.object({ label: z.string(), href: z.string().url() })).default([]),
     cover: z.string().optional(),
     /** Color propio del proyecto (botón fijo «Ver proyecto completo»). Por defecto, tinta. */
     accent: z.string().optional(),
