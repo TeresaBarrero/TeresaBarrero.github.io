@@ -20,7 +20,7 @@ const next = list[(i + 1) % list.length];
 const d = p.data;
 const { Content } = await render(p);
 const hasBody = Boolean(p.body && p.body.trim());
-const layoutClass = { long: 'g-long', mobile: 'g-mob', post: 'g-post', wide: 'g-wide' } as const;
+const layoutClass = { long: 'g-long', mobile: 'g-mob', post: 'g-post', wide: 'g-wide', full: 'g-full' } as const;
 const workHref = `${home(lang)}#trabajo`;
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -54,7 +54,12 @@ const jsonLd = {
           <div><span class="mono muted">{s.tools}</span>{d.tools}</div>
         </div>
         <div class="case-cover"><ProjectArt art={d.art} cover={d.cover} /></div>
-        {d.url && <p style="margin-top:20px"><a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a></p>}
+        {(d.url || d.document) && (
+          <p class="case-links">
+            {d.url && <a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a>}
+            {d.document && <a class="mono" href={d.document} target="_blank" rel="noopener">{s.doc}</a>}
+          </p>
+        )}
       </section>
       <section class="case-body wrap">
         <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.challenge}</h2><p>{d.challenge}</p></div>
@@ -64,7 +69,7 @@ const jsonLd = {
             <div class="metrics">{d.highlights.map((m) => <div class="metric"><b>{m.value}</b><span>{m.label}</span></div>)}</div>
           </div>
         )}
-        {hasBody && <div class="blk"><h2 class="mono muted" style="margin:0;font-weight:400">{s.more}</h2><div class="prose"><Content /></div></div>}
+        {hasBody && <div class="case-md"><Content /></div>}
       </section>
       {d.gallery.length > 0 && (
         <section class="wrap">

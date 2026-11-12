@@ -12,6 +12,7 @@
 - [Panthera Fitness · Landing page](https://teresabarrero.github.io/proyectos/panthera-fitness-web/): diseño y desarrollo de la web de un gimnasio en Guareña (Badajoz), mobile first, con formulario propio y GA4 en Consent Mode v2.
 - [Panthera Fitness · Redes](https://teresabarrero.github.io/proyectos/panthera-fitness-redes/): base de marca para Instagram, calendario de pre-apertura y plan de Facebook.
 - [Panthera Fitness · SEO local](https://teresabarrero.github.io/proyectos/panthera-fitness-seo-local/): auditoría SEO, Google Business Profile, datos estructurados y llms.txt.
+- [Castúo Cooperativa · Plan de marketing digital](https://teresabarrero.github.io/proyectos/castuo-cooperativa/): proyecto de máster (CEI, 2025). Análisis de competencia, DAFO, buyer personas, objetivos SMART, rediseño web, blog, newsletters, landing pages, Google Ads, Meta Ads, redes y presupuesto.
 
 ## Experiencia
 
