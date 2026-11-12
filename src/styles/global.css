@@ -72,6 +72,8 @@ body.menu-open .menu li a{transform:none}
 @keyframes chIn{from{transform:translateY(60%) rotate(6deg);opacity:0}to{transform:none;opacity:1}}
 .name-wrap{overflow:hidden;padding-bottom:.04em}
 .hero-bot{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:clamp(28px,4vw,48px);align-items:start}
+.hero-bot .lead1{display:block;font-weight:500}
+.hero-bot .lead2{display:block;margin-top:.7em;font-size:.86em;color:var(--muted);max-width:46ch}
 .hero-bot p{grid-column:1/span 5;margin:0;font-size:var(--s-lg);max-width:40ch;animation:up .9s .6s var(--ease) both}
 .hero-bot .scroll-hint{grid-column:7/span 3;justify-self:start;display:flex;align-items:center;gap:12px;animation:up .9s .7s var(--ease) both}
 .scroll-hint i{width:1px;height:46px;background:var(--line);position:relative;overflow:hidden}
@@ -82,7 +84,7 @@ body.menu-open .menu li a{transform:none}
 .stamp svg{width:100%;height:100%;overflow:visible}
 .stamp text{font-family:var(--f-mono);font-size:8.6px;letter-spacing:2.2px;fill:var(--ink);text-transform:uppercase}
 .stamp .dot{fill:var(--accent)}
-@media (max-width:860px){.hero-bot{grid-template-columns:1fr}.hero-bot p,.hero-bot .scroll-hint{grid-column:1/-1;justify-self:start}.stamp{bottom:28px;width:84px}.hero-bot .scroll-hint{display:none}}
+@media (max-width:860px){.hero-bot{grid-template-columns:1fr}.hero-bot p,.hero-bot .scroll-hint{grid-column:1/-1;justify-self:start}.stamp{bottom:28px;width:84px}.hero{padding-bottom:132px}.hero-bot .scroll-hint{display:none}}
 
 /* ---------- Manifesto (palabras que se encienden) ---------- */
 .manifesto{padding-block:clamp(80px,12vw,180px)}
