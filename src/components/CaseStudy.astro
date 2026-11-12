@@ -98,7 +98,7 @@ const jsonLd = {
           <p class="lb-cap mono" id="lbCap"></p>
         </dialog>
       )}
-      {d.document && <a class="fab" href={d.document} target="_blank" rel="noopener">{s.docBtn}<span aria-hidden="true">↗</span></a>}
+      {d.document && <a class="fab" style={d.accent ? `--fab:${d.accent}` : undefined} href={d.document} target="_blank" rel="noopener">{s.docBtn}<span aria-hidden="true">↗</span></a>}
       {list.length > 1 && (
         <div class="wrap"><a class="next" href={projectPath(lang, next.data.uid)}><span class="mono muted">{s.next}</span><br /><span class="t">{next.data.title} <span aria-hidden="true">→</span></span></a></div>
       )}

@@ -21,6 +21,8 @@ const projects = defineCollection({
     document: z.string().url().optional(),
     art: z.enum(['pweb', 'psocial', 'pseo']).optional(),
     cover: z.string().optional(),
+    /** Color propio del proyecto (botón fijo «Ver proyecto completo»). Por defecto, tinta. */
+    accent: z.string().optional(),
     challenge: z.string(),
     solution: z.string(),
     highlights: z.array(z.object({ value: z.string(), label: z.string() })).default([]),

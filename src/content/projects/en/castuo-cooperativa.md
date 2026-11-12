@@ -10,6 +10,7 @@ role: Strategy, design & content
 services: Analysis, SEO, SEM, Meta Ads, email & social
 tools: SEMrush · Google Ads · Meta Ads · GA4 · Search Console · Tag Manager · WordPress · Yoast SEO · Canva
 cover: castuo-cover.webp
+accent: "#75502D"
 document: https://canva.link/g7xpm00mu21mlgc
 challenge: Castúo Cooperativa (Cooperativa del campo San Pedro, Guareña) has an award-winning product and a story to tell, but little visibility outside its area. Its website, which is also its online shop, had incomplete content and SEO gaps, no blog and no newsletter, and in the competitor analysis it had the weakest figures for blog and social media, and the fewest backlinks and lowest Authority Score for its website.
 solution: I analysed the company and three competing cooperatives, built the SWOT, the CAME, the Business Model Canvas and two buyer personas, and from there set SMART goals and a plan for May, June and July. I designed the pieces to carry it out — a website redesign, a blog with SEO-optimised posts, two newsletters, two landing pages, Google Ads display and search ads and Meta ads, and social media posts — with KPIs for each goal and a fixed budget.
