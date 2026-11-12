@@ -4,7 +4,7 @@ import ProjectArt from './ProjectArt.astro';
 import LangSwitch from './LangSwitch.astro';
 import Contact from './Contact.astro';
 import { t, type Lang } from '../i18n/ui';
-import { profile, experience, education, disciplines, inProgress } from '../data/profile';
+import { profile, experience, education, certificates, languages, disciplines, inProgress } from '../data/profile';
 import { archive } from '../data/archive';
 import { getProjects } from '../lib/projects';
 import { home, img, projectPath, u } from '../lib/paths';
@@ -171,15 +171,19 @@ const jsonLd = {
               { k: 'pf', t: s.sp1, text: s.sp1v },
               { k: 'ex', t: s.sp2, list: experience[lang] },
               { k: 'ed', t: s.sp5, list: education[lang] },
-              { k: 'to', t: s.sp3, text: profile.tools },
-              { k: 'ce', t: s.sp6, text: s.sp6v },
-              { k: 'id', t: s.sp4, text: s.sp4v },
+              { k: 'to', t: s.sp3, tools: profile.tools.split(', ') },
+              { k: 'ce', t: s.sp6, pairs: certificates[lang] },
+              { k: 'id', t: s.sp4, pairs: languages[lang] },
             ].map((r) => (
               <div class="sp-item">
                 <h3><button type="button" class="sp-btn" id={`sp-${r.k}`} aria-expanded="false" aria-controls={`spp-${r.k}`}><span>{r.t}</span><span class="pm" aria-hidden="true"></span></button></h3>
                 <div class="sp-panel" id={`spp-${r.k}`} role="region" aria-labelledby={`sp-${r.k}`}><div><div class="sp-in">
                   {r.list
                     ? <ul class="exp">{r.list.map((e) => <li><b>{e[0]}</b><span>{e[2]}</span><em>{e[1]}</em>{e[3] && <details class="ev"><summary>{s.events} ({e[3].length})</summary><ul>{e[3].map((x) => <li>{x}</li>)}</ul></details>}</li>)}</ul>
+                    : r.tools
+                    ? <ul class="sp-tools">{r.tools.map((x) => <li>{x}</li>)}</ul>
+                    : r.pairs
+                    ? <ul class="sp-pairs">{r.pairs.map((x) => <li><b>{x[0]}</b><span>{x[1]}</span></li>)}</ul>
                     : r.text}
                 </div></div></div>
               </div>
@@ -187,7 +191,7 @@ const jsonLd = {
           </div>
           <p class="case-btns cv-btns">
             <a href={u(profile.cv)} target="_blank" rel="noopener">{s.cvView}<span aria-hidden="true">↗</span></a>
-            <a href={u(profile.cv)} download="Teresa_Barrero_CV.pdf">{s.cvDl}<span aria-hidden="true">↓</span></a>
+            <a href={u(profile.cv)} download="Teresa_Barrero_CV.pdf" id="cvDl">{s.cvDl}<span aria-hidden="true">↓</span></a>
           </p>
         </div>
       </div>

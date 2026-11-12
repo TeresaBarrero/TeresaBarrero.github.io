@@ -33,6 +33,16 @@ export const experience: Record<Lang, Item[]> = {
     ['Fundación AVA · RTVA', 'Digital Content & Communications Specialist', '2022–2023'],
   ],
 };
+// Certificados e idiomas: [nombre, detalle] (se muestran como listado en «Sobre mí»)
+export const certificates: Record<Lang, [string, string][]> = {
+  es: [['Google Analytics 4 (GA4)', 'Google Skillshop'], ['Google Ads (Medición y Búsqueda)', 'Google Skillshop'], ['Google Prompting Essentials', 'Google Skillshop']],
+  en: [['Google Analytics 4 (GA4)', 'Google Skillshop'], ['Google Ads (Measurement & Search)', 'Google Skillshop'], ['Google Prompting Essentials', 'Google Skillshop']],
+};
+export const languages: Record<Lang, [string, string][]> = {
+  es: [['Castellano', 'Nativo'], ['Inglés', 'B2 · Linguaskill Cambridge'], ['Francés', 'B1']],
+  en: [['Spanish', 'Native'], ['English', 'B2 · Linguaskill Cambridge'], ['French', 'B1']],
+};
+
 export const education: Record<Lang, Item[]> = {
   es: [
     ['Máster en Marketing Digital y Diseño Web', 'CEI · Online', '2023–2024'],

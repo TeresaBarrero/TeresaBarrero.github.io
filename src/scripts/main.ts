@@ -174,6 +174,27 @@ if (!reduce) {
   if (soc.length) { soc.forEach((f) => f.parentElement!.classList.add('soc-anim')); staggerReveal(soc); }
 }
 
+/* ---------- Descargar CV: forzar la descarga (algunos navegadores abren el PDF aunque el enlace pida descargarlo) ---------- */
+const cvDl = $<HTMLAnchorElement>('#cvDl');
+cvDl?.addEventListener('click', async (e) => {
+  e.preventDefault();
+  try {
+    const res = await fetch(cvDl.href);
+    if (!res.ok) throw new Error(String(res.status));
+    const blob = new Blob([await res.arrayBuffer()], { type: 'application/octet-stream' });
+    const url = URL.createObjectURL(blob);
+    const tmp = document.createElement('a');
+    tmp.href = url;
+    tmp.download = cvDl.getAttribute('download') || 'CV.pdf';
+    document.body.appendChild(tmp);
+    tmp.click();
+    tmp.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+  } catch {
+    location.href = cvDl.href;
+  }
+});
+
 /* ---------- Galería: ver imagen en grande ---------- */
 const lb = $<HTMLDialogElement>('#lb');
 if (lb) {

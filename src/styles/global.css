@@ -231,6 +231,15 @@ body.menu-open .menu li a{transform:none}
   .dc-ar::after{left:50%;right:auto;top:auto;bottom:12px;transform:translateX(-50%) rotate(135deg)}
   .dc-l::after{right:auto;left:50%;top:auto;bottom:-5px;transform:translateX(-50%)}
 }
+/* Sobre mí: herramientas, certificados e idiomas como listado */
+.sp-tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
+.sp-tools li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.sp-tools li::before{content:"";width:6px;height:6px;flex:none;background:var(--accent);transform:rotate(45deg)}
+.sp-pairs{list-style:none;margin:0;padding:0;display:grid}
+.sp-pairs li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.sp-pairs li:first-child,.sp-tools li:nth-child(-n+2){padding-top:2px}
+.sp-pairs b{font-weight:500}
+.sp-pairs span{font-family:var(--f-mono);font-size:var(--s-xs);color:var(--muted);text-align:right;flex:none;max-width:55%}
 .ev{grid-column:1/-1;margin:6px 0 4px}
 .ev summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;list-style:none;font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.04em;color:var(--accent)}
 .ev summary::-webkit-details-marker{display:none}
