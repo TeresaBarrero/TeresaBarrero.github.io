@@ -49,13 +49,16 @@ I compared Castúo’s website and social media with three cooperatives from the
 | Coop. Santa Marta Virgen | Yes | 875 | 1.80% | 1,611 | 1,382 | Yes |
 | **Castúo Cooperativa** | **No** | **133** | **1.50%** | **505** | **231** | **No** |
 
-## SWOT
+## SWOT & CAME
 
-<div class="dafo">
-<div><h3>Weaknesses</h3><ul><li>Limited visibility outside the local market.</li><li>Website with incomplete content, functionality and SEO issues.</li><li>Website only in Spanish: a barrier to selling abroad.</li><li>Reliance on specific crops, exposed to pests and weather.</li></ul></div>
-<div><h3>Threats</h3><ul><li>Climate change and its effect on harvests.</li><li>Ever stricter food safety rules and requirements.</li><li>Consumers turning to cheaper products.</li><li>Higher distribution costs for selling further afield.</li></ul></div>
-<div><h3>Strengths</h3><ul><li>Track record and experience since 1965.</li><li>Award-winning quality (Extrema Selección AOVE 2025 awards).</li><li>Own brand with an identity rooted in Extremadura’s culture.</li><li>Range of produce: olives, vines, tomatoes and maize.</li></ul></div>
-<div><h3>Opportunities</h3><ul><li>Growth of food and wine tourism in Extremadura.</li><li>Interest in artisan, traditional and sustainable products.</li><li>Partnerships with other cooperatives and companies in the sector.</li><li>Products such as quality olive oil on the rise.</li></ul></div>
+Every point in the diagnosis has its answer in the plan.
+
+<div class="dc">
+<div class="dc-h"><span>Diagnosis · SWOT</span><span>Response · CAME</span></div>
+<div class="dc-row"><div class="dc-l"><b class="dc-k">W</b><h3>Weaknesses</h3><ul><li>Limited visibility outside the local market.</li><li>Website with incomplete content, functionality and SEO issues.</li><li>Website only in Spanish: a barrier to selling abroad.</li><li>Reliance on specific crops, exposed to pests and weather.</li></ul></div><div class="dc-ar" aria-hidden="true"></div><div class="dc-r"><b class="dc-k">C</b><h3>Correct</h3><ul><li>A digital marketing plan to gain traffic and take the brand to international markets.</li><li>Redesign the website and improve its SEO content and that of the social profiles.</li><li>Translate the website into other languages.</li><li>Diversify products and prevent pests and diseases.</li></ul></div></div>
+<div class="dc-row"><div class="dc-l"><b class="dc-k">T</b><h3>Threats</h3><ul><li>Climate change and its effect on harvests.</li><li>Ever stricter food safety rules and requirements.</li><li>Consumers turning to cheaper products.</li><li>Higher distribution costs for selling further afield.</li></ul></div><div class="dc-ar" aria-hidden="true"></div><div class="dc-r"><b class="dc-k">A</b><h3>Address</h3><ul><li>Sustainable farming practices and more climate-resistant varieties.</li><li>Stay up to date with sector regulations.</li><li>Strengthen the value proposition and, if needed, offer a more affordable range.</li><li>Look for more efficient distribution options.</li></ul></div></div>
+<div class="dc-row"><div class="dc-l"><b class="dc-k">S</b><h3>Strengths</h3><ul><li>Track record and experience since 1965.</li><li>Award-winning quality (Extrema Selección AOVE 2025 awards).</li><li>Own brand with an identity rooted in Extremadura’s culture.</li><li>Range of produce: olives, vines, tomatoes and maize.</li></ul></div><div class="dc-ar" aria-hidden="true"></div><div class="dc-r"><b class="dc-k">M</b><h3>Maintain</h3><ul><li>Strengthen the brand’s value and the team’s training.</li><li>Take part in more events and competitions.</li><li>Reinforce the visual identity tied to Extremadura’s culture.</li><li>Create experiences that connect consumers with the origin, and offer bundles.</li></ul></div></div>
+<div class="dc-row"><div class="dc-l"><b class="dc-k">O</b><h3>Opportunities</h3><ul><li>Growth of food and wine tourism in Extremadura.</li><li>Interest in artisan, traditional and sustainable products.</li><li>Partnerships with other cooperatives and companies in the sector.</li><li>Products such as quality olive oil on the rise.</li></ul></div><div class="dc-ar" aria-hidden="true"></div><div class="dc-r"><b class="dc-k">E</b><h3>Exploit</h3><ul><li>Digital marketing and a better website and social profiles to boost online sales.</li><li>Highlight the artisan process behind each product.</li><li>Partner with other cooperatives to share raw materials and reach.</li><li>Limited editions, with olive oil as the star product.</li></ul></div></div>
 </div>
 
 ## Audience
