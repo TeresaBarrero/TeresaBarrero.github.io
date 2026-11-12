@@ -225,3 +225,52 @@ tick(); setInterval(tick, 30000);
 /* ---------- Arranque ---------- */
 fitName(); layoutH(); onScroll();
 document.fonts?.ready.then(() => { fitName(); layoutH(); onScroll(); });
+
+/* ---------- Solo móvil y tablet (< 860 px) ---------- */
+const mobile = matchMedia('(max-width: 859.98px)');
+const topBar = $('.top');
+const caseTop = $('.case-top');
+const toTop = $<HTMLButtonElement>('#toTop');
+const ring = $('#ttRing');
+let lastY = scrollY;
+function onMobileScroll() {
+  if (!mobile.matches) { topBar?.classList.remove('scrolled', 'hide'); return; }
+  const y = scrollY;
+  const max = document.documentElement.scrollHeight - innerHeight;
+  const prog = max > 0 ? Math.min(1, y / max) : 0;
+  // Cabecera: fondo al salir de arriba; se esconde al bajar y vuelve al subir
+  if (topBar) {
+    topBar.classList.toggle('scrolled', y > 10);
+    if (!document.body.classList.contains('menu-open')) {
+      if (y > lastY + 6 && y > 120) topBar.classList.add('hide');
+      else if (y < lastY - 6 || y < 120) topBar.classList.remove('hide');
+    }
+  }
+  lastY = y;
+  // Barra de lectura en los casos
+  caseTop?.style.setProperty('--rp', prog.toFixed(3));
+  // Botón volver arriba
+  if (toTop) { toTop.classList.toggle('on', y > innerHeight * 0.9); ring?.style.setProperty('--sp', prog.toFixed(3)); toTop.style.setProperty('--sp', prog.toFixed(3)); }
+  // Cartas apiladas: la de debajo se encoge cuando la siguiente la tapa
+  if (hw?.classList.contains('native') && track && !reduce) {
+    const cards = Array.from(track.children) as HTMLElement[];
+    cards.forEach((c, i) => {
+      const next = cards[i + 1];
+      if (!next) { c.style.transform = ''; return; }
+      const cTop = c.getBoundingClientRect().top;
+      const overlap = cTop + c.offsetHeight - next.getBoundingClientRect().top;
+      const p = Math.max(0, Math.min(1, overlap / c.offsetHeight));
+      c.style.transform = p > 0 ? `scale(${(1 - p * 0.06).toFixed(4)})` : '';
+      c.style.filter = p > 0 ? `brightness(${(1 - p * 0.12).toFixed(3)})` : '';
+    });
+  }
+}
+if (track) (Array.from(track.children) as HTMLElement[]).forEach((c, i) => c.style.setProperty('--i', String(i)));
+toTop?.addEventListener('click', () => scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
+let mTick = false;
+addEventListener('scroll', () => { if (mTick) return; mTick = true; requestAnimationFrame(() => { onMobileScroll(); mTick = false; }); }, { passive: true });
+mobile.addEventListener('change', () => {
+  if (!mobile.matches && track) (Array.from(track.children) as HTMLElement[]).forEach((c) => { c.style.transform = ''; c.style.filter = ''; });
+  onMobileScroll();
+});
+onMobileScroll();

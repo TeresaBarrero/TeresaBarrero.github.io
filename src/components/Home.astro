@@ -17,6 +17,8 @@ const other = lang === 'es' ? 'en' : 'es';
 const manifesto = s.man.split(' ').map((w) => ({ w: w.replace(/\*/g, ''), hl: w.includes('*') }));
 const cols = [1, 2, 3].map((c) => archive.filter((a) => a.col === c));
 const stampText = s.stamp;
+// Tira de trabajos bajo la introducción (solo móvil): las piezas del Archivo y la web de Panthera
+const reel = [{ src: 'pan-desk.webp', w: 1200, h: 750 }, ...archive.map((a) => ({ src: a.src, w: a.w, h: a.h }))];
 const pad = (n: number) => String(n).padStart(2, '0');
 const site = Astro.site!;
 const jsonLd = {
@@ -76,11 +78,23 @@ const jsonLd = {
               ))}</span></span>
             ))}
           </h1>
+          <div class="name-seal" aria-hidden="true">
+            <svg viewBox="0 0 100 100"><defs><path id="circ2" d="M50,50 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0" /></defs>
+              <text><textPath href="#circ2" textLength="255" lengthAdjust="spacing">{stampText}</textPath></text></svg>
+            <img src={u('/favicon.svg')} alt="" width="44" height="44" />
+          </div>
         </div>
         <div class="hero-bot">
           <p><strong class="lead1">{s.lead}</strong><span class="lead2">{s.lead2}</span></p>
           <div class="scroll-hint mono muted"><i></i><span>{s.scroll}</span></div>
         </div>
+        <div class="hero-ctas">
+          <a class="hc hc-1" href="#trabajo">{s['cta.work']}<span aria-hidden="true">↓</span></a>
+          <a class="hc hc-2" href="#contacto">{s['cta.talk']}<span aria-hidden="true">→</span></a>
+        </div>
+        <div class="reel" aria-hidden="true"><div class="reel-tr">
+          {[...reel, ...reel].map((x) => <img src={img(x.src)} width={x.w} height={x.h} alt="" loading="lazy" decoding="async" />)}
+        </div></div>
       </div>
       <div class="stamp" aria-hidden="true">
         <svg viewBox="0 0 100 100" id="stamp"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" /></defs>

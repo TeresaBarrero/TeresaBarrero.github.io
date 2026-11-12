@@ -389,3 +389,87 @@ html.lb-open{overflow:hidden}
 .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:6px}
 .skip:focus{top:12px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* =====================================================================
+   MÓVIL Y TABLET (< 860 px). El escritorio no usa nada de este bloque:
+   los elementos nuevos (.hero-ctas, .totop) están ocultos fuera de él.
+   ===================================================================== */
+.hero-ctas,.totop{display:none}
+@media (max-width:859.98px){
+  /* Cabecera tipo app: fondo translúcido, se esconde al bajar y vuelve al subir */
+  .top{mix-blend-mode:normal;color:var(--ink);pointer-events:auto;transition:transform .45s var(--ease),background-color .3s,box-shadow .3s}
+  .top .wrap{padding-block:14px}
+  .top.scrolled{background:color-mix(in srgb,var(--paper) 86%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 var(--line)}
+  .top.hide{transform:translateY(calc(-100% - env(safe-area-inset-top,0px)))}
+  body.menu-open .top{transform:none;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;color:var(--paper)}
+
+  /* Portada: botones de acción */
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;animation:up .9s .8s var(--ease) both}
+  .hc{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;font-size:var(--s-sm);font-weight:500;text-decoration:none;border:1px solid var(--ink);transition:background .3s,color .3s,transform .2s}
+  .hc span{transition:transform .3s var(--ease)}
+  .hc-1{background:var(--ink);color:var(--paper)}
+  .hc-2{color:var(--ink)}
+  .hc:active{transform:scale(.97)}
+  .hc-1:active span{transform:translateY(3px)}
+  .hc-2:active span{transform:translateX(3px)}
+
+  /* Proyectos: cartas apiladas al hacer scroll */
+  .hwork.native .sticky{overflow:visible;padding-block:72px 32px;gap:22px}
+  .hwork.native .hw-count{display:none}
+  .hwork.native .track{flex-direction:column;overflow:visible;gap:22px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));scroll-snap-type:none}
+  .hwork.native .card{position:sticky;top:calc(84px + var(--i,0) * 12px);width:auto;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:12px 12px 18px;gap:12px;box-shadow:0 -14px 34px -22px rgba(14,15,18,.45);transform-origin:50% 0;will-change:transform}
+  .hwork.native .card .frame{border-radius:10px;max-height:none}
+  .hwork.native .card .frame::after{transform:none;right:10px;bottom:10px;background:var(--ink);color:var(--paper)}
+  .hwork.native .card .meta,.hwork.native .card .sub{padding-inline:4px}
+  .hwork.native .card .ttl{font-size:1.75rem}
+  .hwork.native .card.soon .frame{background:var(--paper);aspect-ratio:16/9}
+  .hwork.native .card.soon .frame::after{display:none}
+  .hwork.native .card.soon:last-child{border-style:dashed}
+  .hwork.native .card .idx{display:inline-block;font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.06em;color:var(--accent);margin-right:10px;vertical-align:.45em}
+
+  /* Contacto: botones grandes para el dedo */
+  .c-row{flex-direction:column;align-items:stretch}
+  .c-pills{flex-direction:column;align-items:stretch}
+  .mail{justify-content:space-between;padding:6px 6px 6px 18px}
+  .mail code{min-width:0}
+  .tel{text-align:center;padding:16px 20px}
+  .socials{gap:10px}
+  .socials a{border:1px solid #3A3C43;border-radius:999px;padding:12px 18px;flex:1;text-align:center}
+
+  /* Casos: barra de progreso de lectura */
+  .case-top{position:sticky}
+  .case-top::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(var(--rp,0))}
+
+  /* Botón volver arriba con anillo de progreso */
+  .totop{display:grid;place-items:center;position:fixed;z-index:44;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--paper);box-shadow:0 10px 24px -10px rgba(14,15,18,.55),inset 0 0 0 1px rgba(255,255,255,.22);opacity:0;transform:translateY(18px) scale(.85);pointer-events:none;transition:opacity .35s,transform .45s var(--ease)}
+  .totop.on{opacity:1;transform:none;pointer-events:auto}
+  .totop:active{transform:scale(.92)}
+  .totop svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+  .totop circle{fill:none;stroke-width:2.5}
+  .totop .tt-bg{stroke:rgba(255,255,255,.14)}
+  .totop .tt-ring{stroke:var(--accent-soft);stroke-dasharray:100;stroke-dashoffset:calc(100 - var(--sp,0) * 100);stroke-linecap:round}
+  .totop span{font-size:1.15rem;line-height:1}
+  body:has(.fab) .totop{bottom:calc(max(20px,env(safe-area-inset-bottom,0px)) + 72px)}
+  body.menu-open .totop,html.lb-open .totop{opacity:0;pointer-events:none}
+}
+@media (max-width:520px){body:has(.fab) .totop{bottom:calc(max(14px,env(safe-area-inset-bottom,0px)) + 66px)}}
+@media (max-width:859.98px) and (prefers-reduced-motion:reduce){.hwork.native .card{transform:none!important}}
+
+/* Móvil: sello con el monograma junto al nombre, tira de trabajos y foto más pequeña */
+.name-seal,.reel{display:none}
+@media (max-width:859.98px){
+  .stamp{display:none}
+  .hero{padding-bottom:40px}
+  .name-wrap{position:relative}
+  .name-seal{display:grid;place-items:center;position:absolute;left:0;bottom:1%;width:clamp(66px,18.5vw,104px);aspect-ratio:1;animation:up 1s .9s var(--ease) both}
+  .name-seal svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;animation:spin 22s linear infinite}
+  .name-seal text{font-family:var(--f-mono);font-size:7.6px;letter-spacing:.6px;fill:var(--ink);text-transform:uppercase}
+  .name-seal img{width:44%;height:auto;border-radius:50%;box-shadow:0 6px 16px -6px rgba(122,31,43,.55)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .reel{display:block;overflow:hidden;margin-top:30px;margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .reel-tr{display:flex;gap:10px;width:max-content;animation:reel 38s linear infinite}
+  .reel img{height:132px;width:auto;max-width:none;border-radius:10px;box-shadow:0 10px 22px -14px rgba(14,15,18,.5)}
+  @keyframes reel{to{transform:translateX(calc(-50% - 5px))}}
+  .ab-photo{max-width:230px}
+}
+@media (max-width:859.98px) and (prefers-reduced-motion:reduce){.reel-tr,.name-seal svg{animation:none}}

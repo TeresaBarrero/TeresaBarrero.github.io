@@ -57,6 +57,10 @@ const ogImage = new URL(u('/og.png'), Astro.site);
     <div class="grid-ov" id="gridOv" aria-hidden="true"><div class="wrap">{Array.from({ length: 12 }).map(() => <i />)}</div></div>
     <div class="cur" id="cur" aria-hidden="true"><i></i></div>
     <slot />
+    <button type="button" class="totop" id="toTop" aria-label={s.top}>
+      <svg viewBox="0 0 52 52" aria-hidden="true"><circle class="tt-bg" cx="26" cy="26" r="24" /><circle class="tt-ring" id="ttRing" cx="26" cy="26" r="24" pathLength="100" /></svg>
+      <span aria-hidden="true">↑</span>
+    </button>
     <script>
       import '../scripts/main.ts';
     </script>
