@@ -93,8 +93,9 @@ const jsonLd = {
             <div class="gal-grp">
               {gr.title && <h3 class="gal-t">{gr.title}</h3>}
               <div class="gal">{gr.items.map((g) => (
-                <figure class={layoutClass[g.layout]}><button type="button" class="zoom" aria-label={`${s.zoom}: ${g.alt}`}><img src={img(g.src)} alt={g.alt} loading="lazy" decoding="async" /></button>{g.layout === 'long' && <button type="button" class="long-more" data-more={s.longMore} data-less={s.longLess} aria-expanded="false">{s.longMore}<span aria-hidden="true">↓</span></button>}<figcaption>{g.alt}</figcaption></figure>
+                <figure class={layoutClass[g.layout]}><button type="button" class="zoom" aria-label={`${s.zoom}: ${g.alt}`}><img src={img(g.src)} alt={g.alt} loading="lazy" decoding="async" /></button><figcaption>{g.alt}</figcaption></figure>
               ))}</div>
+              {d.url && gr.items.some((g) => g.layout === 'long') && <p class="case-btns web-full"><NetButton href={d.url} label={s.webFull} /></p>}
               {d.more.some((m) => m.group === gr.title) && (
                 <p class="case-btns gal-more">{d.more.filter((m) => m.group === gr.title).map((m) => <NetButton href={m.href} label={m.label} />)}</p>
               )}
