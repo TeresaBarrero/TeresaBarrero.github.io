@@ -1,0 +1,16 @@
+---
+// Botón de enlace con el color e icono de cada red (Instagram, Facebook, Google Business) o de la web.
+interface Props { href: string; label: string; }
+const { href, label } = Astro.props;
+const net = href.includes('instagram.com') ? 'ig'
+  : href.includes('facebook.com') ? 'fb'
+  : href.includes('share.google') || href.includes('g.page') || href.includes('maps.app') || href.includes('google.com/maps') ? 'g'
+  : 'web';
+---
+<a class={`sb sb-${net}`} href={href} target="_blank" rel="noopener">
+  {net === 'ig' && <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2" /><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2" /><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor" /></svg>}
+  {net === 'fb' && <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.6 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.3H8.2v3h2.5V21h2.9z" /></svg>}
+  {net === 'g' && <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg>}
+  {net === 'web' && <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" /><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="2" /></svg>}
+  {label}<span aria-hidden="true">↗</span>
+</a>

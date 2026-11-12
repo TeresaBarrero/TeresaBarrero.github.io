@@ -23,6 +23,9 @@ const projects = defineCollection({
     /** Enlaces del proyecto, se muestran como botones (web, redes, Google Business...) */
     links: z.array(z.object({ label: z.string(), href: z.string().url() })).default([]),
     /** Botones «ver más» debajo de un bloque de la galería (group = título del bloque) */
+    /** Bandas que separan secciones del caso (solo móvil): [tras la portada, antes del detalle, antes de la galería] */
+    banners: z.array(z.string()).default([]),
+    bannerColors: z.object({ bg: z.string(), fg: z.string() }).optional(),
     more: z.array(z.object({ group: z.string(), label: z.string(), href: z.string().url() })).default([]),
     cover: z.string().optional(),
     /** Color propio del proyecto (botón fijo «Ver proyecto completo»). Por defecto, tinta. */

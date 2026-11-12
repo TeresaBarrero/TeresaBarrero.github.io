@@ -174,6 +174,17 @@ if (!reduce) {
   if (soc.length) { soc.forEach((f) => f.parentElement!.classList.add('soc-anim')); staggerReveal(soc); }
 }
 
+/* ---------- Galería (móvil): desplegar la captura larga de la web ---------- */
+document.addEventListener('click', (e) => {
+  const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.long-more');
+  if (!b) return;
+  const fig = b.closest('figure')!;
+  const open = fig.classList.toggle('open');
+  b.setAttribute('aria-expanded', String(open));
+  b.firstChild!.textContent = open ? b.dataset.less! : b.dataset.more!;
+  if (!open) fig.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+});
+
 /* ---------- Galería: ver imagen en grande ---------- */
 const lb = $<HTMLDialogElement>('#lb');
 if (lb) {
