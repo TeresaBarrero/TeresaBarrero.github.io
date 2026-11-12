@@ -13,22 +13,23 @@ export const profile = {
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/maria-teresa-barrero-isidoro/' },
     { label: 'GitHub', href: 'https://github.com/TeresaBarrero' },
   ],
+  cv: 'cv/Teresa_Barrero_CV.pdf',
   tools: 'HTML5, CSS3, JavaScript, WordPress, Elementor, Photoshop, Illustrator, Canva, CapCut, Premiere Pro, Google Ads, Meta Ads, GA4, Tag Manager, Search Console, Google Business Profile, n8n, Claude Code',
 };
 
-// [entidad, puesto, años, detalle opcional]
-type Item = [string, string, string, string?];
+// [entidad, puesto, años, lista opcional de eventos (desplegable)]
+type Item = [string, string, string, string[]?];
 export const experience: Record<Lang, Item[]> = {
   es: [
     ['anda CONMiGO', 'Digital Marketing & Web Specialist', '2024–2026'],
     ['Okdiario', 'Web & Social Content Specialist', '2024'],
-    ['Bornan Sport Technology', 'Web Data & Systems Specialist', '2023–2025'],
+    ['Bornan Sport Technology', 'Web Data & Systems Specialist', '2023–2025', ['Juegos Centroamericanos y del Caribe · El Salvador 2023', 'Juegos Panamericanos · Santiago de Chile 2023', 'Saudi Games 2023', 'Saudi Games 2024', 'Juegos Panamericanos Junior · Paraguay 2025']],
     ['Fundación AVA · RTVA', 'Digital Content & Communications Specialist', '2022–2023'],
   ],
   en: [
     ['anda CONMiGO', 'Digital Marketing & Web Specialist', '2024–2026'],
     ['Okdiario', 'Web & Social Content Specialist', '2024'],
-    ['Bornan Sport Technology', 'Web Data & Systems Specialist', '2023–2025'],
+    ['Bornan Sport Technology', 'Web Data & Systems Specialist', '2023–2025', ['Central American and Caribbean Games · El Salvador 2023', 'Pan American Games · Santiago, Chile 2023', 'Saudi Games 2023', 'Saudi Games 2024', 'Junior Pan American Games · Paraguay 2025']],
     ['Fundación AVA · RTVA', 'Digital Content & Communications Specialist', '2022–2023'],
   ],
 };

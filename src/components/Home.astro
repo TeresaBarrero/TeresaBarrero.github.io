@@ -7,7 +7,7 @@ import { t, type Lang } from '../i18n/ui';
 import { profile, experience, education, disciplines, inProgress } from '../data/profile';
 import { archive } from '../data/archive';
 import { getProjects } from '../lib/projects';
-import { home, img, projectPath } from '../lib/paths';
+import { home, img, projectPath, u } from '../lib/paths';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -165,12 +165,16 @@ const jsonLd = {
                 <h3><button type="button" class="sp-btn" id={`sp-${r.k}`} aria-expanded="false" aria-controls={`spp-${r.k}`}><span>{r.t}</span><span class="pm" aria-hidden="true"></span></button></h3>
                 <div class="sp-panel" id={`spp-${r.k}`} role="region" aria-labelledby={`sp-${r.k}`}><div><div class="sp-in">
                   {r.list
-                    ? <ul class="exp">{r.list.map((e) => <li><b>{e[0]}</b><span>{e[2]}</span><em>{e[1]}</em>{e[3] && <p>{e[3]}</p>}</li>)}</ul>
+                    ? <ul class="exp">{r.list.map((e) => <li><b>{e[0]}</b><span>{e[2]}</span><em>{e[1]}</em>{e[3] && <details class="ev"><summary>{s.events} ({e[3].length})</summary><ul>{e[3].map((x) => <li>{x}</li>)}</ul></details>}</li>)}</ul>
                     : r.text}
                 </div></div></div>
               </div>
             ))}
           </div>
+          <p class="case-btns cv-btns">
+            <a href={u(profile.cv)} target="_blank" rel="noopener">{s.cvView}<span aria-hidden="true">↗</span></a>
+            <a href={u(profile.cv)} download="Teresa_Barrero_CV.pdf">{s.cvDl}<span aria-hidden="true">↓</span></a>
+          </p>
         </div>
       </div>
     </section>
