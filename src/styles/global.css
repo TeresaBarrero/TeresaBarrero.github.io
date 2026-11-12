@@ -82,7 +82,7 @@ body.menu-open .menu li a{transform:none}
 @keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .stamp{position:absolute;right:max(16px,4vw);bottom:clamp(24px,4vw,56px);width:clamp(96px,11vw,150px);aspect-ratio:1;animation:up 1s .9s both}
 .stamp svg{width:100%;height:100%;overflow:visible}
-.stamp text{font-family:var(--f-mono);font-size:8.6px;letter-spacing:2.2px;fill:var(--ink);text-transform:uppercase}
+.stamp text{font-family:var(--f-mono);font-size:8.2px;letter-spacing:1px;fill:var(--ink);text-transform:uppercase}
 .stamp .dot{fill:var(--accent)}
 @media (max-width:860px){.hero-bot{grid-template-columns:1fr}.hero-bot p,.hero-bot .scroll-hint{grid-column:1/-1;justify-self:start}.stamp{bottom:28px;width:84px}.hero{padding-bottom:132px}.hero-bot .scroll-hint{display:none}}
 
