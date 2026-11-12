@@ -90,6 +90,9 @@ const jsonLd = {
               <div class="gal">{gr.items.map((g) => (
                 <figure class={layoutClass[g.layout]}><button type="button" class="zoom" aria-label={`${s.zoom}: ${g.alt}`}><img src={img(g.src)} alt={g.alt} loading="lazy" decoding="async" /></button><figcaption>{g.alt}</figcaption></figure>
               ))}</div>
+              {d.more.some((m) => m.group === gr.title) && (
+                <p class="case-btns gal-more">{d.more.filter((m) => m.group === gr.title).map((m) => <a href={m.href} target="_blank" rel="noopener">{m.label}<span aria-hidden="true">↗</span></a>)}</p>
+              )}
             </div>
           ))}
         </section>

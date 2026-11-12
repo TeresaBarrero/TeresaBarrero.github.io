@@ -22,6 +22,8 @@ const projects = defineCollection({
     art: z.enum(['pweb', 'psocial', 'pseo', 'pmix']).optional(),
     /** Enlaces del proyecto, se muestran como botones (web, redes, Google Business...) */
     links: z.array(z.object({ label: z.string(), href: z.string().url() })).default([]),
+    /** Botones «ver más» debajo de un bloque de la galería (group = título del bloque) */
+    more: z.array(z.object({ group: z.string(), label: z.string(), href: z.string().url() })).default([]),
     cover: z.string().optional(),
     /** Color propio del proyecto (botón fijo «Ver proyecto completo»). Por defecto, tinta. */
     accent: z.string().optional(),

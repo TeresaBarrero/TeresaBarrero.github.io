@@ -11,6 +11,9 @@ services: UX/UI, development, community management, local SEO
 tools: HTML · CSS · JS · Cloudflare · GA4 · Claude Code · Canva · Photoshop · Illustrator · CapCut · Google Business Profile · Search Console · Schema.org
 url: https://pantherafitnessguarena.com/
 art: pmix
+more:
+  - { group: "Social media", label: "See more on Instagram", href: "https://www.instagram.com/_pantherafitness/" }
+  - { group: "Social media", label: "See more on Facebook", href: "https://www.facebook.com/profile.php?id=61595732023791" }
 links:
   - { label: "Website", href: "https://pantherafitnessguarena.com/" }
   - { label: "Instagram", href: "https://www.instagram.com/_pantherafitness/" }
@@ -28,10 +31,6 @@ gallery:
   - { src: post-puertas-abiertas.webp, alt: "Open days", layout: social, group: "Social media" }
   - { src: post-abrimos.webp, alt: "Opening", layout: social, group: "Social media" }
   - { src: post-horarios-tarifas.webp, alt: "Hours & prices", layout: social, group: "Social media" }
-  - { src: post-promocion.webp, alt: "Opening offer", layout: social, group: "Social media" }
-  - { src: post-empezamos.webp, alt: "We start", layout: social, group: "Social media" }
-  - { src: post-horario-clases.webp, alt: "Class timetable", layout: social, group: "Social media" }
-  - { src: post-aprende.webp, alt: "Learn to train", layout: social, group: "Social media" }
   - { src: post-app.webp, alt: "Booking app", layout: social, group: "Social media" }
 ---
 

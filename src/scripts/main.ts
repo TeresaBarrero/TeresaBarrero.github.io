@@ -150,24 +150,28 @@ $('#spec')?.addEventListener('click', (e) => {
   b.setAttribute('aria-expanded', String(open));
 });
 
-/* ---------- Archivo: las piezas aparecen de una en una al llegar ---------- */
-if (colsEl && !reduce) {
-  colsEl.classList.add('arch-anim');
-  let pending = Array.from(colsEl.querySelectorAll<HTMLElement>('.piece'));
-  pending.forEach((p, i) => p.style.setProperty('--rot', (i % 2 ? 3 : -3) + 'deg'));
+/* ---------- Entrada escalonada: Archivo y bloques de redes de los casos ---------- */
+// Cada pieza aparece al llegar a la pantalla; las que llegan a la vez, de una en una.
+function staggerReveal(items: HTMLElement[]) {
+  let pending = items.slice();
+  items.forEach((p, i) => p.style.setProperty('--rot', (i % 2 ? 3 : -3) + 'deg'));
   const check = () => {
     if (!pending.length) return;
     const vh = innerHeight;
-    // Las que llegan a la vez se encadenan de arriba abajo y de izquierda a derecha
     const ready = pending.filter((p) => { const r = p.getBoundingClientRect(); return r.top < vh * 0.88 && r.bottom > 0; })
       .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top || a.getBoundingClientRect().left - b.getBoundingClientRect().left);
-    ready.forEach((p, i) => { p.style.setProperty('--d', (i * 0.16).toFixed(2) + 's'); p.classList.add('in'); });
+    ready.forEach((p, i) => { p.style.setProperty('--d', (i * 0.16).toFixed(2) + 's'); p.classList.add('in'); setTimeout(() => p.style.removeProperty('--d'), 1900 + i * 160); });
     pending = pending.filter((p) => !ready.includes(p));
   };
   addEventListener('scroll', check, { passive: true });
   addEventListener('resize', check);
   addEventListener('load', check);
   check();
+}
+if (!reduce) {
+  if (colsEl) { colsEl.classList.add('arch-anim'); staggerReveal(Array.from(colsEl.querySelectorAll<HTMLElement>('.piece'))); }
+  const soc = Array.from(document.querySelectorAll<HTMLElement>('.gal .g-soc'));
+  if (soc.length) { soc.forEach((f) => f.parentElement!.classList.add('soc-anim')); staggerReveal(soc); }
 }
 
 /* ---------- Galería: ver imagen en grande ---------- */
