@@ -279,10 +279,12 @@ const toTop = $<HTMLButtonElement>('#toTop');
 const ring = $('#ttRing');
 let lastY = scrollY;
 function onMobileScroll() {
-  if (!mobile.matches) { topBar?.classList.remove('scrolled', 'hide'); return; }
   const y = scrollY;
   const max = document.documentElement.scrollHeight - innerHeight;
   const prog = max > 0 ? Math.min(1, y / max) : 0;
+  // Botón volver arriba (escritorio y móvil)
+  if (toTop) { toTop.classList.toggle('on', y > innerHeight * 0.9); toTop.style.setProperty('--sp', prog.toFixed(3)); }
+  if (!mobile.matches) { topBar?.classList.remove('scrolled', 'hide'); return; }
   // Cabecera: fondo al salir de arriba; se esconde al bajar y vuelve al subir
   if (topBar) {
     topBar.classList.toggle('scrolled', y > 10);
@@ -294,8 +296,6 @@ function onMobileScroll() {
   lastY = y;
   // Barra de lectura en los casos
   caseTop?.style.setProperty('--rp', prog.toFixed(3));
-  // Botón volver arriba
-  if (toTop) { toTop.classList.toggle('on', y > innerHeight * 0.9); ring?.style.setProperty('--sp', prog.toFixed(3)); toTop.style.setProperty('--sp', prog.toFixed(3)); }
   // Cartas apiladas: la de debajo se encoge cuando la siguiente la tapa
   if (hw?.classList.contains('native') && track && !reduce) {
     const cards = Array.from(track.children) as HTMLElement[];

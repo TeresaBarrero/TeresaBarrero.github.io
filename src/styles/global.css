@@ -461,7 +461,19 @@ html.lb-open{overflow:hidden}
    MÓVIL Y TABLET (< 860 px). El escritorio no usa nada de este bloque:
    los elementos nuevos (.hero-ctas, .totop) están ocultos fuera de él.
    ===================================================================== */
-.hero-ctas,.totop{display:none}
+.hero-ctas{display:none}
+/* Botón volver arriba con anillo de progreso (escritorio y móvil) */
+.totop{display:grid;place-items:center;position:fixed;z-index:44;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--paper);box-shadow:0 10px 24px -10px rgba(14,15,18,.55),inset 0 0 0 1px rgba(255,255,255,.22);opacity:0;transform:translateY(18px) scale(.85);pointer-events:none;transition:opacity .35s,transform .45s var(--ease)}
+.totop.on{opacity:1;transform:none;pointer-events:auto}
+.totop:active{transform:scale(.92)}
+.totop svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.totop circle{fill:none;stroke-width:2.5}
+.totop .tt-bg{stroke:rgba(255,255,255,.14)}
+.totop .tt-ring{stroke:var(--accent-soft);stroke-dasharray:100;stroke-dashoffset:calc(100 - var(--sp,0) * 100);stroke-linecap:round}
+.totop span{font-size:1.15rem;line-height:1}
+body:has(.fab) .totop{bottom:calc(max(20px,env(safe-area-inset-bottom,0px)) + 72px)}
+body.menu-open .totop,html.lb-open .totop{opacity:0;pointer-events:none}
+.totop:hover{background:var(--accent)}
 @media (max-width:859.98px){
   /* Cabecera tipo app: fondo translúcido, se esconde al bajar y vuelve al subir */
   .top{mix-blend-mode:normal;color:var(--ink);pointer-events:auto;transition:transform .45s var(--ease),background-color .3s,box-shadow .3s}
@@ -509,16 +521,6 @@ html.lb-open{overflow:hidden}
   .case-top::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(var(--rp,0))}
 
   /* Botón volver arriba con anillo de progreso */
-  .totop{display:grid;place-items:center;position:fixed;z-index:44;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--paper);box-shadow:0 10px 24px -10px rgba(14,15,18,.55),inset 0 0 0 1px rgba(255,255,255,.22);opacity:0;transform:translateY(18px) scale(.85);pointer-events:none;transition:opacity .35s,transform .45s var(--ease)}
-  .totop.on{opacity:1;transform:none;pointer-events:auto}
-  .totop:active{transform:scale(.92)}
-  .totop svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
-  .totop circle{fill:none;stroke-width:2.5}
-  .totop .tt-bg{stroke:rgba(255,255,255,.14)}
-  .totop .tt-ring{stroke:var(--accent-soft);stroke-dasharray:100;stroke-dashoffset:calc(100 - var(--sp,0) * 100);stroke-linecap:round}
-  .totop span{font-size:1.15rem;line-height:1}
-  body:has(.fab) .totop{bottom:calc(max(20px,env(safe-area-inset-bottom,0px)) + 72px)}
-  body.menu-open .totop,html.lb-open .totop{opacity:0;pointer-events:none}
 }
 @media (max-width:520px){body:has(.fab) .totop{bottom:calc(max(14px,env(safe-area-inset-bottom,0px)) + 66px)}}
 @media (max-width:859.98px) and (prefers-reduced-motion:reduce){.hwork.native .card{transform:none!important}}
