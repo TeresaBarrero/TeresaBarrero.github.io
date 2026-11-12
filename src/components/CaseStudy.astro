@@ -28,7 +28,6 @@ const toc = [
   ...headings.filter((h) => h.depth === 2).map((h) => ({ id: h.slug, t: h.text })),
   ...(d.gallery.length ? [{ id: 'galeria', t: s.gallery }] : []),
 ];
-const bannerStyle = d.bannerColors ? `--bb:${d.bannerColors.bg};--bf:${d.bannerColors.fg}` : undefined;
 const hasBody = Boolean(p.body && p.body.trim());
 const layoutClass = { long: 'g-long', mobile: 'g-mob', post: 'g-post', wide: 'g-wide', full: 'g-full', fit: 'g-full g-fit', social: 'g-soc' } as const;
 // Piezas seguidas con el mismo group forman un bloque con título
@@ -82,10 +81,10 @@ const jsonLd = {
         )}
       </section>
       <nav class="case-toc wrap" aria-label={s.toc}>
-        <span class="mono muted">{s.toc}</span>
+        <span class="mono muted toc-d">{s.toc}</span>
+        <h2 class="toc-m">{s.tocM}</h2>
         <ol>{toc.map((x, i) => <li><a href={`#${x.id}`}><b>{String(i + 1).padStart(2, '0')}</b>{x.t}</a></li>)}</ol>
       </nav>
-      {d.banners[0] && <div class="cbanner" style={bannerStyle} aria-hidden="true"><div class="cbanner-tr">{[0, 1, 2, 3].map(() => <span>{d.banners[0]}</span>)}</div></div>}
       <section class="case-body wrap">
         <div class="blk" id="reto"><h2 class="mono muted" style="margin:0;font-weight:400">{s.challenge}</h2><p>{d.challenge}</p></div>
         <div class="blk" id="solucion"><h2 class="mono muted" style="margin:0;font-weight:400">{s.solution}</h2><p>{d.solution}</p></div>
@@ -94,10 +93,8 @@ const jsonLd = {
             <div class="metrics">{d.highlights.map((m) => <div class="metric"><b>{m.value}</b><span>{m.label}</span></div>)}</div>
           </div>
         )}
-        {d.banners[1] && <div class="cbanner cbanner-alt" style={bannerStyle} aria-hidden="true"><div class="cbanner-tr">{[0, 1, 2, 3].map(() => <span>{d.banners[1]}</span>)}</div></div>}
         {hasBody && <div class="case-md"><Content /></div>}
       </section>
-      {d.banners[2] && <div class="cbanner" style={bannerStyle} aria-hidden="true"><div class="cbanner-tr">{[0, 1, 2, 3].map(() => <span>{d.banners[2]}</span>)}</div></div>}
       {d.gallery.length > 0 && (
         <section class="wrap" id="galeria">
           <h2 class="mono muted" style="padding-bottom:16px;margin:0;font-weight:400">{s.gallery}</h2>

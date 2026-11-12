@@ -11,11 +11,6 @@ services: UX/UI, desarrollo, community management, SEO local
 tools: HTML · CSS · JS · Cloudflare · GA4 · Claude Code · Canva · Photoshop · Illustrator · CapCut · Google Business Profile · Search Console · Schema.org
 url: https://pantherafitnessguarena.com/
 art: pmix
-banners:
-  - "Web · Redes sociales · SEO local · Guareña"
-  - "Musculación · Crosstraining · Hybrid · GAP · Funcional"
-  - "Instagram · Facebook · Google Business Profile"
-bannerColors: { bg: "#1f2629", fg: "#1ed3d3" }
 more:
   - { group: "Redes sociales", label: "Ver más en Instagram", href: "https://www.instagram.com/_pantherafitness/" }
   - { group: "Redes sociales", label: "Ver más en Facebook", href: "https://www.facebook.com/profile.php?id=61595732023791" }
