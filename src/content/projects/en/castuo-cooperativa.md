@@ -17,7 +17,6 @@ solution: I analysed the company and three competing cooperatives, built the SWO
 highlights:
   - { value: "3", label: "competing cooperatives analysed" }
   - { value: "26", label: "social media posts planned" }
-  - { value: "€2,388.99", label: "total plan budget" }
 gallery:
   - { src: castuo-web.webp, alt: "Website redesign · home & sections", layout: fit, group: "Website & blog" }
   - { src: castuo-blog.webp, alt: "Blog · launch post", layout: full, group: "Website & blog" }
@@ -78,20 +77,6 @@ Four goals, all over three months. They are the plan’s targets, not measured r
 | Grow website sales | +20% conversions and sales | Google Ads (display & search) and Meta Ads |
 | Build customer loyalty | 15% open rate and 8% click rate | A weekly newsletter per buyer persona |
 | Launch a blog with good content | About 10 posts and 15% of website traffic | Keyword research and a calendar per audience |
-
-## Budget
-
-| Item | Cost |
-| --- | ---: |
-| Domain (One.com) | €8.99 the first month (then €23.99) |
-| Website redesign & SEO optimisation | €200 |
-| Blog & posts | €200 |
-| Sponsored articles (Publisuites) | €10 a day |
-| Google Ads · display | €290 per buyer persona |
-| Google Ads · search | €290 per buyer persona |
-| Meta Ads (both buyer personas) | €20 a day |
-| Social media: optimisation & posts | €500 |
-| **Total** | **€2,388.99** |
 
 ## Context
 

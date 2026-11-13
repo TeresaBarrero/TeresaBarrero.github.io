@@ -17,7 +17,6 @@ solution: Analicé la empresa y a tres cooperativas competidoras, hice el DAFO, 
 highlights:
   - { value: "3", label: "cooperativas competidoras analizadas" }
   - { value: "26", label: "publicaciones planificadas en redes" }
-  - { value: "2.388,99 €", label: "presupuesto total del plan" }
 gallery:
   - { src: castuo-web.webp, alt: "Rediseño de la web · inicio y secciones", layout: fit, group: "Web y blog" }
   - { src: castuo-blog.webp, alt: "Blog · entrada de presentación", layout: full, group: "Web y blog" }
@@ -78,20 +77,6 @@ Cuatro objetivos, todos a tres meses. Son metas del plan, no resultados medidos.
 | Aumentar las ventas de la web | +20 % de conversiones y ventas | Google Ads (display y búsqueda) y Meta Ads |
 | Fidelizar a los clientes | 15 % de apertura y 8 % de clics | Una newsletter semanal por buyer persona |
 | Crear un blog con buen contenido | Unas 10 entradas y el 15 % del tráfico web | Estudio de palabras clave y calendario por público |
-
-## Presupuesto
-
-| Partida | Coste |
-| --- | ---: |
-| Dominio (One.com) | 8,99 € el primer mes (después 23,99 €) |
-| Rediseño de la web y optimización SEO | 200 € |
-| Blog y entradas | 200 € |
-| Artículos patrocinados (Publisuites) | 10 € al día |
-| Google Ads · display | 290 € por buyer persona |
-| Google Ads · búsqueda | 290 € por buyer persona |
-| Meta Ads (las dos buyer personas) | 20 € al día |
-| Redes sociales: optimización y publicaciones | 500 € |
-| **Total** | **2.388,99 €** |
 
 ## Contexto
 
