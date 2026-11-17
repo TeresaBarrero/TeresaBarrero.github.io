@@ -716,3 +716,75 @@ body.menu-open .totop,html.lb-open .totop{opacity:0;pointer-events:none}
 /* AZARA · galería: redes en filas de 3 y captura móvil de la web recortada (al ampliar se ve entera) */
 @media (min-width:761px){.theme-azara #galeria .gal-grp:first-of-type .g-soc{grid-column:span 4}}
 .theme-azara .gal .g-mob .zoom{max-height:640px;overflow:hidden;border-radius:18px}
+
+/* =====================================================================
+   TEMA PANTHERA FITNESS (.case-page.theme-panthera)
+   Colores y tipografías de su web: gris carbón #283033 y turquesa #1ED3D3;
+   Ultra (títulos), Bebas Neue (cifras) y Barlow (texto).
+   El turquesa no contrasta sobre claro: en texto se usa --accent (turquesa oscuro)
+   y el turquesa puro solo de relleno, con texto carbón encima.
+   ===================================================================== */
+.theme-panthera,body:has(.theme-panthera) .totop{
+  --paper:#F4F7F7; --paper-2:#E3EAEA; --ink:#283033; --muted:#566265; --line:#D2DBDB; --ghost:#A9B4B5;
+  --accent:#0A7272; --accent-soft:#1ED3D3; --pa-cyan:#1ED3D3; --pa-cyan-ink:#04201F;
+  --f-display:"Ultra","Rockwell",Georgia,serif;
+  --f-mono:"Barlow","Helvetica Neue",Arial,sans-serif
+}
+.theme-panthera{background:var(--paper);color:var(--ink);font-family:"Barlow","Helvetica Neue",Arial,sans-serif}
+.theme-panthera .mono{font-weight:600;letter-spacing:.12em}
+.theme-panthera :is(.h1,.gal-t,.next .t,.mail-mq span,.dc-k,.dc-l h3,.dc-r h3){font-weight:400;letter-spacing:.01em;font-variation-settings:normal;text-transform:uppercase}
+.theme-panthera .case-hero .h1{font-size:clamp(2.3rem,8.6vw,7.4rem);line-height:.95}
+.theme-panthera .case-hero .lead{font-weight:500}
+.theme-panthera .metric b{font-family:"Bebas Neue","Oswald",Impact,sans-serif;font-weight:400;letter-spacing:.01em;font-size:clamp(3rem,6vw,5rem);line-height:.9}
+.theme-panthera .case-md>h2,.theme-panthera .case-toc ol a b{color:var(--accent)}
+.theme-panthera .case-md>h2::before{background:var(--pa-cyan);opacity:.6}
+.theme-panthera .next .t{font-size:clamp(2rem,6.6vw,5.4rem)}
+.theme-panthera .next:hover .t{color:var(--accent)}
+.theme-panthera .case-top::after{background:var(--pa-cyan)}
+/* Botones rellenos en turquesa con texto carbón, como en su web */
+@media (min-width:860px){
+  .theme-panthera :is(.gal-more a.sb:first-child,.web-full a.sb),.theme-panthera :is(.gal-more,.web-full) a.sb:hover{background:var(--pa-cyan);border-color:var(--pa-cyan);color:var(--pa-cyan-ink)}
+  .theme-panthera .case-nets a.sb:hover{background:var(--ink);color:var(--pa-cyan)}
+}
+@media (max-width:859.98px){
+  .theme-panthera .case-btns a.sb:first-child,.theme-panthera .case-btns a.sb:is(:hover,:active){background:var(--pa-cyan);border-color:var(--pa-cyan);color:var(--pa-cyan-ink)}
+}
+/* Pie en carbón con detalles en turquesa */
+.theme-panthera .contact{background:#1F2629}
+.theme-panthera .contact .label::before{background:var(--pa-cyan)}
+.theme-panthera .mail-mq{border-color:#3A4548}
+.theme-panthera .mail-mq span:nth-child(even){-webkit-text-stroke-color:var(--pa-cyan)}
+.theme-panthera .mail button:hover{background:var(--pa-cyan);color:var(--pa-cyan-ink)}
+.theme-panthera .socials a:hover,.theme-panthera .tel:hover{color:var(--pa-cyan);border-color:var(--pa-cyan)}
+body:has(.theme-panthera) .totop:hover{background:var(--pa-cyan);color:var(--pa-cyan-ink)}
+.theme-panthera ::selection{background:var(--pa-cyan);color:var(--pa-cyan-ink)}
+
+/* =====================================================================
+   TEMA CASTÚO COOPERATIVA (.case-page.theme-castuo)
+   Colores y tipografías de sus piezas: marrón tierra #75502D, crema,
+   vino #8B1E24 y oro viejo; Cinzel (títulos) y Lora (texto).
+   ===================================================================== */
+.theme-castuo,body:has(.theme-castuo) .totop{
+  --paper:#F8F3EA; --paper-2:#EEE4D4; --ink:#3A2716; --muted:#6F5B47; --line:#E1D4C0; --ghost:#B8A68E;
+  --accent:#75502D; --accent-soft:#D9B98C; --cs-wine:#8B1E24;
+  --f-display:"Cinzel","Trajan Pro",Georgia,serif;
+  --f-mono:"Cinzel","Trajan Pro",Georgia,serif
+}
+.theme-castuo{background:var(--paper);color:var(--ink);font-family:"Lora",Georgia,serif}
+.theme-castuo .mono{font-weight:600;letter-spacing:.12em;font-size:.8rem}
+.theme-castuo :is(.h1,.gal-t,.next .t,.mail-mq span,.dc-k,.dc-l h3,.dc-r h3){font-weight:500;letter-spacing:.02em;font-variation-settings:normal}
+.theme-castuo .case-hero .h1{font-size:clamp(2.4rem,8.4vw,7.6rem);line-height:1}
+.theme-castuo .case-hero .lead{font-style:italic}
+.theme-castuo .metric b{font-weight:500;letter-spacing:0;color:var(--accent)}
+.theme-castuo .case-md>h2,.theme-castuo .case-toc ol a b{color:var(--cs-wine)}
+.theme-castuo .case-md>h2::before{background:var(--accent-soft)}
+.theme-castuo .next .t{font-size:clamp(2rem,6.6vw,5.6rem)}
+.theme-castuo .contact{background:var(--ink)}
+.theme-castuo .contact .label::before{background:var(--accent-soft)}
+.theme-castuo .contact .mono,.theme-castuo .foot,.theme-castuo .foot button{color:#BFAE98}
+.theme-castuo :is(.mail-mq,.foot){border-color:#5A4330}
+.theme-castuo .mail-mq span:nth-child(even){-webkit-text-stroke-color:var(--accent-soft)}
+.theme-castuo :is(.mail,.tel){border-color:#6A5038}
+.theme-castuo .socials a{color:#E3D5C2;border-color:#6A5038}
+.theme-castuo .mail button:hover{background:var(--accent-soft);color:var(--ink)}
+body:has(.theme-castuo) .totop:hover{background:var(--cs-wine)}

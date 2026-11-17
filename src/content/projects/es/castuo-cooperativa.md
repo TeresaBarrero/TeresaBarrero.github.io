@@ -1,6 +1,7 @@
 ---
 title: Castúo Cooperativa
 uid: castuo-cooperativa
+theme: castuo
 lang: es
 order: 4
 year: 2025

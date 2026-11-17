@@ -1,6 +1,7 @@
 ---
 title: Panthera Fitness
 uid: panthera-fitness
+theme: panthera
 lang: es
 order: 1
 year: 2026

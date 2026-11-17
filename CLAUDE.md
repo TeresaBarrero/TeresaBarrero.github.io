@@ -17,6 +17,7 @@ Portfolio bilingüe (es/en) en Astro 5, estático, publicado en GitHub Pages con
 - Castúo Cooperativa es un proyecto académico del máster del CEI (2025): sus cifras de objetivos son metas, no resultados. El análisis va en el cuerpo del .md (secciones ## que se maquetan en columnas); las imágenes son piezas recortadas de la presentación, nunca diapositivas enteras.
 - AZARA Coffee es un proyecto conceptual de marca (no es un negocio real): debe indicarse siempre, junto con que las imágenes se generaron con IA. La colaboración con El Hombre Pez es ficticia: no nombrar a su dueño ni presentarla como real. No publicar el presupuesto de marketing. Su caso usa `theme: azara` (colores y tipografías de la marca, estilos `.theme-azara` y bloques `.az-*` en global.css) y su web está copiada en `public/azara/`.
 - Pendiente de añadir: anda CONMiGO (repo privado TeresaBarrero/andaconmigo-web) y Nebula (CRM ajustable).
+- Cada caso tiene su tema visual (`theme` en el .md → clase `.theme-<tema>` en global.css, que cambia colores, tipografías, botones, pie y botón «volver arriba»): `azara` (verde y naranja; Cormorant Garamond + Jost), `panthera` (carbón #283033 y turquesa #1ED3D3, el turquesa solo de relleno con texto carbón; Ultra + Bebas Neue + Barlow, como su web) y `castuo` (marrón #75502D, crema y vino #8B1E24; Cinzel + Lora). Un caso nuevo debe llevar el suyo con los colores de la marca.
 - Mantener `public/llms.txt` al día cuando cambien los casos.
 
 ## Comandos
