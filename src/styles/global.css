@@ -719,44 +719,54 @@ body.menu-open .totop,html.lb-open .totop{opacity:0;pointer-events:none}
 
 /* =====================================================================
    TEMA PANTHERA FITNESS (.case-page.theme-panthera)
-   Colores y tipografías de su web: gris carbón #283033 y turquesa #1ED3D3;
+   Como su web: fondo gris carbón y turquesa #1ED3D3 como color de acento
+   (títulos de sección, cifras, enlaces y botones, con texto carbón sobre turquesa);
    Ultra (títulos), Bebas Neue (cifras) y Barlow (texto).
-   El turquesa no contrasta sobre claro: en texto se usa --accent (turquesa oscuro)
-   y el turquesa puro solo de relleno, con texto carbón encima.
    ===================================================================== */
 .theme-panthera,body:has(.theme-panthera) .totop{
-  --paper:#F4F7F7; --paper-2:#E3EAEA; --ink:#283033; --muted:#566265; --line:#D2DBDB; --ghost:#A9B4B5;
-  --accent:#0A7272; --accent-soft:#1ED3D3; --pa-cyan:#1ED3D3; --pa-cyan-ink:#04201F;
+  --paper:#1F2629; --paper-2:#283033; --ink:#EEF3F3; --muted:#AAB5B6; --line:#3A4548; --ghost:#5F6C6F;
+  --accent:#1ED3D3; --accent-soft:#1ED3D3; --pa-cyan:#1ED3D3; --pa-cyan-ink:#04201F;
   --f-display:"Ultra","Rockwell",Georgia,serif;
-  --f-mono:"Barlow","Helvetica Neue",Arial,sans-serif
+  --f-mono:"Barlow","Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark
 }
 .theme-panthera{background:var(--paper);color:var(--ink);font-family:"Barlow","Helvetica Neue",Arial,sans-serif}
 .theme-panthera .mono{font-weight:600;letter-spacing:.12em}
-.theme-panthera :is(.h1,.gal-t,.next .t,.mail-mq span,.dc-k,.dc-l h3,.dc-r h3){font-weight:400;letter-spacing:.01em;font-variation-settings:normal;text-transform:uppercase}
+.theme-panthera .case-hero>.mono{color:var(--pa-cyan)}
+.theme-panthera :is(.h1,.gal-t,.next .t,.mail-mq span,.toc-m){font-weight:400;letter-spacing:.01em;font-variation-settings:normal;text-transform:uppercase}
 .theme-panthera .case-hero .h1{font-size:clamp(2.3rem,8.6vw,7.4rem);line-height:.95}
 .theme-panthera .case-hero .lead{font-weight:500}
-.theme-panthera .metric b{font-family:"Bebas Neue","Oswald",Impact,sans-serif;font-weight:400;letter-spacing:.01em;font-size:clamp(3rem,6vw,5rem);line-height:.9}
-.theme-panthera .case-md>h2,.theme-panthera .case-toc ol a b{color:var(--accent)}
-.theme-panthera .case-md>h2::before{background:var(--pa-cyan);opacity:.6}
+.theme-panthera .metric b{font-family:"Bebas Neue","Oswald",Impact,sans-serif;font-weight:400;letter-spacing:.01em;font-size:clamp(3rem,6vw,5rem);line-height:.9;color:var(--pa-cyan)}
+.theme-panthera .case-meta,.theme-panthera .next{border-color:var(--pa-cyan)}
+.theme-panthera .case-md>h2,.theme-panthera .case-body .blk>h2,.theme-panthera #galeria>h2,.theme-panthera .case-toc ol a b{color:var(--pa-cyan)!important}
+.theme-panthera .case-md>h2::before{background:var(--pa-cyan);opacity:.7}
+.theme-panthera .case-md li::marker{color:var(--pa-cyan)}
+.theme-panthera .case-md a{color:var(--pa-cyan)}
+.theme-panthera .gal-t{color:var(--ink)}
 .theme-panthera .next .t{font-size:clamp(2rem,6.6vw,5.4rem)}
-.theme-panthera .next:hover .t{color:var(--accent)}
-.theme-panthera .case-top::after{background:var(--pa-cyan)}
-/* Botones rellenos en turquesa con texto carbón, como en su web */
+.theme-panthera .close:hover b{background:var(--pa-cyan);border-color:var(--pa-cyan);color:var(--pa-cyan-ink)}
+.theme-panthera .gal .g-mob img{border-color:#0E1314}
+/* Botones: turquesa relleno con texto carbón, o borde turquesa */
+.theme-panthera .case-btns a{border-color:var(--pa-cyan);color:var(--pa-cyan)}
+.theme-panthera .case-btns a:hover{background:var(--pa-cyan);color:var(--pa-cyan-ink)}
 @media (min-width:860px){
   .theme-panthera :is(.gal-more a.sb:first-child,.web-full a.sb),.theme-panthera :is(.gal-more,.web-full) a.sb:hover{background:var(--pa-cyan);border-color:var(--pa-cyan);color:var(--pa-cyan-ink)}
-  .theme-panthera .case-nets a.sb:hover{background:var(--ink);color:var(--pa-cyan)}
 }
 @media (max-width:859.98px){
   .theme-panthera .case-btns a.sb:first-child,.theme-panthera .case-btns a.sb:is(:hover,:active){background:var(--pa-cyan);border-color:var(--pa-cyan);color:var(--pa-cyan-ink)}
 }
-/* Pie en carbón con detalles en turquesa */
-.theme-panthera .contact{background:#1F2629}
+/* Pie un tono más oscuro, con detalles en turquesa */
+.theme-panthera .contact{background:#151B1D;color:#EEF3F3}
 .theme-panthera .contact .label::before{background:var(--pa-cyan)}
-.theme-panthera .mail-mq{border-color:#3A4548}
+.theme-panthera :is(.mail-mq,.foot){border-color:#2E383B}
 .theme-panthera .mail-mq span:nth-child(even){-webkit-text-stroke-color:var(--pa-cyan)}
-.theme-panthera .mail button:hover{background:var(--pa-cyan);color:var(--pa-cyan-ink)}
+.theme-panthera .mail button{background:var(--pa-cyan);color:var(--pa-cyan-ink)}
+.theme-panthera .mail button:hover{background:#EEF3F3;color:var(--pa-cyan-ink)}
 .theme-panthera .socials a:hover,.theme-panthera .tel:hover{color:var(--pa-cyan);border-color:var(--pa-cyan)}
-body:has(.theme-panthera) .totop:hover{background:var(--pa-cyan);color:var(--pa-cyan-ink)}
+body:has(.theme-panthera) .totop{background:var(--pa-cyan);color:var(--pa-cyan-ink);--accent-soft:#04201F}
+body:has(.theme-panthera) .totop .tt-bg{stroke:rgba(4,32,31,.18)}
+body:has(.theme-panthera) .totop:hover{background:#EEF3F3}
+body:has(.theme-panthera) .lb-x:hover{background:var(--pa-cyan);color:var(--pa-cyan-ink)}
 .theme-panthera ::selection{background:var(--pa-cyan);color:var(--pa-cyan-ink)}
 
 /* =====================================================================
