@@ -1,4 +1,8 @@
 ---
+import '@fontsource/cormorant-garamond/600.css';
+import '@fontsource/cormorant-garamond/500-italic.css';
+import '@fontsource/jost/400.css';
+import '@fontsource/jost/500.css';
 import Base from '../layouts/Base.astro';
 import ProjectArt from './ProjectArt.astro';
 import NetButton from './NetButton.astro';
@@ -26,7 +30,7 @@ const toc = [
   { id: 'solucion', t: s.solution },
   ...(d.highlights.length ? [{ id: 'claves', t: s.results }] : []),
   ...headings.filter((h) => h.depth === 2).map((h) => ({ id: h.slug, t: h.text })),
-  ...(d.gallery.length ? [{ id: 'galeria', t: s.gallery }] : []),
+  ...(d.gallery.length ? [{ id: 'galeria', t: d.galleryTitle ?? s.gallery }] : []),
 ];
 const hasBody = Boolean(p.body && p.body.trim());
 const layoutClass = { long: 'g-long', mobile: 'g-mob', post: 'g-post', wide: 'g-wide', full: 'g-full', fit: 'g-full g-fit', social: 'g-soc' } as const;
@@ -50,7 +54,7 @@ const jsonLd = {
 };
 ---
 <Base lang={lang} title={`${d.title} · ${profile.name}`} description={d.lead} alternate={projectPath(other, slug)} jsonLd={jsonLd}>
-  <div class="case-page">
+  <div class={d.theme ? `case-page theme-${d.theme}` : "case-page"}>
     <div class="case-top"><div class="wrap">
       <a class="mono muted" href={workHref} style="text-decoration:none">← {s['case.back']} / {d.title}</a>
       <div class="top-r">
@@ -97,7 +101,7 @@ const jsonLd = {
       </section>
       {d.gallery.length > 0 && (
         <section class="wrap" id="galeria">
-          <h2 class="mono muted" style="padding-bottom:16px;margin:0;font-weight:400">{s.gallery}</h2>
+          <h2 class="mono muted" style="padding-bottom:16px;margin:0;font-weight:400">{d.galleryTitle ?? s.gallery}</h2>
           {groups.map((gr) => (
             <div class="gal-grp">
               {gr.title && <h3 class="gal-t">{gr.title}</h3>}

@@ -15,7 +15,8 @@ Portfolio bilingüe (es/en) en Astro 5, estático, publicado en GitHub Pages con
 - Panthera Fitness Guareña es un cliente real (web: https://pantherafitnessguarena.com/).
 - La web de anda CONMiGO fue una propuesta que no se llegó a publicar: preséntala como "Propuesta".
 - Castúo Cooperativa es un proyecto académico del máster del CEI (2025): sus cifras de objetivos son metas, no resultados. El análisis va en el cuerpo del .md (secciones ## que se maquetan en columnas); las imágenes son piezas recortadas de la presentación, nunca diapositivas enteras.
-- Pendiente de añadir: anda CONMiGO (repo privado TeresaBarrero/andaconmigo-web), Nebula (CRM ajustable) y Azara Coffee (marca en creación; hoy solo tarjeta "En proceso").
+- AZARA Coffee es un proyecto conceptual de marca (no es un negocio real): debe indicarse siempre, junto con que las imágenes se generaron con IA. La colaboración con El Hombre Pez es ficticia: no nombrar a su dueño ni presentarla como real. No publicar el presupuesto de marketing. Su caso usa `theme: azara` (colores y tipografías de la marca, estilos `.theme-azara` y bloques `.az-*` en global.css) y su web está copiada en `public/azara/`.
+- Pendiente de añadir: anda CONMiGO (repo privado TeresaBarrero/andaconmigo-web) y Nebula (CRM ajustable).
 - Mantener `public/llms.txt` al día cuando cambien los casos.
 
 ## Comandos

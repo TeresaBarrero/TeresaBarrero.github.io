@@ -9,6 +9,7 @@
 
 ## Casos de estudio
 
+- [AZARA Coffee · Marca y marketing 360º](https://teresabarrero.github.io/proyectos/azara-coffee/): proyecto conceptual. Cafetería de especialidad inspirada en Sevilla con un ritual propio (maridaje aromático) y un calendario olfativo de cuatro temporadas. Naming, identidad visual, plan de marketing 360º, web, calendario de redes, ficha de Google y objetivos SMART.
 - [Panthera Fitness · Diseño web y community management](https://teresabarrero.github.io/proyectos/panthera-fitness/): cliente real, gimnasio en Guareña (Badajoz). Web mobile first con formulario propio y GA4 en Consent Mode v2, redes sociales (base de marca, calendario de pre-apertura y plan de Facebook) y SEO local (Google Business Profile, datos estructurados ExerciseGym y llms.txt).
 - [Castúo Cooperativa · Marketing digital y marca](https://teresabarrero.github.io/proyectos/castuo-cooperativa/): proyecto de máster (CEI, 2025). Análisis de competencia, DAFO, buyer personas, objetivos SMART, rediseño web, blog, newsletters, landing pages, Google Ads, Meta Ads, redes y presupuesto.
 

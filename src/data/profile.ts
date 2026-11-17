@@ -76,6 +76,6 @@ export const disciplines: Record<Lang, Disc[]> = {
 
 // Proyectos en marcha que aún no tienen caso de estudio (aparecen como tarjeta "En proceso").
 export const inProgress: Record<Lang, { title: string; text: string; year: number }[]> = {
-  es: [{ title: 'Azara Coffee', text: 'Branding, web y marketing digital online y offline', year: 2026 }],
-  en: [{ title: 'Azara Coffee', text: 'Branding, website and online & offline digital marketing', year: 2026 }],
+  es: [],
+  en: [],
 };

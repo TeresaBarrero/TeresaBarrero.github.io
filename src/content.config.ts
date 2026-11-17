@@ -27,6 +27,10 @@ const projects = defineCollection({
     cover: z.string().optional(),
     /** Color propio del proyecto (botón fijo «Ver proyecto completo»). Por defecto, tinta. */
     accent: z.string().optional(),
+    /** Tema visual propio del caso (colores y tipografías de la marca), p. ej. «azara» */
+    theme: z.string().optional(),
+    /** Título de la galería en este caso (por defecto «Galería») */
+    galleryTitle: z.string().optional(),
     challenge: z.string(),
     solution: z.string(),
     highlights: z.array(z.object({ value: z.string(), label: z.string() })).default([]),

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AZARA Coffee · Café del mundo, alma de Sevilla</title>
+
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jost-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jost-latin-500-normal.woff2) format('woff2')}
+</style>
+<style>
+:root{--verde:#1A3C2F;--naranja:#F39C12;--cal:#FBFBF9;--oro:#D4AF37;--texto:#22302A;--suave:#4A5A52;--arena:#F3E9DC;--linea:#E2DDD2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cal);color:var(--texto);font-family:'Jost',system-ui,sans-serif;font-size:17px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--verde)}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;color:var(--verde);line-height:1.1;margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--suave);font-weight:500}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.04em;border:1.5px solid transparent;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--naranja);color:var(--verde)}
+.btn-primary:hover{background:#e08e0b}
+.btn-ghost{border-color:var(--cal);color:var(--cal)}
+.btn-ghost:hover{background:rgba(251,251,249,.12)}
+.btn-dark{background:var(--verde);color:var(--cal)}
+.btn-dark:hover{background:#0F2A20}
+/* nav */
+header{position:sticky;top:0;z-index:20;background:rgba(251,251,249,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--linea)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;--bg:#FBFBF9;--ink:#1A3C2F;--acc:#F39C12;--gold:#D4AF37}
+.brand span{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;letter-spacing:.18em;color:var(--verde)}
+.nav ul{list-style:none;display:flex;gap:24px;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{text-decoration:none;font-size:15px;color:var(--texto)}
+.nav ul a:hover{color:var(--verde);text-decoration:underline;text-underline-offset:4px}
+/* hero */
+.hero{position:relative;min-height:640px;display:flex;align-items:flex-end;color:var(--cal);background:#1A3C2F url('img/fachada.jpg') center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,42,32,.88) 0%,rgba(15,42,32,.45) 45%,rgba(15,42,32,.1) 100%)}
+.hero .wrap{position:relative;padding-bottom:72px;padding-top:120px}
+.hero h1{color:var(--cal);font-size:clamp(44px,7vw,84px);max-width:780px}
+.hero p.lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,2.6vw,30px);margin:16px 0 32px;color:var(--cal)}
+.hero .kicker{color:#F7D9A8}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.banner{background:var(--verde);color:var(--cal);text-align:center;padding:14px 24px;font-size:15px;letter-spacing:.06em}
+.banner strong{color:var(--naranja);font-weight:500}
+section{padding:96px 0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split img{border-radius:18px;width:100%;aspect-ratio:4/5;object-fit:cover}
+h2{font-size:clamp(36px,4.6vw,54px);margin:12px 0 20px}
+.intro{max-width:620px;color:var(--suave)}
+/* ritual */
+.steps{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:22px}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start}
+.num{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--verde);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--verde)}
+.steps h3{font-size:26px;margin-bottom:4px}
+.steps p{margin:0;color:var(--suave)}
+.note{margin-top:28px;padding:18px 22px;background:var(--arena);border-radius:14px;font-size:15px}
+/* temporadas */
+.temporadas{background:var(--arena)}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0}
+.tab{padding:10px 20px;border-radius:999px;border:1.5px solid var(--verde);background:transparent;color:var(--verde);font-family:inherit;font-size:15px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--verde);color:var(--cal)}
+.panel{background:var(--cal);border-radius:18px;padding:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.panel div .kicker{display:block;margin-bottom:6px}
+.panel .val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--verde);line-height:1.15}
+.panel p{grid-column:1/-1;margin:0;color:var(--suave);border-top:1px solid var(--linea);padding-top:18px}
+.now{display:inline-block;margin-left:8px;font-size:12px;padding:2px 10px;border-radius:999px;background:var(--naranja);color:var(--verde);vertical-align:middle;letter-spacing:.06em}
+/* historia */
+.historia{background:var(--verde);color:var(--cal)}
+.historia h2{color:var(--cal)}
+.historia .kicker{color:#F7D9A8}
+.historia p{color:#E6ECE8;max-width:640px}
+.historia .mark{--bg:#1A3C2F;--ink:#FBFBF9;--acc:#F39C12;--gold:#D4AF37}
+.cols{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+/* tienda */
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--linea);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.card .body{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:26px}
+.card p{margin:0;color:var(--suave);font-size:15px;flex:1}
+.soon{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin-top:10px}
+.card.sub{background:var(--verde);border:none;color:var(--cal);justify-content:center}
+.card.sub h3{color:var(--cal)}
+.card.sub p{color:#E6ECE8}
+.card.sub .body{justify-content:center;padding:36px}
+/* visita */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.info dl{margin:24px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 24px}
+.info dt{font-weight:500}
+.info dd{margin:0;color:var(--suave)}
+form{background:var(--arena);padding:32px;border-radius:18px;display:grid;gap:16px;align-content:start}
+label{font-size:14px;font-weight:500;display:grid;gap:6px}
+input,select{font:inherit;padding:12px 14px;border-radius:10px;border:1px solid #CFC8BB;background:#fff;color:var(--texto)}
+input:focus,select:focus{outline:2px solid var(--naranja);outline-offset:1px}
+.ok{display:none;background:var(--verde);color:var(--cal);padding:16px 18px;border-radius:12px}
+.small{font-size:13px;color:var(--suave)}
+footer{background:#0F2A20;color:#CFD9D3;padding:56px 0 40px;font-size:15px}
+footer .row{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start}
+footer .brand span{color:var(--cal)}
+footer .brand{--bg:#0F2A20;--ink:#FBFBF9;--acc:#F39C12;--gold:#D4AF37}
+footer a{color:#F7D9A8}
+.legal{margin-top:36px;padding-top:20px;border-top:1px solid #2B4A3D;font-size:13px;color:#A9B8B0}
+@media (max-width:860px){
+ .split,.visit,.cols{grid-template-columns:1fr;gap:36px}
+ .grid3{grid-template-columns:1fr}
+ .panel{grid-template-columns:1fr}
+ section{padding:64px 0}
+ .hero{min-height:560px}
+ .nav ul{gap:16px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#inicio" aria-label="AZARA Coffee, inicio"><svg viewBox="-100 -100 200 200" width="44" height="44" role="img" aria-label="AZARA Coffee"><rect x="-88" y="-88" width="176" height="176" rx="22" style="fill:none;stroke:var(--ink);stroke-width:9"></rect><g><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><g transform="rotate(72)"><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><g transform="rotate(144)"><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><g transform="rotate(216)"><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><g transform="rotate(288)"><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><circle cx="0" cy="0" r="9" style="fill:var(--gold)"></circle></svg><span>AZARA</span></a>
+  <nav aria-label="Principal"><ul>
+   <li><a href="#ritual">El ritual</a></li>
+   <li><a href="#temporadas">Temporadas</a></li>
+   <li><a href="#historia">Historia</a></li>
+   <li><a href="#tienda">Tienda</a></li>
+   <li><a href="#visitanos">Visítanos</a></li>
+  </ul></nav>
+ </div>
+</header>
+
+<main id="inicio">
+<div class="hero" role="img" aria-label="Fachada encalada de AZARA Coffee con naranjos y rótulo de latón">
+ <div class="wrap">
+  <div class="kicker">Cafetería de especialidad · Madrid</div>
+  <h1>Café del mundo, alma de Sevilla.</h1>
+  <p class="lead">Huele primero. Sevilla viene detrás.</p>
+  <div class="ctas">
+   <a class="btn btn-primary" href="#visitanos">Apúntate a la apertura</a>
+   <a class="btn btn-ghost" href="#ritual">Descubre el ritual</a>
+  </div>
+ </div>
+</div>
+<div class="banner">Abrimos el <strong>4 de marzo</strong>, con la temporada de azahar</div>
+
+<section id="ritual">
+ <div class="wrap split">
+  <div>
+   <div class="kicker">El ritual del aroma</div>
+   <h2>Cada café llega con un aroma de Sevilla</h2>
+   <p class="intro">Lo llamamos maridaje aromático: un café de especialidad de origen y un aroma andaluz que lo acompaña y despierta sus notas.</p>
+   <ol class="steps">
+    <li><span class="num" aria-hidden="true">1</span><div><h3>Elige tu café</h3><p>Cafés de origen de Etiopía, Kenia, Colombia o Brasil, según la temporada.</p></div></li>
+    <li><span class="num" aria-hidden="true">2</span><div><h3>Huele su aroma</h3><p>Con el café llega un pozo de cerámica con el aroma de la temporada. Destápalo y huele.</p></div></li>
+    <li><span class="num" aria-hidden="true">3</span><div><h3>Bebe</h3><p>El aroma prepara el paladar: el café sabe distinto, y lo notarás.</p></div></li>
+   </ol>
+   <p class="note"><strong>¿Con prisa?</strong> El café para llevar lleva una lengüeta con el aroma de la temporada. Dóblala, huele y bebe: el ritual en diez segundos.</p>
+  </div>
+  <img src="img/vaso.jpg" alt="Vaso para llevar de AZARA con funda verde de azulejo y lengüeta aromática naranja, en un patio andaluz" loading="lazy">
+ </div>
+</section>
+
+<section id="temporadas" class="temporadas">
+ <div class="wrap split">
+  <img src="img/temporadas.jpg" alt="Taza de café en una mesa de patio rodeada de azahar, naranjas, membrillos y canela" loading="lazy">
+  <div>
+   <div class="kicker">El calendario olfativo</div>
+   <h2>Sevilla huele distinto en cada estación</h2>
+   <p class="intro">Nuestra carta, el aroma del local y los productos para casa cambian cuatro veces al año.</p>
+   <div class="tabs" role="tablist" aria-label="Temporadas">
+    <button class="tab" role="tab" id="t-primavera" aria-controls="panel" aria-selected="true" data-s="primavera">Primavera</button>
+    <button class="tab" role="tab" id="t-verano" aria-controls="panel" aria-selected="false" data-s="verano">Verano</button>
+    <button class="tab" role="tab" id="t-otono" aria-controls="panel" aria-selected="false" data-s="otono">Otoño</button>
+    <button class="tab" role="tab" id="t-invierno" aria-controls="panel" aria-selected="false" data-s="invierno">Invierno</button>
+   </div>
+   <div class="panel" id="panel" role="tabpanel" aria-labelledby="t-primavera">
+    <div><span class="kicker">Aroma</span><div class="val" id="v-aroma"></div></div>
+    <div><span class="kicker">Café</span><div class="val" id="v-cafe"></div></div>
+    <div><span class="kicker">Meses</span><div class="val" id="v-meses"></div></div>
+    <p id="v-texto"></p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="historia" class="historia">
+ <div class="wrap cols">
+  <div class="mark"><svg viewBox="-100 -100 200 200" width="96" height="96" role="img" aria-label="Isotipo de AZARA Coffee"><rect x="-88" y="-88" width="176" height="176" rx="16" style="fill:none;stroke:var(--ink);stroke-width:5"></rect><path d="M-88 -48 A40 40 0 0 0 -48 -88" style="fill:none;stroke:var(--ink);stroke-width:4"></path><path d="M48 -88 A40 40 0 0 0 88 -48" style="fill:none;stroke:var(--ink);stroke-width:4"></path><path d="M88 48 A40 40 0 0 0 48 88" style="fill:none;stroke:var(--ink);stroke-width:4"></path><path d="M-48 88 A40 40 0 0 0 -88 48" style="fill:none;stroke:var(--ink);stroke-width:4"></path><rect x="-54" y="-54" width="108" height="108" style="fill:none;stroke:var(--ink);stroke-width:4"></rect><rect x="-54" y="-54" width="108" height="108" style="fill:none;stroke:var(--ink);stroke-width:4" transform="rotate(45)"></rect><g><ellipse cx="0" cy="-23" rx="11" ry="19" style="fill:var(--acc)"></ellipse><path d="M0 -39 C -5 -31 5 -17 0 -8" style="fill:none;stroke:var(--bg);stroke-width:2.5;stroke-linecap:round"></path></g><g transform="rotate(72)"><ellipse cx="0" cy="-23" rx="11" ry="19" style="fill:var(--acc)"></ellipse><path d="M0 -39 C -5 -31 5 -17 0 -8" style="fill:none;stroke:var(--bg);stroke-width:2.5;stroke-linecap:round"></path></g><g transform="rotate(144)"><ellipse cx="0" cy="-23" rx="11" ry="19" style="fill:var(--acc)"></ellipse><path d="M0 -39 C -5 -31 5 -17 0 -8" style="fill:none;stroke:var(--bg);stroke-width:2.5;stroke-linecap:round"></path></g><g transform="rotate(216)"><ellipse cx="0" cy="-23" rx="11" ry="19" style="fill:var(--acc)"></ellipse><path d="M0 -39 C -5 -31 5 -17 0 -8" style="fill:none;stroke:var(--bg);stroke-width:2.5;stroke-linecap:round"></path></g><g transform="rotate(288)"><ellipse cx="0" cy="-23" rx="11" ry="19" style="fill:var(--acc)"></ellipse><path d="M0 -39 C -5 -31 5 -17 0 -8" style="fill:none;stroke:var(--bg);stroke-width:2.5;stroke-linecap:round"></path></g><circle cx="0" cy="0" r="6" style="fill:var(--gold)"></circle></svg></div>
+  <div>
+   <div class="kicker">Nuestra historia</div>
+   <h2>Del Puerto de Indias a tu taza</h2>
+   <p>Durante dos siglos, casi todo lo que llegaba del Nuevo Mundo a Europa entraba por el Guadalquivir. AZARA recupera ese papel de puerta del mundo: los cafés de distintos orígenes llegan a un patio andaluz, donde los reciben la luz dorada, la cerámica artesanal y el olor a azahar.</p>
+   <p>Nuestro café lo tuesta El Hombre Pez, en Sevilla. Y el nombre lo dice todo: AZARA viene de azahar, la flor del naranjo que perfuma Sevilla cada primavera.</p>
+  </div>
+ </div>
+</section>
+
+<section id="tienda">
+ <div class="wrap">
+  <div class="kicker">Tienda</div>
+  <h2>Llévate la temporada a casa</h2>
+  <p class="intro">Café en grano o molido, aromas y cerámica hecha a mano en Andalucía.</p>
+  <div class="grid3">
+   <article class="card">
+    <img src="img/bolsa.jpg" alt="Bolsa de café de kraft con el logo de AZARA, junto a azahar, granos de café y media naranja" loading="lazy">
+    <div class="body"><h3>Café de temporada</h3><p>En grano o molido, 250 g y 1 kg, con su etiqueta de temporada.</p><span class="soon">Disponible el 4 de marzo</span></div>
+   </article>
+   <article class="card">
+    <img src="img/bodegon.jpg" alt="Bodegón con bolsa de café, vela en cerámica verde, frasco de agua de azahar y saquito de lino" loading="lazy">
+    <div class="body"><h3>Aromas para casa</h3><p>Velas, agua de azahar y saquitos con los aromas del calendario olfativo.</p><span class="soon">Disponible el 4 de marzo</span></div>
+   </article>
+   <article class="card sub">
+    <div class="body"><div class="kicker" style="color:#F7D9A8">Suscripción</div><h3>Cada temporada, en tu casa</h3><p>Recibe el café de cada temporada con su aroma, cuatro veces al año. Cancela cuando quieras.</p><a class="btn btn-primary" href="#visitanos" style="margin-top:12px;align-self:flex-start">Avísame</a></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="visitanos" class="temporadas">
+ <div class="wrap visit">
+  <div class="info">
+   <div class="kicker">Visítanos</div>
+   <h2>El patio te espera</h2>
+   <p class="intro">Abrimos el jueves 4 de marzo. Apúntate a la lista de espera y tu primer café de primavera corre de nuestra cuenta.</p>
+   <dl>
+    <dt>Dirección</dt><dd>[Dirección del local], Madrid</dd>
+    <dt>Lunes a viernes</dt><dd>8:00 a 20:00</dd>
+    <dt>Sábado</dt><dd>9:00 a 20:00</dd>
+    <dt>Domingo</dt><dd>9:30 a 15:00</dd>
+    <dt>Catas</dt><dd>Un sábado al mes, con reserva</dd>
+   </dl>
+  </div>
+  <form id="lista" novalidate>
+   <h3 style="font-size:30px">Lista de espera</h3>
+   <label>Nombre<input name="nombre" autocomplete="given-name" required></label>
+   <label>Email<input name="email" type="email" autocomplete="email" required></label>
+   <label>Me interesa
+    <select name="interes"><option>La apertura</option><option>La suscripción de temporada</option><option>Las catas de maridaje</option></select>
+   </label>
+   <button class="btn btn-dark" type="submit">Apuntarme</button>
+   <div class="ok" id="ok" role="status" aria-live="polite"></div>
+   <p class="small">Prototipo de porfolio: este formulario no envía ni guarda datos.</p>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="row">
+   <a class="brand" href="#inicio" aria-label="AZARA Coffee, volver arriba"><svg viewBox="-100 -100 200 200" width="56" height="56" role="img" aria-label="AZARA Coffee"><rect x="-88" y="-88" width="176" height="176" rx="22" style="fill:none;stroke:var(--ink);stroke-width:9"></rect><g><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><g transform="rotate(72)"><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><g transform="rotate(144)"><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><g transform="rotate(216)"><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><g transform="rotate(288)"><ellipse cx="0" cy="-40" rx="19" ry="31" style="fill:var(--acc)"></ellipse><path d="M0 -68 C -9 -54 9 -27 0 -12" style="fill:none;stroke:var(--bg);stroke-width:4.5;stroke-linecap:round"></path></g><circle cx="0" cy="0" r="9" style="fill:var(--gold)"></circle></svg><span>AZARA</span></a>
+   <div>Café del mundo, alma de Sevilla.<br>Café tostado por El Hombre Pez, Sevilla.</div>
+   <div>Instagram · Facebook<br><a href="#visitanos">Lista de espera</a></div>
+  </div>
+  <p class="legal">AZARA Coffee es un proyecto conceptual de marca desarrollado para porfolio. Las imágenes son provisionales y han sido generadas con IA.</p>
+ </div>
+</footer>
+
+<script>
+const S={
+ primavera:{aroma:'Azahar',cafe:'Etiopía lavado',meses:'Marzo a mayo',texto:'Las notas florales y de bergamota del café etíope despiertan con el azahar, la flor que da nombre a AZARA.',now:true},
+ verano:{aroma:'Jazmín y hierbabuena',cafe:'Kenia, también en cold brew',meses:'Junio a septiembre',texto:'La acidez brillante del café keniano, con la frescura del jazmín y la dama de noche de las noches sevillanas.'},
+ otono:{aroma:'Membrillo y castaña',cafe:'Colombia o Guatemala',meses:'Octubre y noviembre',texto:'Dulzor de caramelo y fruta madura, con el olor del membrillo y las castañas asadas.'},
+ invierno:{aroma:'Naranja amarga y canela',cafe:'Brasil o Perú',meses:'Diciembre a febrero',texto:'Chocolate y frutos secos, con la naranja amarga que Sevilla recoge en enero y la canela de sus dulces.'}
+};
+const tabs=[...document.querySelectorAll('.tab')];
+function show(k){
+ const s=S[k];
+ document.getElementById('v-aroma').textContent=s.aroma;
+ document.getElementById('v-cafe').textContent=s.cafe;
+ document.getElementById('v-meses').textContent=s.meses;
+ document.getElementById('v-texto').textContent=s.texto;
+ tabs.forEach(t=>{const on=t.dataset.s===k;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;if(on)document.getElementById('panel').setAttribute('aria-labelledby',t.id);});
+}
+tabs.forEach((t,i)=>{
+ t.addEventListener('click',()=>show(t.dataset.s));
+ t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];n.focus();show(n.dataset.s);}});
+});
+show('primavera');
+document.getElementById('lista').addEventListener('submit',e=>{
+ e.preventDefault();
+ const f=e.target, ok=document.getElementById('ok');
+ const n=f.nombre.value.trim(), m=f.email.value.trim();
+ if(!n||!/^\S+@\S+\.\S+$/.test(m)){ok.style.display='block';ok.textContent='Revisa tu nombre y tu email, por favor.';return;}
+ ok.style.display='block';
+ ok.textContent='¡Gracias, '+n+'! En la web real te avisaríamos de la apertura. (Demostración: no se ha enviado nada.)';
+ f.reset();
+});
+</script>
+</body>
+</html>
