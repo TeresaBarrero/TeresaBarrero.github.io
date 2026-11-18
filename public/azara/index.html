@@ -349,7 +349,7 @@ form.sent .done .fill{transform:scaleY(1)}
 .pour-stage{position:relative;display:grid;place-items:center}
 .pv{position:relative;width:min(100%,540px,calc(100svh - var(--hdr) - 80px));aspect-ratio:960/948;border-radius:28px;overflow:hidden;background:#E9DCCB;box-shadow:0 40px 80px -50px rgba(15,42,32,.55)}
 .pv::after{content:"";position:absolute;inset:14px;border:1px solid rgba(251,251,249,.45);border-radius:20px;pointer-events:none}
-.pv video{display:block;width:100%;height:100%;object-fit:cover}
+.pv img,.pv canvas{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
 .js .pour-copy .rv{transition-delay:0s}
 
 /* Taza flotante: se llena con la página y vuelve arriba */
@@ -432,6 +432,16 @@ footer a{color:#F7D9A8}
   .hero{min-height:min(88svh,720px)}
   .scroll-cue{display:none}
   .stage{aspect-ratio:1/1;padding:0}
+  /* Ritual en móvil: título, luego la foto y justo debajo los pasos, para ver cómo cambia */
+  .ritual-grid{gap:0}
+  .ritual-grid>div:not(.stage){display:contents}
+  .ritual-grid>.stage{order:2;aspect-ratio:4/3;margin-top:26px;border-radius:22px}
+  .ritual-grid .steps{order:3;margin-top:12px;gap:6px}
+  .step{grid-template-columns:42px 1fr;gap:14px;padding:12px}
+  .num{width:42px;height:42px;font-size:22px}
+  .step .h3{font-size:23px}
+  .step .p{font-size:15px}
+  .stage-cap{font-size:19px;bottom:16px}
   .season-art{margin:0 14px 0 14px}
   .season-badge{right:-10px;width:100px;height:100px}
   .season-badge b{font-size:26px}
@@ -518,7 +528,7 @@ footer a{color:#F7D9A8}
      </div>
     </div>
     <div class="pour-stage" aria-hidden="true">
-     <div class="pv"><video id="pvid" muted playsinline preload="auto" disablepictureinpicture poster="video/cafe-lleno.jpg" width="960" height="948"></video></div>
+     <div class="pv"><img id="pimg" src="video/cafe-lleno.jpg" alt="" width="960" height="948"><canvas id="pcv" width="900" height="888"></canvas></div>
     </div>
    </div>
   </div>
@@ -728,21 +738,27 @@ d.documentElement.classList.add('js');
 const hdr=$('#hdr'), bar=$('.progress'), btn=$('.menu-btn');
 const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)), ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
 const hero=$('.hero'), topcup=$('#topcup');
-/* La taza que se llena: el vídeo avanza y retrocede con el scroll, con sus textos y el contador.
-   El vídeo está codificado con todos los fotogramas clave para que se pueda mover a cualquier punto al instante. */
-const track=$('.pour-track'), vid=$('#pvid'), pct=$('#pct'), pli=$$('#psteps li'), dots=$$('.pour-meter .dots i');
-let lastStep=-1, vdur=0, want=0, busy=false;
-function seek(){if(!vdur||busy||Math.abs(vid.currentTime-want)<.02)return;busy=true;vid.currentTime=want}
+/* La taza que se llena: los fotogramas del vídeo se dibujan en un canvas al ritmo del scroll
+   (así funciona igual en iPhone, donde mover un vídeo con el scroll falla). Se cargan al acercarse a la sección,
+   primero unos pocos repartidos y luego el resto; mientras, se dibuja el más cercano ya cargado. */
+const track=$('.pour-track'), pct=$('#pct'), pli=$$('#psteps li'), dots=$$('.pour-meter .dots i');
+const cv=$('#pcv'), cx=cv.getContext('2d'), NF=72, FD=innerWidth<=700?'m':'d', FR=[];
+let lastStep=-1, want=0, drawn=-1;
+if(FD==='m'){cv.width=600;cv.height=592}
+function draw(){let j=want;while(j>=0&&!FR[j])j--;if(j<0){j=want;while(j<NF&&!FR[j])j++}if(j<0||j>=NF||j===drawn)return;cx.drawImage(FR[j],0,0,cv.width,cv.height);drawn=j}
 if(!RM){
- vid.poster='video/cafe-vacio.jpg';
- vid.src=innerWidth<=700?'video/cafe-640.mp4':'video/cafe-960.mp4';
- vid.addEventListener('loadedmetadata',()=>{vdur=vid.duration;seek()});
- vid.addEventListener('loadeddata',()=>{const pr=vid.play();if(pr)pr.then(()=>{vid.pause();seek()}).catch(()=>{})},{once:true});
- vid.addEventListener('seeked',()=>{busy=false;seek()});
+ $('#pimg').src='video/cafe-vacio.jpg';
+ const order=[0,NF-1];[12,6,3,1].forEach(s=>{for(let i=0;i<NF;i+=s)if(!order.includes(i))order.push(i)});
+ let k=0;
+ const next=()=>{if(k>=order.length)return;const i=order[k++],im=new Image();im.decoding='async';
+  im.onload=()=>{FR[i]=im;if(drawn<0||Math.abs(i-want)<Math.abs(drawn-want)){drawn=-1;draw()}next()};im.onerror=next;
+  im.src=`video/${FD}/${String(i+1).padStart(2,'0')}.webp`};
+ const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){io.disconnect();for(let c=0;c<4;c++)next()}},{rootMargin:'800px 0px'});
+ io.observe(track);
 }
 function pour(p){
  const v=cl((p-.03)/.92);
- want=Math.min(v*(vdur||5.16),(vdur||5.16)-.05);seek();
+ want=Math.round(v*(NF-1));draw();
  const f=cl((v-.19)/.62);
  pct.textContent=Math.round(f*100)+' %';
  const st=v<.15?0:v<.45?1:v<.85?2:3;
@@ -833,7 +849,9 @@ function go(n){cur=n;art.dataset.step=n;steps.forEach(s=>s.setAttribute('aria-pr
  if(n===1){art.querySelectorAll('.bean').forEach(b=>{b.style.animation='none';b.getBBox();b.style.animation=''})}}
 function loop(){clearTimeout(timer);if(!auto||!visible)return;stepsBox.classList.add('autoplay');timer=setTimeout(()=>{go(cur%3+1);restartBar();loop()},DUR)}
 function restartBar(){const b=steps[cur-1]?.querySelector('.bar');if(b){b.style.display='none';b.offsetWidth;b.style.display=''}}
-steps.forEach(s=>s.addEventListener('click',()=>{auto=false;clearTimeout(timer);stepsBox.classList.remove('autoplay');go(+s.dataset.step)}));
+steps.forEach(s=>s.addEventListener('click',()=>{auto=false;clearTimeout(timer);stepsBox.classList.remove('autoplay');go(+s.dataset.step);
+ /* En móvil, si la foto se ha quedado arriba, se sube lo justo para verla cambiar */
+ if(innerWidth<=900){const r=$('.stage').getBoundingClientRect(),top=hdr.offsetHeight+12;if(r.top<top)scrollBy({top:r.top-top,behavior:RM?'auto':'smooth'})}}));
 new IntersectionObserver(es=>es.forEach(e=>{visible=e.isIntersecting;if(visible){if(!cur)go(1);loop()}else clearTimeout(timer)}),{threshold:.35}).observe(art);
 if(RM){go(3);stepsBox.classList.remove('autoplay')}
 
