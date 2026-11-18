@@ -8,3 +8,4 @@ export const img = (file: string) => u(`images/${file}`);
 export const home = (lang: Lang) => (lang === 'es' ? u('/') : u('/en/'));
 export const projectPath = (lang: Lang, slug: string) =>
   lang === 'es' ? u(`/proyectos/${slug}/`) : u(`/en/projects/${slug}/`);
+export const legalPath = (lang: Lang) => (lang === 'es' ? u('/aviso-legal/') : u('/en/legal/'));

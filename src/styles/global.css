@@ -272,8 +272,8 @@ body.menu-open .menu li a{transform:none}
 .socials a{font-size:var(--s-sm);text-decoration:none;color:#C9CBD1;border-bottom:1px solid #3A3C43;padding-bottom:2px;transition:color .3s,border-color .3s}
 .socials a:hover{color:#fff;border-color:#fff}
 .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:clamp(56px,8vw,110px);padding-top:20px;border-top:1px solid #2A2C32;color:#9A9DA6}
-.foot button{color:#9A9DA6;text-decoration:underline;text-underline-offset:3px;font-family:inherit;font-size:inherit;letter-spacing:inherit;text-transform:inherit}
-.foot button:hover{color:#fff}
+.foot :is(button,a){color:#9A9DA6;text-decoration:underline;text-underline-offset:3px;font-family:inherit;font-size:inherit;letter-spacing:inherit;text-transform:inherit}
+.foot :is(button,a):hover{color:#fff}
 
 /* ---------- Grid overlay & cursor ---------- */
 .grid-ov{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:0;transition:opacity .4s}
@@ -791,7 +791,7 @@ body:has(.theme-panthera) .lb-x:hover{background:var(--pa-cyan);color:var(--pa-c
 .theme-castuo .next .t{font-size:clamp(2rem,6.6vw,5.6rem)}
 .theme-castuo .contact{background:var(--ink)}
 .theme-castuo .contact .label::before{background:var(--accent-soft)}
-.theme-castuo .contact .mono,.theme-castuo .foot,.theme-castuo .foot button{color:#BFAE98}
+.theme-castuo .contact .mono,.theme-castuo .foot,.theme-castuo .foot :is(button,a){color:#BFAE98}
 .theme-castuo :is(.mail-mq,.foot){border-color:#5A4330}
 .theme-castuo .mail-mq span:nth-child(even){-webkit-text-stroke-color:var(--accent-soft)}
 .theme-castuo :is(.mail,.tel){border-color:#6A5038}
@@ -930,3 +930,11 @@ body:has(.theme-nido) .totop:hover{background:var(--ink)}
 body:has(.theme-nebula) .totop{background:var(--accent);color:#fff}
 body:has(.theme-nebula) .totop:hover{background:var(--ink)}
 .theme-nebula ::selection{background:var(--nb-peach);color:var(--ink)}
+
+/* ---------- Aviso legal y privacidad ---------- */
+.legal{max-width:72ch;padding-block:clamp(48px,8vw,120px)}
+.legal .h2{font-family:var(--f-display);font-size:clamp(2.2rem,6vw,4.4rem);letter-spacing:-.04em;line-height:1;font-weight:500;margin:14px 0 clamp(32px,5vw,56px)}
+.legal h2{font-family:var(--f-display);font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:500;letter-spacing:-.02em;margin:40px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
+.legal p,.legal li{line-height:1.65}
+.legal ul{padding-left:1.2em}
+.legal a{text-underline-offset:3px}

@@ -1,6 +1,7 @@
 ---
 import { t, type Lang } from '../i18n/ui';
 import { profile } from '../data/profile';
+import { legalPath } from '../lib/paths';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const s = t(lang);
@@ -22,6 +23,7 @@ const mq = Array.from({ length: 4 }).flatMap(() => [s.mq, s.mq]);
       <span>© {new Date().getFullYear()} {profile.name}</span>
       <span>{s.time} · <span id="clock">--:--</span></span>
       <button type="button" id="gridBtn">{s.grid}</button>
+      <a href={legalPath(lang)}>{s.legal}</a>
       <span>{s.built}</span>
     </div>
   </div>

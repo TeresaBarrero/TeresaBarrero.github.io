@@ -1,0 +1,103 @@
+---
+// Aviso legal y política de privacidad (es/en). Para cambiar un texto, edítalo aquí en los dos idiomas.
+import Base from '../layouts/Base.astro';
+import LangSwitch from './LangSwitch.astro';
+import Contact from './Contact.astro';
+import { type Lang } from '../i18n/ui';
+import { profile } from '../data/profile';
+import { home, legalPath } from '../lib/paths';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const other = lang === 'es' ? 'en' : 'es';
+const owner = 'María Teresa Barrero Isidoro';
+const updated = lang === 'es' ? '18 de noviembre de 2026' : '18 November 2026';
+const mailto = `mailto:${profile.email}`;
+const es = lang === 'es';
+---
+<Base lang={lang} title={es ? `Aviso legal y privacidad · ${profile.name}` : `Legal notice and privacy · ${profile.name}`} description={es ? 'Aviso legal y política de privacidad del portfolio de María Teresa Barrero.' : 'Legal notice and privacy policy of María Teresa Barrero’s portfolio.'} alternate={legalPath(other)}>
+  <div class="case-page">
+    <div class="case-top"><div class="wrap">
+      <a class="mono muted" href={home(lang)} style="text-decoration:none">← {es ? 'Portfolio' : 'Portfolio'}</a>
+      <div class="top-r"><LangSwitch lang={lang} alternate={legalPath(other)} /></div>
+    </div></div>
+    <main id="contenido" class="wrap legal">
+      <span class="mono muted">{es ? `Última actualización: ${updated}` : `Last updated: ${updated}`}</span>
+      <h1 class="h2">{es ? 'Aviso legal y privacidad' : 'Legal notice and privacy'}</h1>
+      {es ? (
+        <>
+          <h2>Quién está detrás de esta web</h2>
+          <p>Esta web es el portfolio profesional de <b>{owner}</b>. Sirve para mostrar mis trabajos y para que puedas contactar conmigo. Puedes escribirme a <a href={mailto}>{profile.email}</a> o llamarme al <a href={profile.phoneHref}>{profile.phone}</a>.</p>
+
+          <h2>Contenido y propiedad intelectual</h2>
+          <p>Los textos, diseños e imágenes de esta web son de mi autoría, salvo que se indique otra cosa. No puedes copiarlos ni reutilizarlos sin mi permiso.</p>
+          <ul>
+            <li>Los trabajos para clientes se muestran con su permiso, y sus marcas y logotipos pertenecen a sus titulares.</li>
+            <li>Los proyectos conceptuales y académicos se señalan como tales, y sus cifras son objetivos, no resultados.</li>
+            <li>Cuando una imagen está generada con inteligencia artificial, se indica en su caso.</li>
+          </ul>
+          <p>Las menciones a otras marcas o empresas son solo informativas.</p>
+
+          <h2>Enlaces a otras webs</h2>
+          <p>Algunos enlaces llevan a webs de terceros, como LinkedIn, GitHub, Instagram, Canva o webs de clientes. No soy responsable de su contenido ni de cómo tratan tus datos: consulta sus propias políticas.</p>
+
+          <h2>Privacidad: qué datos se recogen</h2>
+          <p><b>Esta web no recoge tus datos.</b></p>
+          <ul>
+            <li>No usa cookies.</li>
+            <li>No usa herramientas de analítica ni de publicidad.</li>
+            <li>No tiene formularios.</li>
+            <li>Las fuentes tipográficas se cargan desde la propia web, no desde servicios externos.</li>
+          </ul>
+          <p>Solo el botón «Copiar email» usa el portapapeles de tu navegador, y únicamente cuando lo pulsas.</p>
+          <p>Si me escribes o me llamas, usaré tu nombre, tu contacto y lo que me cuentes solo para responderte y, si llega el caso, para hablar del proyecto o la oferta. La base legal es tu consentimiento al contactarme. No cedo tus datos a nadie y los borro cuando dejan de ser necesarios.</p>
+
+          <h2>Alojamiento</h2>
+          <p>La web está alojada en GitHub Pages (GitHub, Inc.). Como cualquier servidor, puede registrar datos técnicos de la visita, como la dirección IP, por motivos de seguridad. Más información en la <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">declaración de privacidad de GitHub</a>.</p>
+          <p>Las demos de mis apps, <b>Nido</b> y <b>nebúla</b>, son webs aparte alojadas en Vercel y tienen su propia política de privacidad.</p>
+
+          <h2>Tus derechos</h2>
+          <p>Puedes pedirme en cualquier momento que te diga qué datos tengo sobre ti, que los corrija o que los borre. También puedes oponerte a su uso, limitarlo o pedir que te los entregue. Para ello, escríbeme a <a href={mailto}>{profile.email}</a>.</p>
+          <p>Si crees que no he atendido bien tu petición, puedes reclamar ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
+        </>
+      ) : (
+        <>
+          <h2>Who is behind this website</h2>
+          <p>This website is the professional portfolio of <b>{owner}</b>. It shows my work and lets you get in touch. You can email me at <a href={mailto}>{profile.email}</a> or call me on <a href={profile.phoneHref}>+34 {profile.phone}</a>.</p>
+
+          <h2>Content and intellectual property</h2>
+          <p>The texts, designs and images on this website are my own work, unless stated otherwise. You may not copy or reuse them without my permission.</p>
+          <ul>
+            <li>Client work is shown with the client’s permission, and their brands and logos belong to their owners.</li>
+            <li>Concept and academic projects are labelled as such, and their figures are goals, not results.</li>
+            <li>When an image was generated with artificial intelligence, the case study says so.</li>
+          </ul>
+          <p>References to other brands or companies are for information only.</p>
+
+          <h2>Links to other websites</h2>
+          <p>Some links lead to third-party websites, such as LinkedIn, GitHub, Instagram, Canva or client websites. I am not responsible for their content or for how they handle your data: please check their own policies.</p>
+
+          <h2>Privacy: what data is collected</h2>
+          <p><b>This website does not collect your data.</b></p>
+          <ul>
+            <li>It uses no cookies.</li>
+            <li>It uses no analytics or advertising tools.</li>
+            <li>It has no forms.</li>
+            <li>Fonts are served from the website itself, not from external services.</li>
+          </ul>
+          <p>Only the “Copy email” button uses your browser’s clipboard, and only when you press it.</p>
+          <p>If you email or call me, I will use your name, your contact details and what you tell me only to reply and, where relevant, to discuss the project or job offer. The legal basis is your consent when you contact me. I don’t share your data with anyone and I delete it once it is no longer needed.</p>
+
+          <h2>Hosting</h2>
+          <p>The website is hosted on GitHub Pages (GitHub, Inc.). Like any server, it may log technical data about your visit, such as your IP address, for security reasons. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
+          <p>The demos of my apps, <b>Nido</b> and <b>nebúla</b>, are separate websites hosted on Vercel, each with its own privacy policy.</p>
+
+          <h2>Your rights</h2>
+          <p>You can ask me at any time to tell you what data I hold about you, to correct it or to delete it. You can also object to its use, restrict it or ask me to hand it over to you. To do so, email me at <a href={mailto}>{profile.email}</a>.</p>
+          <p>If you think I have not handled your request properly, you can complain to the <a href="https://www.aepd.es/en" target="_blank" rel="noopener">Spanish Data Protection Agency (AEPD)</a>.</p>
+        </>
+      )}
+    </main>
+    <Contact lang={lang} />
+  </div>
+</Base>
