@@ -161,6 +161,13 @@ h2{font-size:clamp(38px,4.8vw,58px);margin:14px 0 20px}
 .art[data-step="3"] .cup{transform:rotate(-9deg) translateY(-14px)}
 .art[data-step="3"] .coffee{transform:scale(.62);transition-delay:.3s}
 .art[data-step="3"] .steam path{stroke:#A79D88}
+/* Ritual con fotos: una por paso, con fundido y un zoom lento */
+.stage .shots{position:absolute;inset:0}
+.stage .shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.1);transition:opacity 1s var(--ease),transform 7s cubic-bezier(.2,.6,.3,1)}
+.shots:is([data-step="0"],[data-step="1"]) img[data-s="1"],.shots[data-step="2"] img[data-s="2"],.shots[data-step="3"] img[data-s="3"]{opacity:1;transform:scale(1)}
+.stage:has(.shots)::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to top,rgba(15,42,32,.78),transparent);pointer-events:none}
+.stage:has(.shots)::before{z-index:2;border-color:rgba(251,251,249,.45)}
+.stage:has(.shots) .stage-cap{z-index:3;color:var(--cal);text-shadow:0 1px 8px rgba(15,42,32,.6)}
 /* Pasos */
 .steps{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:10px}
 .step{width:100%;display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;text-align:left;background:none;border:1px solid transparent;border-radius:18px;padding:16px;cursor:pointer;font:inherit;color:inherit;position:relative;overflow:hidden;transition:background .4s,border-color .4s}
@@ -305,6 +312,99 @@ form.sent .done{display:block;animation:fade .8s var(--ease) both}
 form.sent .done .fill{transform:scaleY(1)}
 .done .st path{fill:none;stroke:#B7AE9C;stroke-width:4;stroke-linecap:round;opacity:0;animation:steam 3s ease-in-out infinite;animation-delay:calc(1.4s + var(--i)*.8s)}
 
+/* Portada: parallax al bajar y azahar al tocar */
+.hero-bg{translate:0 var(--hy,0px)}
+.hero .wrap{opacity:var(--ho,1);translate:0 var(--hw,0px)}
+.burst{position:absolute;z-index:2;left:0;top:0;width:calc(13px*var(--s));height:calc(10px*var(--s));border-radius:70% 0 70% 0;background:linear-gradient(135deg,#fff,#F7E3C2);pointer-events:none;box-shadow:0 2px 6px rgba(0,0,0,.18);animation:burst 1.5s var(--ease) forwards}
+@keyframes burst{0%{transform:translate(-50%,-50%) scale(.2) rotate(0);opacity:1}60%{opacity:1}100%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1) rotate(var(--r));opacity:0}}
+.hint{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:13px;letter-spacing:.08em;color:#F7D9A8;animation:fade 1s 1.6s both;transition:opacity .6s}
+.hint::before{content:"";width:16px;height:12px;border-radius:70% 0 70% 0;background:linear-gradient(135deg,#fff,#F7E3C2);animation:bob 2.2s ease-in-out infinite}
+.hint.gone{opacity:0}
+.hero .kicker,.hero .hint{text-shadow:0 1px 2px rgba(15,42,32,.7),0 0 18px rgba(15,42,32,.75)}
+/* Lo que cae cambia con la estación: azahar, jazmín, hojas, estrellas o naranjas */
+.fall i.sh,.burst.sh,.season-art .rain i.sh,.hint i.sh{border-radius:0;width:calc(var(--w)*var(--s,1));height:calc(var(--h)*var(--s,1));background:var(--img) center/contain no-repeat;box-shadow:none;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
+.hint i{display:inline-block;width:16px;height:12px;border-radius:70% 0 70% 0;background:linear-gradient(135deg,#fff,#F7E3C2);animation:bob 2.2s ease-in-out infinite;--s:1.1}
+.hint::before{display:none}
+
+/* La taza que se llena al bajar */
+.pour{padding:0;background:var(--cal)}
+.js .pour-track{height:340vh}
+.pour-sticky{position:relative;display:flex;align-items:center;padding:clamp(56px,8vw,96px) 0}
+.js .pour-sticky{position:sticky;top:var(--hdr);height:calc(100svh - var(--hdr));padding:0;overflow:hidden}
+.pour-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,6vw,80px);align-items:center;width:100%}
+.pour-copy h2{margin-bottom:26px}
+.pour-steps{list-style:none;margin:0;padding:0;display:grid}
+.pour-steps li{padding:0 0 18px}
+.js .pour-steps li{grid-area:1/1;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .6s var(--ease);padding:0}
+.js .pour-steps li.on{opacity:1;transform:none}
+.pour-steps b{display:block;font-family:var(--serif);font-weight:600;font-size:clamp(28px,3vw,36px);color:var(--verde);line-height:1.1;margin-bottom:8px}
+.pour-steps span{color:var(--suave);display:block;max-width:44ch}
+.pour-meter{display:flex;align-items:center;gap:18px;margin-top:30px}
+.pour-meter .dots{display:flex;gap:8px}
+.pour-meter .dots i{width:30px;height:4px;border-radius:2px;background:var(--linea);position:relative;overflow:hidden}
+.pour-meter .dots i::after{content:"";position:absolute;inset:0;background:var(--naranja);transform-origin:left;transform:scaleX(var(--f,1))}
+.pour-meter output{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--verde);font-variant-numeric:tabular-nums;line-height:1}
+.pour-meter small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);font-family:var(--sans);font-weight:400}
+.pour-stage{position:relative;display:grid;place-items:center}
+.pv{position:relative;width:min(100%,540px,calc(100svh - var(--hdr) - 80px));aspect-ratio:960/948;border-radius:28px;overflow:hidden;background:#E9DCCB;box-shadow:0 40px 80px -50px rgba(15,42,32,.55)}
+.pv::after{content:"";position:absolute;inset:14px;border:1px solid rgba(251,251,249,.45);border-radius:20px;pointer-events:none}
+.pv video{display:block;width:100%;height:100%;object-fit:cover}
+.js .pour-copy .rv{transition-delay:0s}
+
+/* Taza flotante: se llena con la página y vuelve arriba */
+.topcup{position:fixed;z-index:25;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:58px;height:58px;border-radius:50%;border:0;background:var(--verde);cursor:pointer;display:grid;place-items:center;box-shadow:0 0 0 2px rgba(247,217,168,.75),0 14px 30px -14px rgba(15,42,32,.7);opacity:0;transform:translateY(20px) scale(.8);pointer-events:none;transition:opacity .4s,transform .5s var(--ease)}
+.topcup.show{opacity:1;transform:none;pointer-events:auto}
+.topcup:hover{transform:translateY(-3px)}
+.topcup svg{width:34px;height:34px;overflow:visible}
+.topcup .lv{transform-box:fill-box;transform-origin:bottom;transform:scaleY(var(--p,0))}
+.topcup .tip{position:absolute;right:68px;white-space:nowrap;background:var(--verde);color:var(--cal);font-size:13px;padding:6px 12px;border-radius:999px;opacity:0;translate:6px 0;transition:opacity .3s,translate .3s;pointer-events:none}
+.topcup:hover .tip,.topcup:focus-visible .tip{opacity:1;translate:0 0}
+.menu-open .topcup{opacity:0;pointer-events:none}
+
+/* Tarjetas que se inclinan con el ratón */
+.card{position:relative}
+.card::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.32),transparent 55%);opacity:0;transition:opacity .4s}
+.card.tilt::after{opacity:1}
+.js .grid3 .card.in{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));transition:transform .6s var(--ease),box-shadow .5s var(--ease);transition-delay:0s}
+.js .grid3 .card.in.tilt{--ty:-6px;transition-duration:.15s,.5s}
+
+/* Temporadas: lluvia del color de la estación y deslizar en móvil */
+.season-art .rain{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;border-radius:22px}
+.season-art .rain i{position:absolute;top:-20px;left:var(--x);width:calc(12px*var(--s));height:calc(9px*var(--s));border-radius:70% 0 70% 0;background:linear-gradient(135deg,#fff,var(--c));box-shadow:0 2px 6px rgba(0,0,0,.15);opacity:0;animation:rain var(--d) cubic-bezier(.3,.1,.6,1) var(--dl) forwards}
+@keyframes rain{0%{opacity:0;transform:translate(0,0) rotate(0)}12%{opacity:.95}85%{opacity:.9}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r))}}
+.season-badge.pop b{animation:flip .5s var(--ease)}
+.panel,.season-art{touch-action:pan-y}
+
+/* Historia: la frase se ilumina al leerla */
+.quote .qw{opacity:.22;transition:opacity .35s}
+.quote .qw.lit{opacity:1}
+
+/* Cuenta atrás con segundos */
+.count{grid-template-columns:repeat(4,minmax(0,1fr));max-width:480px}
+.count b.flip{animation:flip .5s var(--ease)}
+@keyframes flip{0%{transform:translateY(-30%);opacity:0}100%{transform:none;opacity:1}}
+
+@media (max-width:900px){
+  .pour-grid{grid-template-columns:1fr;gap:6px;align-content:center;height:100%}
+  .pour-stage{order:-1}
+  .pv{width:min(100%,46svh);border-radius:22px}
+  .pour-copy h2{font-size:32px;margin:6px 0 12px}
+  .pour-copy .kicker{display:none}
+  .pour-steps b{font-size:25px;margin-bottom:4px}
+  .pour-steps span{font-size:15px}
+  .pour-meter{margin-top:16px}
+  .pour-meter output{font-size:24px}
+  .topcup{width:52px;height:52px}
+  .topcup .tip{display:none}
+}
+@media (max-width:420px){
+  .count{gap:8px}
+  .count b{font-size:28px}
+  .count span{font-size:10px;letter-spacing:.1em}
+}
+@media (hover:none){.hint .m{display:none}}
+@media (hover:hover){.hint .t{display:none}}
+
 /* Pie */
 footer{background:var(--verde-2);color:#CFD9D3;padding:64px 0 40px;font-size:15px}
 footer .row{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start}
@@ -330,12 +430,13 @@ footer a{color:#F7D9A8}
   .panel{grid-template-columns:1fr;gap:14px;padding:24px 24px 24px 28px}
   .hero{min-height:min(88svh,720px)}
   .scroll-cue{display:none}
-  .stage{aspect-ratio:auto;padding:28px 0 64px}
+  .stage{aspect-ratio:1/1;padding:0}
   .season-art{margin:0 14px 0 14px}
   .season-badge{right:-10px;width:100px;height:100px}
   .season-badge b{font-size:26px}
 }
 @media (max-width:420px){
+  .hero .kicker{font-size:11.5px;letter-spacing:.15em;gap:8px}
   .brand span{font-size:22px}
   .hero h1{font-size:44px}
   .count b{font-size:32px}
@@ -345,6 +446,10 @@ footer a{color:#F7D9A8}
   .fall,.banner .tr{animation:none}
   .fall{display:none}
   .art .steam path{opacity:.5}
+  .js .pour-track{height:auto}
+  .js .pour-sticky{position:relative;top:0;height:auto;padding:clamp(56px,8vw,96px) 0}
+  .js .pour-steps li{grid-area:auto;opacity:1;transform:none;padding:0 0 18px}
+  .hint{display:none}
 }
 </style>
 </head>
@@ -385,6 +490,7 @@ footer a{color:#F7D9A8}
    <a class="btn btn-primary" href="#visitanos" data-interes="La apertura">Apúntate a la apertura <span class="ar" aria-hidden="true">→</span></a>
    <a class="btn btn-ghost" href="#ritual">Descubre el ritual</a>
   </div>
+  <p class="hint" aria-hidden="true"><i></i><span class="m">Haz clic en la portada y suelta <span class="fx">azahar</span></span><span class="t">Toca la portada y suelta <span class="fx">azahar</span></span></p>
  </div>
  <a class="scroll-cue" href="#ritual" aria-label="Bajar al ritual"><svg width="18" height="26" viewBox="0 0 18 26" aria-hidden="true"><ellipse cx="9" cy="13" rx="8" ry="12" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 3 C5 9 13 17 9 23" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Baja</a>
 </div>
@@ -392,52 +498,40 @@ footer a{color:#F7D9A8}
  <div class="tr" aria-hidden="true"></div>
 </div>
 
+<section id="vierte" class="pour" aria-labelledby="pour-t">
+ <div class="pour-track">
+  <div class="pour-sticky">
+   <div class="wrap pour-grid">
+    <div class="pour-copy">
+     <div class="kicker">Mientras bajas</div>
+     <h2 id="pour-t">Tu café, sin prisa</h2>
+     <ol class="pour-steps" id="psteps">
+      <li class="on"><b>Recién molido</b><span>Cada taza empieza con un café de origen molido al momento.</span></li>
+      <li><b>Lo vertemos despacio</b><span>Sin prisa, para que el café suelte todo lo que trae de lejos.</span></li>
+      <li><b>Se llena tu taza</b><span>Sigue bajando: el café sube, y el patio empieza a oler a café.</span></li>
+      <li><b>Y llega Sevilla</b><span>Al final, el aroma de la temporada. Huele primero; bebe después.</span></li>
+     </ol>
+     <div class="pour-meter" aria-hidden="true">
+      <div class="dots"><i></i><i></i><i></i><i></i></div>
+      <div><output id="pct">100 %</output><small>tu taza</small></div>
+     </div>
+    </div>
+    <div class="pour-stage" aria-hidden="true">
+     <div class="pv"><video id="pvid" muted playsinline preload="auto" disablepictureinpicture poster="video/cafe-lleno.jpg" width="960" height="948"></video></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
 <section id="ritual" class="ritual">
  <div class="wrap ritual-grid">
   <div class="stage rv" aria-hidden="true">
-   <svg class="art" id="art" data-step="0" viewBox="0 0 440 400">
-    <line x1="10" y1="356" x2="430" y2="356" stroke="#DCCFBC" stroke-width="2"/>
-    <!-- Pozo de cerámica con el aroma -->
-    <g transform="translate(18 0)">
-     <g class="aroma">
-      <path style="--i:0" d="M62 296 C 46 262, 86 246, 74 214 S 112 150, 176 136"/>
-      <path style="--i:1" d="M70 296 C 60 270, 102 256, 96 226 S 140 176, 196 168"/>
-      <path style="--i:2" d="M56 296 C 34 268, 64 236, 52 200 S 84 128, 150 108"/>
-     </g>
-     <g class="sparkle" style="--i:0"><path d="M150 96 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#F39C12"/></g>
-     <g class="sparkle" style="--i:1"><path d="M190 150 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z" fill="#D4AF37"/></g>
-     <g class="sparkle" style="--i:2"><path d="M96 180 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z" fill="#F39C12"/></g>
-     <path d="M30 300 Q30 352 64 354 Q98 352 98 300 Z" fill="#F39C12" stroke="#1A3C2F" stroke-width="3"/>
-     <path d="M33 318 H95" stroke="#1A3C2F" stroke-width="2.5"/><path d="M36 334 H92" stroke="#FBFBF9" stroke-width="2" stroke-dasharray="4 5"/>
-     <g class="lid"><ellipse cx="64" cy="299" rx="38" ry="7" fill="#1A3C2F"/><rect x="58" y="284" width="12" height="12" rx="4" fill="#D4AF37"/></g>
-    </g>
-    <!-- Granos que caen -->
-    <g class="beans">
-     <use href="#bean" class="bean" style="--i:0" x="232" y="40" width="20" height="26"/>
-     <use href="#bean" class="bean" style="--i:1" x="262" y="20" width="18" height="24"/>
-     <use href="#bean" class="bean" style="--i:2" x="290" y="46" width="20" height="26"/>
-     <use href="#bean" class="bean" style="--i:3" x="248" y="0" width="16" height="22"/>
-     <use href="#bean" class="bean" style="--i:4" x="276" y="66" width="18" height="24"/>
-    </g>
-    <!-- Plato -->
-    <ellipse cx="270" cy="340" rx="150" ry="22" fill="#EFE6D6" stroke="#1A3C2F" stroke-width="3"/>
-    <ellipse cx="270" cy="336" rx="96" ry="12" fill="none" stroke="#D6C9B3" stroke-width="2"/>
-    <!-- Taza -->
-    <g class="cup">
-     <g class="steam">
-      <path style="--i:0" d="M246 152 c -14 -18 14 -30 0 -48 s 14 -30 0 -48"/>
-      <path style="--i:1" d="M272 156 c -14 -18 14 -30 0 -48 s 14 -30 0 -48"/>
-      <path style="--i:2" d="M298 152 c -14 -18 14 -30 0 -48 s 14 -30 0 -48"/>
-     </g>
-     <path d="M362 200 C 412 196 414 272 352 278" fill="none" stroke="#1A3C2F" stroke-width="11" stroke-linecap="round"/>
-     <clipPath id="cupclip"><path d="M180 176 L360 176 C358 256 340 318 300 330 L240 330 C200 318 182 256 180 176 Z"/></clipPath>
-     <path d="M180 176 L360 176 C358 256 340 318 300 330 L240 330 C200 318 182 256 180 176 Z" fill="#FBFBF9"/>
-     <g clip-path="url(#cupclip)"><rect x="170" y="226" width="200" height="40" fill="url(#tile)"/><rect x="170" y="222" width="200" height="3" fill="#D4AF37"/><rect x="170" y="267" width="200" height="3" fill="#D4AF37"/></g>
-     <path d="M180 176 L360 176 C358 256 340 318 300 330 L240 330 C200 318 182 256 180 176 Z" fill="none" stroke="#1A3C2F" stroke-width="4"/>
-     <ellipse cx="270" cy="176" rx="90" ry="16" fill="#F3E9DC" stroke="#1A3C2F" stroke-width="4"/>
-     <g class="coffee"><ellipse cx="270" cy="178" rx="80" ry="12" fill="#4A2C17"/><ellipse cx="270" cy="178" rx="64" ry="8.5" fill="#A4703A" opacity=".75"/><path d="M246 176 q24 -6 48 0" fill="none" stroke="#F3E9DC" stroke-width="2.4" stroke-linecap="round" opacity=".8"/></g>
-    </g>
-   </svg>
+   <div class="shots" id="art" data-step="0">
+    <img data-s="1" src="img/bolsa.jpg" alt="" loading="lazy" width="800" height="1000">
+    <img data-s="2" src="img/bodegon.jpg" alt="" loading="lazy" width="800" height="1000">
+    <img data-s="3" src="video/cafe-lleno.jpg" alt="" loading="lazy" width="960" height="948">
+   </div>
    <p class="stage-cap" id="cap">Pulsa un paso para verlo</p>
   </div>
   <div>
@@ -468,6 +562,7 @@ footer a{color:#F7D9A8}
  <div class="wrap split">
   <div class="season-art rv">
    <img src="img/temporadas.jpg" alt="Taza de café en una mesa de patio rodeada de azahar, naranjas, membrillos y canela" loading="lazy" width="800" height="1000">
+   <div class="rain" aria-hidden="true"></div>
    <div class="season-badge" aria-hidden="true">
     <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"/></defs><text><textPath href="#circ">Calendario olfativo · Sevilla · </textPath></text></svg>
     <b id="v-num">I</b>
@@ -561,6 +656,7 @@ footer a{color:#F7D9A8}
     <div><b id="cd-d">–</b><span>días</span></div>
     <div><b id="cd-h">–</b><span>horas</span></div>
     <div><b id="cd-m">–</b><span>minutos</span></div>
+    <div><b id="cd-s">–</b><span>segundos</span></div>
    </div>
    <p class="count-note rv" id="cd-note">para la apertura, el 4 de marzo de 2027 a las 8:00</p>
    <dl class="rv">
@@ -603,6 +699,17 @@ footer a{color:#F7D9A8}
 </section>
 </main>
 
+<button class="topcup" type="button" id="topcup" aria-label="Volver arriba">
+ <svg viewBox="0 0 40 40" aria-hidden="true">
+  <clipPath id="tcc"><path d="M8 12 H28 L26 31 C26 33 25 34 23 34 H13 C11 34 10 33 10 31 Z"/></clipPath>
+  <path d="M28 16 C34 16 34 26 27 26" fill="none" stroke="#FBFBF9" stroke-width="2.4" stroke-linecap="round"/>
+  <g clip-path="url(#tcc)"><rect class="lv" x="6" y="12" width="24" height="22" fill="#F39C12"/></g>
+  <path d="M8 12 H28 L26 31 C26 33 25 34 23 34 H13 C11 34 10 33 10 31 Z" fill="none" stroke="#FBFBF9" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M14 8 c-2 -2 2 -3 0 -6 M20 8 c-2 -2 2 -3 0 -6" fill="none" stroke="#F7D9A8" stroke-width="1.8" stroke-linecap="round"/>
+ </svg>
+ <span class="tip">Volver arriba</span>
+</button>
+
 <footer>
  <div class="wrap">
   <div class="row">
@@ -610,7 +717,7 @@ footer a{color:#F7D9A8}
    <div>Café del mundo, alma de Sevilla.<br>Café tostado por El Hombre Pez, Sevilla.</div>
    <div>Instagram · Facebook<br><a href="#visitanos" data-interes="La apertura">Lista de espera</a></div>
   </div>
-  <p class="legal">AZARA Coffee es un proyecto conceptual de marca desarrollado para porfolio: no es un negocio real y la colaboración con El Hombre Pez es ficticia. Las imágenes son provisionales y han sido generadas con IA.</p>
+  <p class="legal">AZARA Coffee es un proyecto conceptual de marca desarrollado para porfolio: no es un negocio real y la colaboración con El Hombre Pez es ficticia. Las imágenes y el vídeo son provisionales y han sido generados con IA.</p>
  </div>
 </footer>
 
@@ -622,8 +729,65 @@ d.documentElement.classList.add('js');
 
 /* Cabecera: sombra, barra de progreso, menú móvil y sección activa */
 const hdr=$('#hdr'), bar=$('.progress'), btn=$('.menu-btn');
-const onScroll=()=>{const y=scrollY,h=d.documentElement.scrollHeight-innerHeight;hdr.classList.toggle('scrolled',y>8);bar.style.setProperty('--p',h>0?Math.min(1,y/h):0)};
-addEventListener('scroll',onScroll,{passive:true});onScroll();
+const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)), ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const hero=$('.hero'), topcup=$('#topcup');
+/* La taza que se llena: el vídeo avanza y retrocede con el scroll, con sus textos y el contador.
+   El vídeo está codificado con todos los fotogramas clave para que se pueda mover a cualquier punto al instante. */
+const track=$('.pour-track'), vid=$('#pvid'), pct=$('#pct'), pli=$$('#psteps li'), dots=$$('.pour-meter .dots i');
+let lastStep=-1, vdur=0, want=0, busy=false;
+function seek(){if(!vdur||busy||Math.abs(vid.currentTime-want)<.02)return;busy=true;vid.currentTime=want}
+if(!RM){
+ vid.poster='video/cafe-vacio.jpg';
+ vid.src=innerWidth<=700?'video/cafe-640.mp4':'video/cafe-960.mp4';
+ vid.addEventListener('loadedmetadata',()=>{vdur=vid.duration;seek()});
+ vid.addEventListener('loadeddata',()=>{const pr=vid.play();if(pr)pr.then(()=>{vid.pause();seek()}).catch(()=>{})},{once:true});
+ vid.addEventListener('seeked',()=>{busy=false;seek()});
+}
+function pour(p){
+ const v=cl((p-.03)/.92);
+ want=Math.min(v*(vdur||5.16),(vdur||5.16)-.05);seek();
+ const f=cl((v-.19)/.62);
+ pct.textContent=Math.round(f*100)+' %';
+ const st=v<.15?0:v<.45?1:v<.85?2:3;
+ if(st!==lastStep){lastStep=st;pli.forEach((li,i)=>li.classList.toggle('on',i===st))}
+ dots.forEach((dt,i)=>dt.style.setProperty('--f',cl(p*4-i).toFixed(3)));
+}
+/* Historia: la ruta se dibuja y la frase se ilumina al ritmo del scroll */
+const route=$('#route'), draws=$$('#route .draw'), quote=$('.quote');
+const qtxt=quote.textContent;
+quote.innerHTML=`<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">${qtxt}</span>`+qtxt.split(' ').map(w=>`<span class="qw" aria-hidden="true">${w}</span>`).join(' ');
+const qws=$$('.quote .qw');
+if(!RM)draws.forEach(p=>p.style.transition='none');
+function frame(){
+ ticking=false;
+ const y=scrollY, vh=innerHeight, h=d.documentElement.scrollHeight-vh;
+ hdr.classList.toggle('scrolled',y>8);bar.style.setProperty('--p',h>0?Math.min(1,y/h):0);
+ topcup.classList.toggle('show',y>vh*.8);topcup.style.setProperty('--p',h>0?cl(y/h).toFixed(3):0);
+ if(RM)return;
+ if(y<vh*1.2){hero.style.setProperty('--hy',(y*.35).toFixed(1)+'px');hero.style.setProperty('--hw',(y*.12).toFixed(1)+'px');hero.style.setProperty('--ho',cl(1-y/(vh*.75)).toFixed(3))}
+ const hd=hdr.offsetHeight, tr=track.getBoundingClientRect(), span=tr.height-(vh-hd);
+ if(tr.top<vh&&tr.bottom>0)pour(span>0?cl((hd-tr.top)/span):1);
+ const rr=route.getBoundingClientRect();
+ if(rr.top<vh&&rr.bottom>0){const rp=cl((vh*.95-rr.top)/(rr.height*.95));draws.forEach((p,i)=>p.style.strokeDashoffset=(400*cl(rp*1.5-i*.17)).toFixed(1))}
+ const qr=quote.getBoundingClientRect();
+ if(qr.top<vh&&qr.bottom>0){const n=Math.round(cl((vh*.88-qr.top)/(vh*.4))*qws.length);qws.forEach((w,i)=>w.classList.toggle('lit',i<n))}
+}
+let ticking=false;
+const req=()=>{if(!ticking){ticking=true;requestAnimationFrame(frame)}};
+addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+if(RM){pour(1);qws.forEach(w=>w.classList.add('lit'))}
+frame();
+topcup.addEventListener('click',()=>{scrollTo({top:0,behavior:RM?'auto':'smooth'});$('.brand').focus({preventScroll:true})});
+
+/* Portada: al tocar o hacer clic se suelta un puñado de azahar; con el ratón, un rastro suave */
+const hint=$('.hint');
+function petals(x,y,n,spread){const r=hero.getBoundingClientRect();for(let i=0;i<n;i++){const p=d.createElement('i');p.className='burst';const a=Math.random()*Math.PI*2,ds=spread*(.45+Math.random()*.55);
+ p.style.cssText=`left:${x-r.left}px;top:${y-r.top}px;--s:${(.7+Math.random()*.9).toFixed(2)};--dx:${(Math.cos(a)*ds).toFixed(0)}px;--dy:${(Math.sin(a)*ds+spread*.5).toFixed(0)}px;--r:${(Math.random()*540-270).toFixed(0)}deg`;
+ deco(p,FX);hero.appendChild(p);p.addEventListener('animationend',()=>p.remove())}}
+if(!RM){
+ hero.addEventListener('pointerdown',e=>{if(e.target.closest('a,button'))return;petals(e.clientX,e.clientY,14,170);hint.classList.add('gone')});
+ let lt=0;hero.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse'||e.target.closest('a,button'))return;const t=performance.now();if(t-lt>140){lt=t;petals(e.clientX,e.clientY,1,60)}});
+}
 const setMenu=o=>{d.body.classList.toggle('menu-open',o);btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú')};
 btn.addEventListener('click',()=>setMenu(!d.body.classList.contains('menu-open')));
 $$('#menu a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
@@ -636,16 +800,31 @@ secs.forEach(s=>s&&spy.observe(s));
 const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
 $$('.rv,.route,#togo,#subcard').forEach(el=>rv.observe(el));
 
-/* Pétalos de azahar en la portada */
-if(!RM){const f=$('.fall'),n=innerWidth<700?10:18;for(let i=0;i<n;i++){const p=d.createElement('i');p.style.cssText=`--x:${Math.random()*100}%;--s:${(.7+Math.random()*.9).toFixed(2)};--d:${(9+Math.random()*9).toFixed(1)}s;--dl:${(-Math.random()*16).toFixed(1)}s;--dx:${(Math.random()*160-80).toFixed(0)}px;--r:${(Math.random()*720-360).toFixed(0)}deg`;f.appendChild(p)}}
+/* Lo que cae en la portada depende de la fecha: azahar en primavera, jazmín en verano,
+   hojas en otoño, estrellas doradas en Navidad (1 dic a 6 ene) y naranjas amargas el resto del invierno */
+const U=s=>`url("data:image/svg+xml,${s.replace(/#/g,'%23')}")`, pick=a=>a[Math.floor(Math.random()*a.length)];
+const P5=(rx,ry,c)=>[0,72,144,216,288].map(r=>`<ellipse cy='-${ry}' rx='${rx}' ry='${ry}' fill='${c}' transform='rotate(${r})'/>`).join('');
+const SH={
+ jazmin:{w:15,h:15,img:()=>U(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'>${P5(2.8,4.8,'#fff')}<circle r='1.8' fill='#F7D9A8'/></svg>`)},
+ hoja:{w:14,h:19,img:()=>U(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 28'><path d='M10 1 C 19 8 19 20 10 27 C 1 20 1 8 10 1Z' fill='${pick(['#C8892E','#B5690A','#D4AF37','#8A4B1E','#A4703A'])}'/><path d='M10 4 V25' stroke='#00000030' stroke-width='1.2'/></svg>`)},
+ estrella:{w:14,h:14,img:()=>U(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'><path d='M0 -9.5 L2 -2 L9.5 0 L2 2 L0 9.5 L-2 2 L-9.5 0 L-2 -2Z' fill='${pick(['#D4AF37','#F7D9A8','#E9C46A'])}'/></svg>`)},
+ naranja:{w:14,h:14,img:()=>U(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'><circle r='9.4' fill='#F39C12'/><circle r='7.6' fill='#F9B955'/><path d='M0 -7V7M-7 0H7M-5 -5L5 5M5 -5L-5 5' stroke='#FDE6BE' stroke-width='1'/></svg>`)}
+};
+const FXN={azahar:'azahar',jazmin:'jazmín',hoja:'hojas',estrella:'estrellas',naranja:'naranjas'};
+const dt=new Date(), mm=dt.getMonth()+1;
+const FX=(mm===12||(mm===1&&dt.getDate()<=6))?'estrella':mm>=3&&mm<=5?'azahar':mm>=6&&mm<=9?'jazmin':mm>=10&&mm<=11?'hoja':'naranja';
+function deco(el,k){const s=SH[k];if(!s)return;el.classList.add('sh');el.style.setProperty('--w',s.w+'px');el.style.setProperty('--h',s.h+'px');el.style.setProperty('--img',s.img())}
+$$('.hint .fx').forEach(e=>e.textContent=FXN[FX]);deco($('.hint i'),FX);
+if(!RM){const f=$('.fall'),n=innerWidth<700?7:12;for(let i=0;i<n;i++){const p=d.createElement('i');p.style.cssText=`--x:${Math.random()*100}%;--s:${(.7+Math.random()*.7).toFixed(2)};--d:${(11+Math.random()*9).toFixed(1)}s;--dl:${(-Math.random()*18).toFixed(1)}s;--dx:${(Math.random()*160-80).toFixed(0)}px;--r:${(Math.random()*720-360).toFixed(0)}deg`;deco(p,FX);f.appendChild(p)}}
 
 /* Cuenta atrás hasta la apertura: jueves 4 de marzo de 2027, 8:00 en Madrid */
 const OPEN=new Date('2027-03-04T08:00:00+01:00');
 const left=()=>Math.max(0,OPEN-Date.now());
 const days=()=>Math.ceil(left()/864e5);
 function tick(){const ms=left();if(ms<=0){$('#count').hidden=true;$('#cd-note').textContent='¡Ya estamos abiertos! Te esperamos en el patio.';return}
- const m=Math.floor(ms/6e4);$('#cd-d').textContent=Math.floor(m/1440);$('#cd-h').textContent=Math.floor(m%1440/60);$('#cd-m').textContent=m%60}
-tick();setInterval(tick,3e4);
+ const s=Math.floor(ms/1e3), m=Math.floor(s/60);setN('#cd-d',Math.floor(m/1440));setN('#cd-h',Math.floor(m%1440/60));setN('#cd-m',m%60);setN('#cd-s',String(s%60).padStart(2,'0'))}
+function setN(id,v){const el=$(id);v=String(v);if(el.textContent===v)return;el.textContent=v;if(!RM){el.classList.remove('flip');void el.offsetWidth;el.classList.add('flip')}}
+tick();setInterval(tick,1e3);
 const msgs=['Abrimos el <strong>4 de marzo</strong>, con la temporada de azahar',left()>0?`Faltan <strong>${days()} días</strong>`:'<strong>Ya estamos abiertos</strong>','Café de especialidad de origen','Cada café, con su aroma andaluz','Tostado en Sevilla'];
 const tr=$(".banner .tr"), row=msgs.map(m=>`<span>${m}</span><i></i>`).join("");tr.innerHTML=row+row+row+row;
 
@@ -675,7 +854,7 @@ $('#t-'+NOW).insertAdjacentHTML('beforeend','<span class="now">Ahora</span>');
 $('#t-'+NOW).setAttribute('aria-label',$('#t-'+NOW).firstChild.textContent+', temporada actual');
 function show(k,anim=true){const s=S[k];
  const put=()=>{$('#v-aroma').textContent=s.aroma;$('#v-cafe').textContent=s.cafe;$('#v-meses').textContent=s.meses;$('#v-texto').textContent=s.texto;$('#v-num').textContent=s.n;panel.classList.remove('swap')};
- if(anim&&!RM){panel.classList.add('swap');setTimeout(put,260)}else put();
+ if(anim&&!RM){panel.classList.add('swap');setTimeout(put,260);rain(s.c,{primavera:'azahar',verano:'jazmin',otono:'hoja',invierno:'naranja'}[k]);const bd=$('.season-badge');bd.classList.remove('pop');void bd.offsetWidth;bd.classList.add('pop')}else put();
  sec.style.setProperty('--tint',s.tint);sec.style.setProperty('--sc',s.c);sec.style.setProperty('--sc-txt',s.ct);
  tabs.forEach(t=>{const on=t.dataset.s===k;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;if(on)panel.setAttribute('aria-labelledby',t.id)})}
 tabs.forEach((t,i)=>{
@@ -683,6 +862,24 @@ tabs.forEach((t,i)=>{
  t.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%tabs.length;if(e.key==='ArrowLeft')j=(i+tabs.length-1)%tabs.length;if(e.key==='Home')j=0;if(e.key==='End')j=tabs.length-1;if(j!==null){e.preventDefault();tabs[j].focus();show(tabs[j].dataset.s)}});
 });
 show(NOW,false);
+/* Lluvia de pétalos del color de la estación */
+function rain(c,k){const box=$('.season-art .rain'),hh=box.offsetHeight+40;box.innerHTML='';for(let i=0;i<16;i++){const p=d.createElement('i');
+ p.style.cssText=`--x:${(Math.random()*96).toFixed(1)}%;--s:${(.7+Math.random()*.8).toFixed(2)};--d:${(1.6+Math.random()*1.4).toFixed(1)}s;--dl:${(Math.random()*.6).toFixed(2)}s;--dx:${(Math.random()*80-40).toFixed(0)}px;--dy:${hh}px;--r:${(Math.random()*540-270).toFixed(0)}deg;--c:${c}`;deco(p,k);box.appendChild(p)}}
+/* En móvil, deslizar la imagen o la ficha cambia de estación */
+let sx=null;
+[panel,$('.season-art')].forEach(el=>{
+ el.addEventListener('pointerdown',e=>{sx=e.pointerType==='mouse'?null:e.clientX});
+ el.addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx;sx=null;if(Math.abs(dx)<50)return;
+  const i=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');show(tabs[(i+(dx<0?1:tabs.length-1))%tabs.length].dataset.s)});
+ el.addEventListener('pointercancel',()=>sx=null);
+});
+
+/* Tarjetas de la tienda: se inclinan y brillan siguiendo el ratón */
+if(!RM&&matchMedia('(hover:hover) and (pointer:fine)').matches)$$('.grid3 .card').forEach(c=>{
+ c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.classList.add('tilt');
+  c.style.setProperty('--ry',((x-.5)*10).toFixed(2)+'deg');c.style.setProperty('--rx',((.5-y)*8).toFixed(2)+'deg');c.style.setProperty('--gx',(x*100).toFixed(1)+'%');c.style.setProperty('--gy',(y*100).toFixed(1)+'%')});
+ c.addEventListener('pointerleave',()=>{c.classList.remove('tilt');c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')});
+});
 
 /* Enlaces que eligen el interés del formulario */
 const form=$('#lista');
