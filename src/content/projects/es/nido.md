@@ -5,11 +5,11 @@ lang: es
 order: -1
 year: 2026
 duration: 1-2 semanas
-type: App móvil (PWA) navegable con datos reales
-lead: Todo lo que tu bebé necesita, de familias de tu barrio, con la tranquilidad de comprarlo nuevo.
+type: "App móvil (PWA) navegable con datos reales"
+lead: "Todo lo que tu bebé necesita, de familias de tu barrio, con la tranquilidad de comprarlo nuevo."
 role: Producto, diseño UX/UI y desarrollo
-services: Investigación, análisis de otras apps, prototipo, pruebas con usuarias y desarrollo
-tools: React · Supabase · Vercel
+services: "Investigación, estrategia, diseño UX/UI, prototipo, desarrollo y test"
+tools: "Vite · React · TypeScript · Supabase · Stripe (modo prueba) · Vercel · Claude Code"
 theme: nido
 cover: nido-cover.webp
 accent: "#4E6E9E"
@@ -19,40 +19,37 @@ demo:
   shot: nido-app.webp
   note: "Es la app real: entra con la cuenta de demo y prueba a buscar, chatear y reservar. Los datos y el pago son de prueba."
   qr: nido-qr.svg
-challenge: Los bebés crecen tan rápido que la ropa, los carritos o las cunas se quedan pequeños en meses. Comprar de segunda mano ahorra, pero genera dudas. ¿Es seguro? ¿Es de fiar quien vende? ¿Cómo quedamos?
-solution: Una app de compraventa entre familias del mismo barrio, organizada por etapas del bebé, con chat, quedada y pago protegido dentro de la app.
+challenge: "Un bebé lo necesita todo en muy poco tiempo y lo usa durante muy poco tiempo. Aun así, muchas familias compran nuevo porque en las apps de segunda mano generalistas la oferta de bebé se pierde entre todo lo demás, no se puede buscar por la edad del bebé y no hay garantías sobre higiene, seguridad ni la persona que vende. Los artículos más buscados, como bañeras, cunas o carritos, son además caros de enviar."
+solution: "Diseñé y desarrollé Nido, una app web instalable que organiza la oferta por etapas del bebé y prioriza lo que está cerca. La confianza se ve en cada pantalla: ficha de higiene, vendedores verificados, pago protegido también en mano y productos que, por seguridad, no se pueden vender."
 highlights:
-  - { value: "4 cifras", label: "código de entrega que libera el pago protegido" }
-  - { value: "44 px", label: "zonas táctiles mínimas" }
-  - { value: "AA", label: "contraste de color" }
+  - { value: "8", label: "secciones organizadas por uso (paseo, dormir, baño…), con filtros propios como la talla en centímetros" }
+  - { value: "30 s", label: "para publicar un anuncio: fotos, ficha rellenada por la app y precio sugerido" }
+  - { value: "390 px", label: "diseño móvil primero, instalable en la pantalla de inicio" }
 ---
 
-## Principios
+## Investigación y estrategia
 
-<ul class="nd-principles"><li>Por etapas, no por categorías</li><li>La confianza se ve</li><li>Cerca primero</li><li>Vender cuesta lo mínimo</li><li>La seguridad va antes que la venta</li></ul>
+Estudio de mercado sobre natalidad, coste del primer año y segunda mano en España, análisis de competencia (Wallapop, Vinted y apps especializadas de Francia, Alemania y EE. UU.) y de opiniones públicas de padres. La conclusión: hay hueco para una app especializada, pero solo si genera oferta local suficiente y resuelve la desconfianza.
 
-## Decisiones de diseño
+- Proto-personas: la familia que compra y la que vacía el armario.
+- Mapa del recorrido actual y sus puntos de fricción: buscar, evaluar, quedar y pagar.
+- Arquitectura de 8 secciones por uso, inspirada en cómo organizan las tiendas de puericultura.
+- Decisiones de producto: entrega en mano por defecto, perfil del bebé opcional sin fotos y sillas de coche usadas no permitidas.
 
-<div class="nd-cards">
-<div><b>Seguridad primero</b><span>No se pueden publicar sillas de coche usadas, solo nuevas y precintadas. La higiene, solo nueva.</span></div>
-<div><b>Pago protegido</b><span>El dinero queda retenido y se libera con un código de entrega de 4 cifras.</span></div>
-<div><b>Entrega en mano</b><span>Es la opción por defecto, en un punto de encuentro seguro.</span></div>
-<div><b>Tallas en centímetros</b><span>Con los meses como ayuda: «68 cm · 3-6 m».</span></div>
-<div><b>Perfil del bebé opcional</b><span>Solo la fecha de nacimiento y el nombre, nunca fotos.</span></div>
-<div><b>Accesibilidad</b><span>Contraste AA, zonas táctiles de 44 px y animaciones que respetan «reducir movimiento».</span></div>
-</div>
+## Diseño UX/UI
 
-## Mi proceso
+Identidad minimalista y cálida: pasteles solo como fondo, acciones en azul nana, tipografía Nunito y formas redondeadas. Prototipo navegable en dos versiones: la segunda aplica las mejoras de una evaluación heurística con los 10 principios de Nielsen.
 
-<ol class="nd-steps">
-<li><b>Investigación</b><span>Las dudas de las familias al comprar cosas de bebé de segunda mano: si es seguro, si quien vende es de fiar y cómo quedar.</span></li>
-<li><b>Análisis de otras apps</b><span>Apps de compraventa de segunda mano, para ver qué les falta cuando lo que se vende es para un bebé.</span></li>
-<li><b>Prototipo</b><span>Las pantallas y los flujos principales: buscar por etapa, publicar, chatear, quedar y pagar.</span></li>
-<li><b>Pruebas con usuarias</b><span>La demo tiene un modo prueba con tres tareas (publicar un artículo, encontrar algo para un bebé de 6 meses a menos de 5 km, y reservar y pagar) y un formulario para dejar la opinión.</span></li>
-</ol>
+- Recorridos clave: publicar en 30 segundos, buscar por etapa y comprar en mano con código de entrega.
+- Onboarding, notificaciones, valoraciones y aviso de «ya no le vale» para convertir compradores en vendedores.
+- Animaciones con propósito (escaneo de fotos, transición de tarjeta a ficha) que respetan «reducir movimiento».
+- Accesibilidad: contraste AA y zonas táctiles de 44 px.
 
-## Cómo está hecha
+## Desarrollo y test
 
-Del prototipo a una app real que se instala en el móvil (PWA), con cuentas, base de datos, chat en tiempo real y pago simulado.
+El prototipo se convirtió en una app real con Claude Code, a partir de un kit con la especificación, los tokens de diseño y el prototipo de referencia.
 
-<div class="nd-stack"><span>React</span><span>Supabase</span><span>Vercel</span><span>PWA</span></div>
+- PWA con Vite, React y TypeScript, publicada en Vercel.
+- Datos reales con Supabase: cuentas, anuncios con fotos, chat y permisos por usuario.
+- Pago protegido simulado con Stripe en modo de prueba.
+- Modo prueba con tareas guiadas, cuestionario y panel privado de resultados. El primer test detectó que salir del chat a mitad de una compra era difícil, y se rediseñó la navegación del flujo.
