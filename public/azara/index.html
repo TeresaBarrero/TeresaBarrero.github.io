@@ -161,10 +161,11 @@ h2{font-size:clamp(38px,4.8vw,58px);margin:14px 0 20px}
 .art[data-step="3"] .cup{transform:rotate(-9deg) translateY(-14px)}
 .art[data-step="3"] .coffee{transform:scale(.62);transition-delay:.3s}
 .art[data-step="3"] .steam path{stroke:#A79D88}
-/* Ritual con fotos: una por paso, con fundido y un zoom lento */
-.stage .shots{position:absolute;inset:0}
-.stage .shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.1);transition:opacity 1s var(--ease),transform 7s cubic-bezier(.2,.6,.3,1)}
-.shots:is([data-step="0"],[data-step="1"]) img[data-s="1"],.shots[data-step="2"] img[data-s="2"],.shots[data-step="3"] img[data-s="3"]{opacity:1;transform:scale(1)}
+/* Ritual con una foto de la escena: la «cámara» viaja a la bolsa, al pozo y a la taza */
+.stage .shots{position:absolute;inset:0;overflow:hidden}
+.stage .shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--op,14% 50%);transform:scale(var(--sz,1.15));transform-origin:var(--to,50% 45%);transition:object-position 1.6s var(--ease),transform 1.6s var(--ease),transform-origin 1.6s var(--ease)}
+.shots[data-step="2"]{--op:86% 50%;--sz:1.12;--to:45% 55%}
+.shots[data-step="3"]{--op:0% 50%;--sz:1.32;--to:31% 60%}
 .stage:has(.shots)::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to top,rgba(15,42,32,.78),transparent);pointer-events:none}
 .stage:has(.shots)::before{z-index:2;border-color:rgba(251,251,249,.45)}
 .stage:has(.shots) .stage-cap{z-index:3;color:var(--cal);text-shadow:0 1px 8px rgba(15,42,32,.6)}
@@ -527,11 +528,7 @@ footer a{color:#F7D9A8}
 <section id="ritual" class="ritual">
  <div class="wrap ritual-grid">
   <div class="stage rv" aria-hidden="true">
-   <div class="shots" id="art" data-step="0">
-    <img data-s="1" src="img/bolsa.jpg" alt="" loading="lazy" width="800" height="1000">
-    <img data-s="2" src="img/bodegon.jpg" alt="" loading="lazy" width="800" height="1000">
-    <img data-s="3" src="video/cafe-lleno.jpg" alt="" loading="lazy" width="960" height="948">
-   </div>
+   <div class="shots" id="art" data-step="0"><img src="img/ritual.jpg" alt="" loading="lazy" width="1376" height="768"></div>
    <p class="stage-cap" id="cap">Pulsa un paso para verlo</p>
   </div>
   <div>
