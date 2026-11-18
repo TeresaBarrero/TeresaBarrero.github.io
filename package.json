@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.23.4"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/sitemap": "^3.7.6",
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",
     "@fontsource-variable/geist": "^5.3.0",
     "@fontsource/barlow": "^5.3.0",
@@ -29,6 +29,6 @@
     "@fontsource/nunito-sans": "^5.3.0",
     "@fontsource/outfit": "^5.3.0",
     "@fontsource/ultra": "^5.3.0",
-    "astro": "^5.18.2"
+    "astro": "^7.4.13"
   }
 }
