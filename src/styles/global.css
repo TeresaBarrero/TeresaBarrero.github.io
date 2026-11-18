@@ -882,3 +882,51 @@ body:has(.theme-nido) .totop:hover{background:var(--ink)}
 .nd-stack{display:flex;flex-wrap:wrap;gap:8px}
 .nd-stack span{padding:8px 14px;border-radius:12px;border:1.5px solid var(--accent);color:var(--accent);font-weight:700;font-size:var(--s-sm)}
 @media (max-width:760px){.nd-cards{grid-template-columns:1fr}}
+
+/* Demo sin iframe (embed: false): ventana de navegador con la captura de escritorio, enlazada a la app */
+.demo.is-link{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+.demo-win{display:block;border-radius:18px;overflow:hidden;background:var(--paper);text-decoration:none;color:inherit;box-shadow:0 50px 80px -44px color-mix(in srgb,var(--ink) 55%,transparent),0 0 0 1px var(--line);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.demo-win:hover{transform:translateY(-6px);box-shadow:0 60px 90px -44px color-mix(in srgb,var(--ink) 60%,transparent),0 0 0 1px var(--accent)}
+.demo-win i{display:flex;align-items:center;gap:7px;height:34px;padding:0 14px;background:var(--paper-2,var(--paper));border-bottom:1px solid var(--line);font-style:normal}
+.demo-win i b{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.demo-win i span{margin-left:10px;font-size:var(--s-sm);color:var(--muted)}
+.demo-win img{display:block;width:100%;height:auto}
+@media (max-width:760px){.demo.is-link{grid-template-columns:1fr}.demo-win{display:none}}
+
+/* =====================================================================
+   TEMA NEBÚLA (.case-page.theme-nebula)
+   Colores y tipografías de la app: verde salvia #5B7A57, fondo #F3F5F1, tinta #283029
+   y pasteles (melocotón, mantequilla, lila); Outfit (títulos), Manrope (texto) y Caveat (logo).
+   ===================================================================== */
+.theme-nebula,body:has(.theme-nebula) .totop{
+  --paper:#F3F5F1; --paper-2:#F8F9F6; --ink:#283029; --muted:#5E6860; --line:#E2E7DF; --ghost:#98A199;
+  --accent:#5B7A57; --accent-soft:#D3DFCD;
+  --nb-sage-ink:#2F4A2D; --nb-peach:#FBDCCD; --nb-peach-strong:#EC9473; --nb-butter:#FCEFC3; --nb-lilac:#DFDBF0;
+  --f-display:"Outfit",system-ui,sans-serif;
+  --f-mono:"Manrope",system-ui,sans-serif
+}
+.theme-nebula{background:var(--paper);color:var(--ink);font-family:"Manrope",system-ui,sans-serif}
+.theme-nebula .mono{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.76rem}
+.theme-nebula :is(.h1,.gal-t,.next .t,.mail-mq span,.toc-m){font-weight:500;letter-spacing:-.03em;font-variation-settings:normal}
+.theme-nebula .case-hero .h1{font-family:"Caveat",cursive;font-weight:700;letter-spacing:-.01em;font-size:clamp(4rem,14vw,11rem);line-height:.9;color:var(--nb-sage-ink)}
+.theme-nebula .case-hero .lead{max-width:42ch}
+.theme-nebula .case-meta,.theme-nebula .next{border-color:var(--accent)}
+.theme-nebula .case-cover{border-radius:24px}
+.theme-nebula .metric b{font-family:var(--f-display);font-weight:500;letter-spacing:-.03em;color:var(--accent)}
+.theme-nebula .case-md>h2,.theme-nebula .case-toc ol a b,.theme-nebula .demo-side h2{color:var(--accent)}
+.theme-nebula .case-md>h2::before{background:var(--accent-soft)}
+.theme-nebula .case-md a{color:var(--accent)}
+.theme-nebula .gal img{border-radius:14px}
+.theme-nebula .demo-end-t{font-weight:500}
+.theme-nebula .next .t{font-size:clamp(2.2rem,7vw,6rem)}
+.theme-nebula .close:hover b{background:var(--accent);border-color:var(--accent);color:#fff}
+.theme-nebula .contact{background:#1D231F}
+.theme-nebula .contact .label::before{background:var(--nb-peach-strong)}
+.theme-nebula :is(.mail-mq,.foot){border-color:#2E3731}
+.theme-nebula .mail-mq span:nth-child(even){-webkit-text-stroke-color:var(--nb-peach-strong)}
+.theme-nebula .mail button{background:var(--nb-peach-strong);color:var(--ink)}
+.theme-nebula .mail button:hover{background:#fff;color:var(--ink)}
+.theme-nebula .socials a:hover,.theme-nebula .tel:hover{color:var(--nb-peach-strong);border-color:var(--nb-peach-strong)}
+body:has(.theme-nebula) .totop{background:var(--accent);color:#fff}
+body:has(.theme-nebula) .totop:hover{background:var(--ink)}
+.theme-nebula ::selection{background:var(--nb-peach);color:var(--ink)}

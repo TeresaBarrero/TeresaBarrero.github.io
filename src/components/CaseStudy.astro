@@ -18,6 +18,13 @@ import '@fontsource/nunito/800.css';
 import '@fontsource/nunito-sans/400.css';
 import '@fontsource/nunito-sans/600.css';
 import '@fontsource/nunito-sans/700.css';
+import '@fontsource/outfit/400.css';
+import '@fontsource/outfit/500.css';
+import '@fontsource/outfit/600.css';
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/600.css';
+import '@fontsource/manrope/700.css';
+import '@fontsource/caveat/700.css';
 import Base from '../layouts/Base.astro';
 import ProjectArt from './ProjectArt.astro';
 import NetButton from './NetButton.astro';
@@ -102,12 +109,18 @@ const jsonLd = {
         )}
       </section>
       {d.demo && (
-        <section class="demo wrap" id="demo" aria-labelledby="demo-t">
-          <div class="demo-phone">
+        <section class={d.demo.embed ? 'demo wrap' : 'demo is-link wrap'} id="demo" aria-labelledby="demo-t">
+          {!d.demo.embed && d.demo.wide && (
+            <a class="demo-win" href={d.demo.url} target="_blank" rel="noopener" aria-label={`${s['demo.btn']}: ${d.title}`}>
+              <i aria-hidden="true"><b></b><b></b><b></b><span>{d.demo.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span></i>
+              <img src={img(d.demo.wide)} alt={`${s['demo.shot']} ${d.title}`} width="1800" height="1125" loading="lazy" decoding="async" />
+            </a>
+          )}
+          {d.demo.embed && <div class="demo-phone">
             {/* En escritorio, la app real dentro de un marco de móvil. El src se pone con JS solo en pantallas
                 anchas, para que en el móvil no se cargue (ahí se ve la captura y el botón). */}
             <iframe title={`${s['demo.frame']} ${d.title}`} loading="lazy" data-src={d.demo.url} width="390" height="844" allow="clipboard-write"></iframe>
-          </div>
+          </div>}
           <img class="demo-shot" src={img(d.demo.shot)} alt={`${s['demo.shot']} ${d.title}`} width="390" height="844" loading="lazy" decoding="async" />
           <div class="demo-side">
             <h2 class="mono muted" id="demo-t">{s['demo.t']}</h2>
@@ -115,9 +128,9 @@ const jsonLd = {
             <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>
             {d.demo.qr && <figure class="demo-qr"><img src={img(d.demo.qr)} alt="" width="120" height="120" /><figcaption>{s['demo.qr']}</figcaption></figure>}
           </div>
-          <script is:inline>
+          {d.demo.embed && <script is:inline>
             (function(){var f=document.querySelector('.demo-phone iframe');if(f&&matchMedia('(min-width: 761px)').matches)f.src=f.dataset.src})();
-          </script>
+          </script>}
         </section>
       )}
       <nav class="case-toc wrap" aria-label={s.toc}>

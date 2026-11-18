@@ -20,8 +20,10 @@ const projects = defineCollection({
     /** Duración del proyecto, p. ej. «1-2 semanas» (se muestra en la cabecera si existe) */
     duration: z.string().optional(),
     /** App navegable dentro del caso: marco de móvil con la app (iframe en escritorio),
-        captura en móvil (shot), texto debajo (note) y QR opcional (qr, en public/images) */
-    demo: z.object({ url: z.string().url(), shot: z.string(), note: z.string(), qr: z.string().optional() }).optional(),
+        captura en móvil (shot), texto debajo (note) y QR opcional (qr, en public/images).
+        Con embed: false no hay iframe: se ve una captura de escritorio (wide) en una ventana que abre la app
+        en una pestaña nueva (y en móvil, la captura shot). */
+    demo: z.object({ url: z.string().url(), shot: z.string(), note: z.string(), qr: z.string().optional(), embed: z.boolean().default(true), wide: z.string().optional() }).optional(),
     /** Enlace al documento o presentación completa (Canva, PDF...) */
     document: z.string().url().optional(),
     art: z.enum(['pweb', 'psocial', 'pseo', 'pmix']).optional(),
