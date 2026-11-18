@@ -13,6 +13,11 @@ import '@fontsource/cinzel/600.css';
 import '@fontsource/lora/400.css';
 import '@fontsource/lora/400-italic.css';
 import '@fontsource/lora/500.css';
+import '@fontsource/nunito/700.css';
+import '@fontsource/nunito/800.css';
+import '@fontsource/nunito-sans/400.css';
+import '@fontsource/nunito-sans/600.css';
+import '@fontsource/nunito-sans/700.css';
 import Base from '../layouts/Base.astro';
 import ProjectArt from './ProjectArt.astro';
 import NetButton from './NetButton.astro';
@@ -36,6 +41,7 @@ const d = p.data;
 const { Content, headings } = await render(p);
 // Índice del caso: bloques fijos + secciones (##) del cuerpo + galería
 const toc = [
+  ...(d.demo ? [{ id: 'demo', t: s['demo.t'] }] : []),
   { id: 'reto', t: s.challenge },
   { id: 'solucion', t: s.solution },
   ...(d.highlights.length ? [{ id: 'claves', t: s.results }] : []),
@@ -77,23 +83,44 @@ const jsonLd = {
         <span class="mono muted">{d.type} · {d.year}</span>
         <h1 class="h1"><span class="ln"><span>{d.title}</span></span></h1>
         <p class="lead">{d.lead}</p>
-        <div class="case-meta">
+        <div class="case-meta" style={d.duration ? '--n:5' : undefined}>
           <div><span class="mono muted">{s.role2}</span>{d.role}</div>
           <div><span class="mono muted">{s.year}</span>{d.year}</div>
+          {d.duration && <div><span class="mono muted">{s.duration}</span>{d.duration}</div>}
           <div><span class="mono muted">{s.services}</span>{d.services}</div>
           <div><span class="mono muted">{s.tools}</span>{d.tools}</div>
         </div>
         <div class={d.art ? "case-cover" : "case-cover is-photo"}><ProjectArt art={d.art} cover={d.cover} /></div>
+        {d.demo && <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>}
         {d.links.length > 0 && (
           <p class="case-btns case-nets">{d.links.map((l) => <NetButton href={l.href} label={l.label} />)}</p>
         )}
-        {d.links.length === 0 && (d.url || d.document) && (
+        {d.links.length === 0 && !d.demo && (d.url || d.document) && (
           <p class="case-links">
             {d.url && <a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a>}
             {d.document && <a class="mono" href={d.document} target="_blank" rel="noopener">{s.doc}</a>}
           </p>
         )}
       </section>
+      {d.demo && (
+        <section class="demo wrap" id="demo" aria-labelledby="demo-t">
+          <div class="demo-phone">
+            {/* En escritorio, la app real dentro de un marco de móvil. El src se pone con JS solo en pantallas
+                anchas, para que en el móvil no se cargue (ahí se ve la captura y el botón). */}
+            <iframe title={`${s['demo.frame']} ${d.title}`} loading="lazy" data-src={d.demo.url} width="390" height="844" allow="clipboard-write"></iframe>
+          </div>
+          <img class="demo-shot" src={img(d.demo.shot)} alt={`${s['demo.shot']} ${d.title}`} width="390" height="844" loading="lazy" decoding="async" />
+          <div class="demo-side">
+            <h2 class="mono muted" id="demo-t">{s['demo.t']}</h2>
+            <p class="demo-note">{d.demo.note}</p>
+            <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>
+            {d.demo.qr && <figure class="demo-qr"><img src={img(d.demo.qr)} alt="" width="120" height="120" /><figcaption>{s['demo.qr']}</figcaption></figure>}
+          </div>
+          <script is:inline>
+            (function(){var f=document.querySelector('.demo-phone iframe');if(f&&matchMedia('(min-width: 761px)').matches)f.src=f.dataset.src})();
+          </script>
+        </section>
+      )}
       <nav class="case-toc wrap" aria-label={s.toc}>
         <span class="mono muted toc-d">{s.toc}</span>
         <h2 class="toc-m">{s.tocM}</h2>
@@ -132,6 +159,9 @@ const jsonLd = {
           <div class="lb-sc" id="lbSc"><img id="lbImg" alt="" /></div>
           <p class="lb-cap mono" id="lbCap"></p>
         </dialog>
+      )}
+      {d.demo && (
+        <div class="wrap demo-end"><p class="demo-end-t">{s['demo.end']}</p><p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p></div>
       )}
       {d.document && <a class="fab" style={d.accent ? `--fab:${d.accent}` : undefined} href={d.document} target="_blank" rel="noopener">{s.docBtn}<span aria-hidden="true">↗</span></a>}
       {list.length > 1 && (

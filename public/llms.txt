@@ -9,6 +9,7 @@
 
 ## Casos de estudio
 
+- [Nido · App móvil (PWA) de producto y UX/UI](https://teresabarrero.github.io/proyectos/nido/): proyecto propio (2026, 1-2 semanas). App de compraventa de cosas de bebé entre familias del mismo barrio, organizada por etapas del bebé, con chat, quedada y pago protegido con código de entrega. Investigación, análisis de otras apps, prototipo, pruebas con usuarias y desarrollo con React, Supabase y Vercel. Demo navegable: https://nido-bebes.vercel.app/ (datos y pagos de prueba).
 - [AZARA Coffee · Marca y marketing 360º](https://teresabarrero.github.io/proyectos/azara-coffee/): proyecto conceptual. Cafetería de especialidad inspirada en Sevilla con un ritual propio (maridaje aromático) y un calendario olfativo de cuatro temporadas. Naming, identidad visual, plan de marketing 360º, web, calendario de redes, ficha de Google y objetivos SMART.
 - [Panthera Fitness · Diseño web y community management](https://teresabarrero.github.io/proyectos/panthera-fitness/): cliente real, gimnasio en Guareña (Badajoz). Web mobile first con formulario propio y GA4 en Consent Mode v2, redes sociales (base de marca, calendario de pre-apertura y plan de Facebook) y SEO local (Google Business Profile, datos estructurados ExerciseGym y llms.txt).
 - [Castúo Cooperativa · Marketing digital y marca](https://teresabarrero.github.io/proyectos/castuo-cooperativa/): proyecto de máster (CEI, 2025). Análisis de competencia, DAFO, buyer personas, objetivos SMART, rediseño web, blog, newsletters, landing pages, Google Ads, Meta Ads, redes y presupuesto.

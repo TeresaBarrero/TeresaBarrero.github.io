@@ -34,6 +34,7 @@ export const ui = {
     'cta.work': 'Ver proyectos', 'cta.talk': 'Hablemos', top: 'Volver arriba',
     'case.back': 'Trabajo', role2: 'Rol', year: 'Año', services: 'Servicios', tools: 'Herramientas',
     challenge: 'El reto', solution: 'La solución', results: 'Claves', gallery: 'Galería', more: 'Más detalles', toc: 'En este caso', tocM: 'Índice',
+    duration: 'Duración', 'demo.btn': 'Probar la demo', 'demo.t': 'La app en vivo', 'demo.frame': 'Demo navegable de', 'demo.qr': 'Escanea para abrirla en tu móvil', 'demo.shot': 'Pantalla de inicio de', 'demo.end': '¿La pruebas?',
     next: 'Siguiente proyecto', live: 'Ver en vivo ↗', doc: 'Ver la presentación completa ↗', docBtn: 'Ver proyecto completo', webFull: 'Ver web completa', zoom: 'Ampliar imagen', closeImg: 'Cerrar imagen',
   },
   en: {
@@ -67,6 +68,7 @@ export const ui = {
     'cta.work': 'See projects', 'cta.talk': 'Let’s talk', top: 'Back to top',
     'case.back': 'Work', role2: 'Role', year: 'Year', services: 'Services', tools: 'Tools',
     challenge: 'The challenge', solution: 'The solution', results: 'Key points', gallery: 'Gallery', more: 'More details', toc: 'In this case', tocM: 'Contents',
+    duration: 'Duration', 'demo.btn': 'Try the demo', 'demo.t': 'The live app', 'demo.frame': 'Interactive demo of', 'demo.qr': 'Scan to open it on your phone', 'demo.shot': 'Home screen of', 'demo.end': 'Want to try it?',
     next: 'Next project', live: 'See it live ↗', doc: 'See the full presentation ↗', docBtn: 'See full project', webFull: 'See full website', zoom: 'Enlarge image', closeImg: 'Close image',
   },
 } as const;

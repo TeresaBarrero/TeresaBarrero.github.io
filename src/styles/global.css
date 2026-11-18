@@ -296,7 +296,7 @@ body.menu-open .menu li a{transform:none}
 .case-hero{padding-block:clamp(40px,7vw,96px) 32px}
 .case-hero .h1{max-width:none;font-size:clamp(2.6rem,10vw,9rem)}
 .case-hero .lead{font-size:var(--s-lg);max-width:46ch;margin:24px 0 0}
-.case-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--ink);padding-top:16px;margin-top:40px}
+.case-meta{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:24px;border-top:1px solid var(--ink);padding-top:16px;margin-top:40px}
 .case-meta div{display:flex;flex-direction:column;gap:6px;font-size:var(--s-sm);min-width:0}
 @media (max-width:760px){.case-meta{grid-template-columns:repeat(2,1fr)}}
 .case-cover{aspect-ratio:16/9;max-width:100%;border-radius:6px;overflow:hidden;margin-block:24px 0}
@@ -798,3 +798,87 @@ body:has(.theme-panthera) .lb-x:hover{background:var(--pa-cyan);color:var(--pa-c
 .theme-castuo .socials a{color:#E3D5C2;border-color:#6A5038}
 .theme-castuo .mail button:hover{background:var(--accent-soft);color:var(--ink)}
 body:has(.theme-castuo) .totop:hover{background:var(--cs-wine)}
+
+/* ---------- App navegable dentro del caso (campo «demo» del .md) ----------
+   Escritorio: la app real en un marco de móvil, con el texto, el botón y el QR al lado.
+   Móvil (≤760 px): sin iframe; una captura de la app y el botón para abrirla a pantalla completa. */
+.demo-cta{margin:24px 0 0}
+.demo-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 28px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:var(--s-md);box-shadow:0 14px 30px -14px color-mix(in srgb,var(--accent) 70%,transparent);transition:transform .35s var(--ease),background .3s}
+.demo-btn:hover{transform:translateY(-2px);background:color-mix(in srgb,var(--accent) 85%,#000)}
+.demo-btn:active{transform:scale(.97)}
+.demo-btn span{transition:transform .35s var(--ease)}
+.demo-btn:hover span{transform:translate(2px,-2px)}
+.demo{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:center;padding-block:clamp(40px,6vw,88px)}
+.demo-phone{width:414px;height:868px;padding:12px;border-radius:56px;background:var(--ink);box-shadow:0 50px 80px -40px color-mix(in srgb,var(--ink) 60%,transparent),inset 0 0 0 2px rgba(255,255,255,.08)}
+.demo-phone iframe{display:block;width:390px;height:844px;border:0;border-radius:44px;background:var(--paper)}
+.demo-shot{display:none}
+.demo-side{max-width:44ch}
+.demo-side h2{margin:0 0 14px;font-weight:400}
+.demo-note{margin:0;font-size:clamp(1.1rem,1.6vw,1.35rem);line-height:1.5}
+.demo-qr{display:flex;align-items:center;gap:18px;margin:36px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.demo-qr img{width:120px;height:120px;padding:10px;background:#fff;border-radius:14px;flex:none}
+.demo-qr figcaption{font-size:var(--s-sm);color:var(--muted);max-width:18ch}
+.demo-end{border-top:1px solid var(--line);padding-block:clamp(40px,6vw,72px);text-align:center}
+.demo-end-t{margin:0;font-family:var(--f-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+@media (max-width:1100px) and (min-width:761px){.demo-phone{transform:scale(.82);transform-origin:top left;margin:0 -74px -156px 0}}
+@media (max-width:760px){
+  .demo{grid-template-columns:1fr;gap:24px;justify-items:center;text-align:center}
+  .demo-phone,.demo-qr{display:none}
+  .demo-shot{display:block;width:min(78%,300px);height:auto;border-radius:34px;border:9px solid var(--ink);box-shadow:0 30px 60px -30px color-mix(in srgb,var(--ink) 60%,transparent)}
+  .demo-side{max-width:none}
+  .demo-btn,.case-hero .demo-btn{width:100%}
+}
+
+/* =====================================================================
+   TEMA NIDO (.case-page.theme-nido)
+   Colores y tipografías de la app: azul #4E6E9E, crema #FAF7F4, tinta #33363F
+   y pasteles (coral, menta, lavanda, mantequilla); Nunito (títulos) y Nunito Sans (texto).
+   ===================================================================== */
+.theme-nido,body:has(.theme-nido) .totop{
+  --paper:#FAF7F4; --paper-2:#F3EEE8; --ink:#33363F; --muted:#686C78; --line:#EEE8E2; --ghost:#B9BCC4;
+  --accent:#4E6E9E; --accent-soft:#DCEBF8;
+  --nd-coral:#F2A69B; --nd-peach:#FDE4D8; --nd-mint:#DDF1E8; --nd-mint-ink:#2F6F57; --nd-lav:#ECE7F8; --nd-butter:#FFF2CB; --nd-pink:#FBE3EA;
+  --f-display:"Nunito",system-ui,sans-serif;
+  --f-mono:"Nunito Sans",system-ui,sans-serif
+}
+.theme-nido{background:var(--paper);color:var(--ink);font-family:"Nunito Sans",system-ui,sans-serif}
+.theme-nido .mono{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem}
+.theme-nido :is(.h1,.gal-t,.next .t,.mail-mq span,.toc-m){font-weight:800;letter-spacing:-.025em;font-variation-settings:normal}
+.theme-nido .case-hero .h1{font-size:clamp(3rem,11vw,9rem);line-height:.95}
+.theme-nido .case-hero .lead{font-weight:600;max-width:40ch}
+.theme-nido .case-meta,.theme-nido .next{border-color:var(--accent)}
+.theme-nido .case-cover{border-radius:28px}
+.theme-nido .metric b{font-weight:800;letter-spacing:-.02em;color:var(--accent)}
+.theme-nido .case-md>h2,.theme-nido .case-toc ol a b,.theme-nido .demo-side h2{color:var(--accent)}
+.theme-nido .case-md>h2::before{background:var(--accent-soft)}
+.theme-nido .case-md a{color:var(--accent)}
+.theme-nido .next .t{font-size:clamp(2.2rem,7vw,6rem)}
+.theme-nido .close:hover b{background:var(--accent);border-color:var(--accent);color:#fff}
+.theme-nido .contact{background:#2A2D35}
+.theme-nido .contact .label::before{background:var(--nd-coral)}
+.theme-nido :is(.mail-mq,.foot){border-color:#454955}
+.theme-nido .mail-mq span:nth-child(even){-webkit-text-stroke-color:var(--nd-coral)}
+.theme-nido .mail button{background:var(--nd-coral);color:var(--ink)}
+.theme-nido .mail button:hover{background:#fff;color:var(--ink)}
+.theme-nido .socials a:hover,.theme-nido .tel:hover{color:var(--nd-coral);border-color:var(--nd-coral)}
+body:has(.theme-nido) .totop{background:var(--accent);color:#fff}
+body:has(.theme-nido) .totop:hover{background:var(--ink)}
+.theme-nido ::selection{background:var(--accent-soft);color:var(--ink)}
+/* Bloques del cuerpo del caso (.nd-*) */
+.nd-principles{list-style:none;padding:0!important;display:flex!important;flex-wrap:wrap;gap:10px!important}
+.nd-principles li{padding:10px 18px;border-radius:999px;background:var(--c,var(--accent-soft));font-weight:700;font-family:var(--f-display)}
+.nd-principles li:nth-child(5n+1){--c:var(--accent-soft)}.nd-principles li:nth-child(5n+2){--c:var(--nd-mint)}.nd-principles li:nth-child(5n+3){--c:var(--nd-peach)}.nd-principles li:nth-child(5n+4){--c:var(--nd-lav)}.nd-principles li:nth-child(5n+5){--c:var(--nd-butter)}
+.nd-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.nd-cards>div{background:var(--c,#fff);border-radius:24px;padding:24px}
+.nd-cards>div:nth-child(6n+1){--c:var(--nd-mint)}.nd-cards>div:nth-child(6n+2){--c:var(--accent-soft)}.nd-cards>div:nth-child(6n+3){--c:var(--nd-peach)}.nd-cards>div:nth-child(6n+4){--c:var(--nd-butter)}.nd-cards>div:nth-child(6n+5){--c:var(--nd-lav)}.nd-cards>div:nth-child(6n+6){--c:var(--nd-pink)}
+.nd-cards b{display:block;font-family:var(--f-display);font-weight:800;font-size:1.2rem;line-height:1.2;margin-bottom:8px}
+.nd-cards span{display:block;line-height:1.5}
+.nd-steps{list-style:none;padding:0!important;counter-reset:nd;display:grid!important;gap:12px!important}
+.nd-steps li{counter-increment:nd;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px 18px}
+.nd-steps li>*{grid-column:2}
+.nd-steps li::before{grid-row:1/span 2;content:counter(nd);width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-weight:800}
+.nd-steps b{display:block;font-family:var(--f-display);font-weight:800;font-size:1.1rem}
+.nd-steps span{display:block;color:var(--muted);line-height:1.5}
+.nd-stack{display:flex;flex-wrap:wrap;gap:8px}
+.nd-stack span{padding:8px 14px;border-radius:12px;border:1.5px solid var(--accent);color:var(--accent);font-weight:700;font-size:var(--s-sm)}
+@media (max-width:760px){.nd-cards{grid-template-columns:1fr}}
