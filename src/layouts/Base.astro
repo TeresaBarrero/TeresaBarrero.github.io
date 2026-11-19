@@ -50,7 +50,7 @@ const ogImage = new URL(u('/og.png'), Astro.site);
     <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_GB'} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="sitemap" href={u('/sitemap-index.xml')} />
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />}
   </head>
   <body>
     <a class="skip" href="#contenido">{s.skip}</a>
