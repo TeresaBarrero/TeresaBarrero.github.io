@@ -1,0 +1,15 @@
+# Dependabot propone (en pull requests) las actualizaciones de las acciones de GitHub y de npm.
+# Nada se aplica solo: hay que revisar y aceptar cada PR.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      fuentes:
+        patterns: ['@fontsource*']
