@@ -6,7 +6,7 @@ lang: en
 order: 4
 year: 2025
 type: Digital marketing & branding · Improvement proposal
-lead: An improvement proposal: a three-month digital marketing plan for a wine and olive oil cooperative from Extremadura, founded in 1965, so its brand and online shop live up to its product.
+lead: "An improvement proposal: a three-month digital marketing plan for a wine and olive oil cooperative from Extremadura, founded in 1965, so its brand and online shop live up to its product."
 role: Strategy, design & content
 services: Analysis, SEO, SEM, Meta Ads, email & social
 tools: SEMrush · Google Ads · Meta Ads · GA4 · Search Console · Tag Manager · WordPress · Yoast SEO · Canva

@@ -6,7 +6,7 @@ lang: es
 order: 4
 year: 2025
 type: Marketing digital y marca · Propuesta de mejora
-lead: Una propuesta de mejora: un plan de marketing digital de tres meses para una cooperativa extremeña de vino y aceite fundada en 1965, para que su marca y su tienda online estén a la altura de su producto.
+lead: "Una propuesta de mejora: un plan de marketing digital de tres meses para una cooperativa extremeña de vino y aceite fundada en 1965, para que su marca y su tienda online estén a la altura de su producto."
 role: Estrategia, diseño y contenidos
 services: Análisis, SEO, SEM, Meta Ads, email y redes
 tools: SEMrush · Google Ads · Meta Ads · GA4 · Search Console · Tag Manager · WordPress · Yoast SEO · Canva
