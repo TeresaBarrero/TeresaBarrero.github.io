@@ -11,7 +11,7 @@ interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const other = lang === 'es' ? 'en' : 'es';
 const owner = 'María Teresa Barrero Isidoro';
-const updated = lang === 'es' ? '18 de noviembre de 2026' : '18 November 2026';
+const updated = lang === 'es' ? '19 de noviembre de 2026' : '19 November 2026';
 const mailto = `mailto:${profile.email}`;
 const es = lang === 'es';
 ---
@@ -28,12 +28,13 @@ const es = lang === 'es';
         <>
           <h2>Quién está detrás de esta web</h2>
           <p>Esta web es el portfolio profesional de <b>{owner}</b>. Sirve para mostrar mis trabajos y para que puedas contactar conmigo. Puedes escribirme a <a href={mailto}>{profile.email}</a> o llamarme al <a href={profile.phoneHref}>{profile.phone}</a>.</p>
+          <p>Es una web personal y sin actividad económica: no vendo productos ni contrato servicios a través de ella. Su única finalidad es dar a conocer mi trabajo en mi búsqueda de empleo.</p>
 
           <h2>Contenido y propiedad intelectual</h2>
           <p>Los textos, diseños e imágenes de esta web son de mi autoría, salvo que se indique otra cosa. No puedes copiarlos ni reutilizarlos sin mi permiso.</p>
           <ul>
             <li>Los trabajos para clientes se muestran con su permiso, y sus marcas y logotipos pertenecen a sus titulares.</li>
-            <li>Los proyectos conceptuales y académicos se señalan como tales, y sus cifras son objetivos, no resultados.</li>
+            <li>Los proyectos conceptuales y académicos se señalan como tales, y sus cifras son objetivos, no resultados. Las propuestas de mejora para empresas reales no fueron encargadas ni están avaladas por ellas.</li>
             <li>Cuando una imagen está generada con inteligencia artificial, se indica en su caso.</li>
           </ul>
           <p>Las menciones a otras marcas o empresas son solo informativas.</p>
@@ -54,7 +55,7 @@ const es = lang === 'es';
 
           <h2>Alojamiento</h2>
           <p>La web está alojada en GitHub Pages (GitHub, Inc.). Como cualquier servidor, puede registrar datos técnicos de la visita, como la dirección IP, por motivos de seguridad. Más información en la <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">declaración de privacidad de GitHub</a>.</p>
-          <p>Las demos de mis apps, <b>Nido</b> y <b>nebúla</b>, son webs aparte alojadas en Vercel y tienen su propia política de privacidad.</p>
+          <p>Las demos de mis apps, <b>Nido</b> y <b>nebúla</b>, son webs aparte alojadas en Vercel y tienen su propia política de privacidad. En ordenador, la página del caso Nido puede mostrar la app dentro de un marco, pero solo se carga si pulsas «Abrir la demo aquí». A partir de ese momento, la app puede guardar en tu navegador los archivos que necesita para funcionar; puedes borrarlos desde la configuración de tu navegador.</p>
 
           <h2>Tus derechos</h2>
           <p>Puedes pedirme en cualquier momento que te diga qué datos tengo sobre ti, que los corrija o que los borre. También puedes oponerte a su uso, limitarlo o pedir que te los entregue. Para ello, escríbeme a <a href={mailto}>{profile.email}</a>.</p>
@@ -64,12 +65,13 @@ const es = lang === 'es';
         <>
           <h2>Who is behind this website</h2>
           <p>This website is the professional portfolio of <b>{owner}</b>. It shows my work and lets you get in touch. You can email me at <a href={mailto}>{profile.email}</a> or call me on <a href={profile.phoneHref}>+34 {profile.phone}</a>.</p>
+          <p>This is a personal, non-commercial website: I don’t sell products or contract services through it. Its only purpose is to show my work as part of my job search.</p>
 
           <h2>Content and intellectual property</h2>
           <p>The texts, designs and images on this website are my own work, unless stated otherwise. You may not copy or reuse them without my permission.</p>
           <ul>
             <li>Client work is shown with the client’s permission, and their brands and logos belong to their owners.</li>
-            <li>Concept and academic projects are labelled as such, and their figures are goals, not results.</li>
+            <li>Concept and academic projects are labelled as such, and their figures are goals, not results. Improvement proposals for real companies were neither commissioned nor endorsed by them.</li>
             <li>When an image was generated with artificial intelligence, the case study says so.</li>
           </ul>
           <p>References to other brands or companies are for information only.</p>
@@ -90,7 +92,7 @@ const es = lang === 'es';
 
           <h2>Hosting</h2>
           <p>The website is hosted on GitHub Pages (GitHub, Inc.). Like any server, it may log technical data about your visit, such as your IP address, for security reasons. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
-          <p>The demos of my apps, <b>Nido</b> and <b>nebúla</b>, are separate websites hosted on Vercel, each with its own privacy policy.</p>
+          <p>The demos of my apps, <b>Nido</b> and <b>nebúla</b>, are separate websites hosted on Vercel, each with its own privacy policy. On desktop, the Nido case study can show the app inside a frame, but it only loads if you press “Open the demo here”. From then on, the app may store the files it needs to work in your browser; you can delete them in your browser settings.</p>
 
           <h2>Your rights</h2>
           <p>You can ask me at any time to tell you what data I hold about you, to correct it or to delete it. You can also object to its use, restrict it or ask me to hand it over to you. To do so, email me at <a href={mailto}>{profile.email}</a>.</p>
