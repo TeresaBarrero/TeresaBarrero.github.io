@@ -3,3 +3,13 @@ dist/
 .astro/
 .DS_Store
 .env
+
+# Claves, certificados y variables de entorno: nunca al repositorio
+.env.*
+*.p12
+*.pfx
+*.pem
+*.key
+
+# Informe de auditoría (contiene puntos débiles; no publicar)
+SECURITY_AUDIT.md
