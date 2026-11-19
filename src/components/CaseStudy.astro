@@ -97,21 +97,21 @@ const jsonLd = {
           <div><span class="mono muted">{s.tools}</span>{d.tools}</div>
         </div>
         <div class={d.art ? "case-cover" : "case-cover is-photo"}><ProjectArt art={d.art} cover={d.cover} /></div>
-        {d.demo && <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>}
+        {d.demo && <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener noreferrer">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>}
         {d.links.length > 0 && (
           <p class="case-btns case-nets">{d.links.map((l) => <NetButton href={l.href} label={l.label} />)}</p>
         )}
         {d.links.length === 0 && !d.demo && (d.url || d.document) && (
           <p class="case-links">
             {d.url && <a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a>}
-            {d.document && <a class="mono" href={d.document} target="_blank" rel="noopener">{s.doc}</a>}
+            {d.document && <a class="mono" href={d.document} target="_blank" rel="noopener noreferrer">{s.doc}</a>}
           </p>
         )}
       </section>
       {d.demo && (
         <section class={d.demo.embed ? 'demo wrap' : 'demo is-link wrap'} id="demo" aria-labelledby="demo-t">
           {!d.demo.embed && d.demo.wide && (
-            <a class="demo-win" href={d.demo.url} target="_blank" rel="noopener" aria-label={`${s['demo.btn']}: ${d.title}`}>
+            <a class="demo-win" href={d.demo.url} target="_blank" rel="noopener noreferrer" aria-label={`${s['demo.btn']}: ${d.title}`}>
               <i aria-hidden="true"><b></b><b></b><b></b><span>{d.demo.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span></i>
               <img src={img(d.demo.wide)} alt={`${s['demo.shot']} ${d.title}`} width="1800" height="1125" loading="lazy" decoding="async" />
             </a>
@@ -130,7 +130,7 @@ const jsonLd = {
           <div class="demo-side">
             <h2 class="mono muted" id="demo-t">{s['demo.t']}</h2>
             <p class="demo-note">{d.demo.note}</p>
-            <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>
+            <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener noreferrer">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>
             {d.demo.qr && <figure class="demo-qr"><img src={img(d.demo.qr)} alt="" width="120" height="120" /><figcaption>{s['demo.qr']}</figcaption></figure>}
           </div>
         </section>
@@ -175,9 +175,9 @@ const jsonLd = {
         </dialog>
       )}
       {d.demo && (
-        <div class="wrap demo-end"><p class="demo-end-t">{s['demo.end']}</p><p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p></div>
+        <div class="wrap demo-end"><p class="demo-end-t">{s['demo.end']}</p><p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener noreferrer">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p></div>
       )}
-      {d.document && <a class="fab" style={d.accent ? `--fab:${d.accent}` : undefined} href={d.document} target="_blank" rel="noopener">{s.docBtn}<span aria-hidden="true">↗</span></a>}
+      {d.document && <a class="fab" style={d.accent ? `--fab:${d.accent}` : undefined} href={d.document} target="_blank" rel="noopener noreferrer">{s.docBtn}<span aria-hidden="true">↗</span></a>}
       {list.length > 1 && (
         <div class="wrap"><a class="next" href={projectPath(lang, next.data.uid)}><span class="mono muted">{s.next}</span><br /><span class="t">{next.data.title} <span aria-hidden="true">→</span></span></a></div>
       )}

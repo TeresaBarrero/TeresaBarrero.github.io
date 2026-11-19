@@ -17,7 +17,7 @@ const mq = Array.from({ length: 4 }).flatMap(() => [s.mq, s.mq]);
         <div class="mail"><code id="mailTxt">{profile.email}</code><button type="button" id="copyBtn" data-copy={s.copy} data-copied={s.copied}>{s.copy}</button></div>
         <a class="tel" href={profile.phoneHref}>{profile.phone}</a>
       </div>
-      <div class="socials">{profile.socials.map((x) => <a href={x.href} target="_blank" rel="noopener me">{x.label}</a>)}</div>
+      <div class="socials">{profile.socials.map((x) => <a href={x.href} target="_blank" rel="noopener noreferrer me">{x.label}</a>)}</div>
     </div>
     <div class="foot mono">
       <span>© {new Date().getFullYear()} {profile.name}</span>
