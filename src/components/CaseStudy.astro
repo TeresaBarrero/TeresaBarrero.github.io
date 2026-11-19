@@ -117,9 +117,14 @@ const jsonLd = {
             </a>
           )}
           {d.demo.embed && <div class="demo-phone">
-            {/* En escritorio, la app real dentro de un marco de móvil. El src se pone con JS solo en pantallas
-                anchas, para que en el móvil no se cargue (ahí se ve la captura y el botón). */}
-            <iframe title={`${s['demo.frame']} ${d.title}`} loading="lazy" data-src={d.demo.url} width="390" height="844" allow="clipboard-write"></iframe>
+            {/* En escritorio, la app real dentro de un marco de móvil. No se carga hasta que el visitante pulsa
+                el botón (la app es otra web y guarda archivos en su navegador); en el móvil nunca se carga. */}
+            <iframe title={`${s['demo.frame']} ${d.title}`} data-src={d.demo.url} width="390" height="844" allow="clipboard-write" hidden></iframe>
+            <button type="button" class="demo-load">
+              <img src={img(d.demo.shot)} alt="" width="390" height="844" loading="lazy" decoding="async" />
+              <span class="demo-btn">{s['demo.load']}</span>
+              <small>{s['demo.loadNote']} {new URL(d.demo.url).host}</small>
+            </button>
           </div>}
           <img class="demo-shot" src={img(d.demo.shot)} alt={`${s['demo.shot']} ${d.title}`} width="390" height="844" loading="lazy" decoding="async" />
           <div class="demo-side">
@@ -129,7 +134,7 @@ const jsonLd = {
             {d.demo.qr && <figure class="demo-qr"><img src={img(d.demo.qr)} alt="" width="120" height="120" /><figcaption>{s['demo.qr']}</figcaption></figure>}
           </div>
           {d.demo.embed && <script is:inline>
-            (function(){var f=document.querySelector('.demo-phone iframe');if(f&&matchMedia('(min-width: 761px)').matches)f.src=f.dataset.src})();
+            (function(){var f=document.querySelector('.demo-phone iframe'),b=document.querySelector('.demo-load');if(!f||!b)return;b.addEventListener('click',function(){f.src=f.dataset.src;f.hidden=false;b.remove();f.focus()})})();
           </script>}
         </section>
       )}
