@@ -319,3 +319,14 @@ mobile.addEventListener('change', () => {
   onMobileScroll();
 });
 onMobileScroll();
+
+// Demo incrustada (Nido): la app es otra web, así que solo se carga cuando el visitante pulsa el botón
+const demoFrame = document.querySelector<HTMLIFrameElement>('.demo-phone iframe');
+const demoLoad = document.querySelector<HTMLButtonElement>('.demo-load');
+demoLoad?.addEventListener('click', () => {
+  if (!demoFrame?.dataset.src) return;
+  demoFrame.src = demoFrame.dataset.src;
+  demoFrame.hidden = false;
+  demoLoad.remove();
+  demoFrame.focus();
+});

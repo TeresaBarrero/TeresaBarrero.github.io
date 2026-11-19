@@ -133,9 +133,6 @@ const jsonLd = {
             <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>
             {d.demo.qr && <figure class="demo-qr"><img src={img(d.demo.qr)} alt="" width="120" height="120" /><figcaption>{s['demo.qr']}</figcaption></figure>}
           </div>
-          {d.demo.embed && <script is:inline>
-            (function(){var f=document.querySelector('.demo-phone iframe'),b=document.querySelector('.demo-load');if(!f||!b)return;b.addEventListener('click',function(){f.src=f.dataset.src;f.hidden=false;b.remove();f.focus()})})();
-          </script>}
         </section>
       )}
       <nav class="case-toc wrap" aria-label={s.toc}>
