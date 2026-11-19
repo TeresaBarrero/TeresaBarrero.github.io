@@ -5,8 +5,8 @@ theme: castuo
 lang: es
 order: 4
 year: 2025
-type: Marketing digital y marca
-lead: Un plan de marketing digital de tres meses para una cooperativa extremeña de vino y aceite fundada en 1965, para que su marca y su tienda online estén a la altura de su producto.
+type: Marketing digital y marca · Propuesta de mejora
+lead: Una propuesta de mejora: un plan de marketing digital de tres meses para una cooperativa extremeña de vino y aceite fundada en 1965, para que su marca y su tienda online estén a la altura de su producto.
 role: Estrategia, diseño y contenidos
 services: Análisis, SEO, SEM, Meta Ads, email y redes
 tools: SEMrush · Google Ads · Meta Ads · GA4 · Search Console · Tag Manager · WordPress · Yoast SEO · Canva
@@ -81,4 +81,4 @@ Cuatro objetivos, todos a tres meses. Son metas del plan, no resultados medidos.
 
 ## Contexto
 
-Proyecto académico del Máster en Marketing Digital y Diseño Web del CEI. Las cifras de los objetivos son metas del plan, no resultados medidos.
+Proyecto académico del Máster en Marketing Digital y Diseño Web del CEI: es una propuesta de mejora que la cooperativa no encargó ni avala, y sus marcas pertenecen a sus titulares. Las cifras de los objetivos son metas del plan, no resultados medidos.

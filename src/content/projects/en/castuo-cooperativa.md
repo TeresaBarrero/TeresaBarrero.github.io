@@ -5,8 +5,8 @@ theme: castuo
 lang: en
 order: 4
 year: 2025
-type: Digital marketing & branding
-lead: A three-month digital marketing plan for a wine and olive oil cooperative from Extremadura, founded in 1965, so its brand and online shop live up to its product.
+type: Digital marketing & branding · Improvement proposal
+lead: An improvement proposal: a three-month digital marketing plan for a wine and olive oil cooperative from Extremadura, founded in 1965, so its brand and online shop live up to its product.
 role: Strategy, design & content
 services: Analysis, SEO, SEM, Meta Ads, email & social
 tools: SEMrush · Google Ads · Meta Ads · GA4 · Search Console · Tag Manager · WordPress · Yoast SEO · Canva
@@ -81,4 +81,4 @@ Four goals, all over three months. They are the plan’s targets, not measured r
 
 ## Context
 
-An academic project for the Master’s in Digital Marketing and Web Design at CEI. The goal figures are the plan’s targets, not measured results.
+An academic project for the Master’s in Digital Marketing and Web Design at CEI: an improvement proposal that the cooperative neither commissioned nor endorses, and its brands belong to their owners. The goal figures are the plan’s targets, not measured results.
