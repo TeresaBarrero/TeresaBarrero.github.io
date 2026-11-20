@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProjectArt from './ProjectArt.astro';
 import LangSwitch from './LangSwitch.astro';
 import Contact from './Contact.astro';
+import Flecha from './Flecha.astro';
 import { t, type Lang } from '../i18n/ui';
 import { profile, experience, education, certificates, languages, disciplines, inProgress } from '../data/profile';
 import { archive } from '../data/archive';
@@ -190,7 +191,7 @@ const jsonLd = {
             ))}
           </div>
           <p class="case-btns cv-btns">
-            <a href={u(profile.cv)} target="_blank" rel="noopener">{s.cvView}<span aria-hidden="true">↗</span></a>
+            <a href={u(profile.cv)} target="_blank" rel="noopener">{s.cvView}<Flecha /></a>
             <a href={u(profile.cv)} download="Teresa_Barrero_CV.pdf" id="cvDl">{s.cvDl}<span aria-hidden="true">↓</span></a>
           </p>
         </div>

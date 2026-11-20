@@ -424,6 +424,14 @@ html.lb-open{overflow:hidden}
 .fab span{font-size:1.1em;transition:transform .4s var(--ease)}
 .fab:hover{background:color-mix(in srgb,var(--fab,var(--ink)) 80%,#000);transform:translateY(-2px)}
 .fab:hover span{transform:translate(2px,-2px)}
+/* Sobre un fondo de su mismo color (o de poco contraste) el botón se invierte: fondo blanco y texto del color del proyecto. */
+.fab{transition:background .3s,color .3s,transform .4s var(--ease)}
+.fab.sobre-color{background:#fff;color:var(--fab,var(--ink))}
+.fab.sobre-color:hover{background:color-mix(in srgb,var(--fab,var(--ink)) 8%,#fff)}
+@media (prefers-reduced-motion:reduce){.fab{transition:none}}
+/* Flecha ↗ dibujada (no emoji) */
+.flecha{display:inline-flex;vertical-align:-.12em}
+.flecha svg{display:block}
 @media (max-width:760px){.case-cover.is-photo{aspect-ratio:16/9}.gal .g-soc{grid-column:span 6}}
 @media (max-width:520px){.fab{left:16px;right:16px;bottom:max(14px,env(safe-area-inset-bottom,0px));justify-content:center}.case-page{padding-bottom:76px}}
 

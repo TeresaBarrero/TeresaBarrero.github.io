@@ -30,6 +30,7 @@ import ProjectArt from './ProjectArt.astro';
 import NetButton from './NetButton.astro';
 import LangSwitch from './LangSwitch.astro';
 import Contact from './Contact.astro';
+import Flecha from './Flecha.astro';
 import { render } from 'astro:content';
 import { t, type Lang } from '../i18n/ui';
 import { profile } from '../data/profile';
@@ -97,14 +98,14 @@ const jsonLd = {
           <div><span class="mono muted">{s.tools}</span>{d.tools}</div>
         </div>
         <div class={d.art ? "case-cover" : "case-cover is-photo"}><ProjectArt art={d.art} cover={d.cover} /></div>
-        {d.demo && <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener noreferrer">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>}
+        {d.demo && <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener noreferrer">{s['demo.btn']}<Flecha /></a></p>}
         {d.links.length > 0 && (
           <p class="case-btns case-nets">{d.links.map((l) => <NetButton href={l.href} label={l.label} />)}</p>
         )}
         {d.links.length === 0 && !d.demo && (d.url || d.document) && (
           <p class="case-links">
-            {d.url && <a class="mono" href={d.url} target="_blank" rel="noopener">{s.live}</a>}
-            {d.document && <a class="mono" href={d.document} target="_blank" rel="noopener noreferrer">{s.doc}</a>}
+            {d.url && <a class="mono" href={d.url} target="_blank" rel="noopener">{s.live} <Flecha /></a>}
+            {d.document && <a class="mono" href={d.document} target="_blank" rel="noopener noreferrer">{s.doc} <Flecha /></a>}
           </p>
         )}
       </section>
@@ -130,7 +131,7 @@ const jsonLd = {
           <div class="demo-side">
             <h2 class="mono muted" id="demo-t">{s['demo.t']}</h2>
             <p class="demo-note">{d.demo.note}</p>
-            <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener noreferrer">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p>
+            <p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener noreferrer">{s['demo.btn']}<Flecha /></a></p>
             {d.demo.qr && <figure class="demo-qr"><img src={img(d.demo.qr)} alt="" width="120" height="120" /><figcaption>{s['demo.qr']}</figcaption></figure>}
           </div>
         </section>
@@ -175,9 +176,9 @@ const jsonLd = {
         </dialog>
       )}
       {d.demo && (
-        <div class="wrap demo-end"><p class="demo-end-t">{s['demo.end']}</p><p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener noreferrer">{s['demo.btn']}<span aria-hidden="true">↗</span></a></p></div>
+        <div class="wrap demo-end"><p class="demo-end-t">{s['demo.end']}</p><p class="demo-cta"><a class="demo-btn" href={d.demo.url} target="_blank" rel="noopener noreferrer">{s['demo.btn']}<Flecha /></a></p></div>
       )}
-      {d.document && <a class="fab" style={d.accent ? `--fab:${d.accent}` : undefined} href={d.document} target="_blank" rel="noopener noreferrer">{s.docBtn}<span aria-hidden="true">↗</span></a>}
+      {d.document && <a class="fab" style={d.accent ? `--fab:${d.accent}` : undefined} href={d.document} target="_blank" rel="noopener noreferrer">{s.docBtn}<Flecha /></a>}
       {list.length > 1 && (
         <div class="wrap"><a class="next" href={projectPath(lang, next.data.uid)}><span class="mono muted">{s.next}</span><br /><span class="t">{next.data.title} <span aria-hidden="true">→</span></span></a></div>
       )}
@@ -185,3 +186,53 @@ const jsonLd = {
     <Contact lang={lang} />
   </div>
 </Base>
+
+<script>
+  // Botón fijo «Ver proyecto completo»: si pasa por encima de un fondo de su mismo color (o de poco contraste),
+  // se invierte (fondo blanco y texto del color del proyecto) para que se siga viendo.
+  const fab = document.querySelector<HTMLElement>('.fab');
+  if (fab) {
+    const rgb = (c: string) => {
+      const m = c.match(/^rgba?\(([^)]+)\)$/);
+      if (!m) return null;
+      const v = m[1].split(/[\s,/]+/).filter(Boolean).map(Number);
+      return v.length >= 3 && (v.length < 4 || v[3] > 0.5) ? v.slice(0, 3) : null;
+    };
+    const lum = (c: number[]) => {
+      const f = (x: number) => ((x /= 255) <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4);
+      return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]);
+    };
+    const contraste = (a: number[], b: number[]) => {
+      const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p);
+      return (x + 0.05) / (y + 0.05);
+    };
+    const propio = rgb(getComputedStyle(fab).backgroundColor);
+    const fondoEn = (x: number, y: number) => {
+      for (const el of document.elementsFromPoint(x, y)) {
+        if (fab.contains(el)) continue;
+        const c = rgb(getComputedStyle(el).backgroundColor);
+        if (c) return c;
+      }
+      return null;
+    };
+    let pendiente = false;
+    const revisar = () => {
+      pendiente = false;
+      if (!propio) return;
+      const r = fab.getBoundingClientRect();
+      const y = r.top + r.height / 2;
+      const choca = [0.12, 0.5, 0.88].some((p) => {
+        const c = fondoEn(r.left + r.width * p, y);
+        return c !== null && contraste(c, propio) < 1.6;
+      });
+      fab.classList.toggle('sobre-color', choca);
+    };
+    const pedir = () => {
+      if (!pendiente) { pendiente = true; requestAnimationFrame(revisar); }
+    };
+    addEventListener('scroll', pedir, { passive: true });
+    addEventListener('resize', pedir);
+    addEventListener('load', pedir);
+    pedir();
+  }
+</script>
