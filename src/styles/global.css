@@ -366,6 +366,18 @@ body.menu-open .menu li a{transform:none}
 .gal .g-full{grid-column:1/-1}
 .case-links{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px 28px}
 .gal-more{margin:-8px 0 0;padding-bottom:clamp(28px,4vw,48px)}
+/* Botón dentro del bloque, justo después de una pieza (more.after), con nota al lado */
+.gal .gal-in{grid-column:1/-1;margin:0;padding:0 0 clamp(12px,2vw,24px);align-items:center;gap:12px 18px}
+.gal-note{font-size:var(--s-sm);color:var(--muted);font-style:italic;max-width:46ch}
+/* Web en una ventana de navegador (layout browser); si le sigue una pieza mobile, van en pareja */
+.gal .g-browser{grid-column:1/span 8;display:flex;flex-direction:column}
+.gal .g-browser .zoom,.gal .g-browser+.g-mob .zoom{flex:1;display:grid;place-items:center;background:var(--paper-2);padding:clamp(14px,2.8vw,40px)}
+.gal .g-browser .win{display:block;width:100%;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 34px 60px -34px rgba(0,0,0,.5),0 0 0 1px var(--line)}
+.gal .g-browser .win i{display:flex;align-items:center;gap:6px;height:26px;padding:0 12px;background:var(--paper);border-bottom:1px solid var(--line)}
+.gal .g-browser .win i b{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.gal .g-browser+.g-mob{align-self:stretch;padding:0;display:flex;flex-direction:column}
+.gal .g-browser+.g-mob img{max-width:230px;border-radius:22px;border-width:7px;box-shadow:0 34px 60px -34px rgba(0,0,0,.5)}
+@media (max-width:760px){.gal .g-browser{grid-column:1/-1}.gal .g-browser+.g-mob img{max-width:200px}}
 /* Botones de enlaces del caso (componente NetButton)
    Escritorio: los de arriba (.case-nets) con borde negro sencillo; los de debajo de un bloque (.gal-more) con el color de cada red.
    Móvil: todos en burdeos (el primero relleno, el resto con borde). */

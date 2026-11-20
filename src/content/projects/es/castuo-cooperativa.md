@@ -13,13 +13,16 @@ tools: SEMrush · Google Ads · Meta Ads · GA4 · Search Console · Tag Manager
 cover: castuo-cover.webp
 accent: "#75502D"
 document: https://canva.link/g7xpm00mu21mlgc
+more:
+  - { group: "Web y blog", after: castuo-concepto-movil.webp, label: "Ver web completa", note: "Rediseño propuesto: concepto no oficial, la web actual de la cooperativa es castuo.es.", href: "https://teresabarrero.github.io/castuo-rediseno/" }
 challenge: Castúo Cooperativa (Cooperativa del campo San Pedro, Guareña) tiene un producto premiado y una historia que contar, pero poca visibilidad fuera de su zona. Su web, que también es su tienda online, tenía contenido incompleto y carencias de SEO, no tenía blog ni newsletter, y en el análisis de la competencia era la que peores métricas tenía en blog y redes sociales, y en la web, la que menos backlinks y Authority Score tenía.
 solution: Analicé la empresa y a tres cooperativas competidoras, hice el DAFO, el CAME, el Business Model Canvas y dos buyer personas, y con eso definí objetivos SMART y un plan para mayo, junio y julio. Diseñé las piezas para ejecutarlo — rediseño de la web, un blog con entradas optimizadas para SEO, dos newsletters, dos landing pages, anuncios de display y búsqueda en Google Ads y de Meta, y publicaciones para redes —, con KPIs para medir cada objetivo y un presupuesto cerrado.
 highlights:
   - { value: "3", label: "cooperativas competidoras analizadas" }
   - { value: "26", label: "publicaciones planificadas en redes" }
 gallery:
-  - { src: castuo-web.webp, alt: "Rediseño de la web · inicio y secciones", layout: fit, group: "Web y blog" }
+  - { src: castuo-concepto-inicio.webp, alt: "Rediseño de la web · inicio en escritorio", layout: browser, group: "Web y blog" }
+  - { src: castuo-concepto-movil.webp, alt: "Rediseño de la web · inicio en móvil", layout: mobile, group: "Web y blog" }
   - { src: castuo-blog.webp, alt: "Blog · entrada de presentación", layout: full, group: "Web y blog" }
   - { src: castuo-landing-vino.webp, alt: "Enoturismo · buyer persona 1", layout: wide, group: "Landing pages" }
   - { src: castuo-landing-cocina.webp, alt: "Producto artesano · buyer persona 2", layout: wide, group: "Landing pages" }

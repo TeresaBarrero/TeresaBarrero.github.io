@@ -29,8 +29,10 @@ const projects = defineCollection({
     art: z.enum(['pweb', 'psocial', 'pseo', 'pmix']).optional(),
     /** Enlaces del proyecto, se muestran como botones (web, redes, Google Business...) */
     links: z.array(z.object({ label: z.string(), href: z.string().url() })).default([]),
-    /** Botones «ver más» debajo de un bloque de la galería (group = título del bloque) */
-    more: z.array(z.object({ group: z.string(), label: z.string(), href: z.string().url() })).default([]),
+    /** Botones «ver más» debajo de un bloque de la galería (group = título del bloque).
+        Con after (src de una pieza de la galería) el botón va justo después de esa pieza, dentro del bloque;
+        note es un texto corto al lado del botón. */
+    more: z.array(z.object({ group: z.string(), label: z.string(), href: z.string().url(), after: z.string().optional(), note: z.string().optional() })).default([]),
     cover: z.string().optional(),
     /** Color propio del proyecto (botón fijo «Ver proyecto completo»). Por defecto, tinta. */
     accent: z.string().optional(),
@@ -42,7 +44,7 @@ const projects = defineCollection({
     solution: z.string(),
     highlights: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
     /** group: título de bloque en la galería (p. ej. «Redes sociales»); las piezas seguidas con el mismo group van juntas */
-    gallery: z.array(z.object({ src: z.string(), alt: z.string(), layout: z.enum(['long', 'mobile', 'post', 'wide', 'full', 'fit', 'social']), group: z.string().optional() })).default([]),
+    gallery: z.array(z.object({ src: z.string(), alt: z.string(), layout: z.enum(['long', 'mobile', 'post', 'wide', 'full', 'fit', 'social', 'browser']), group: z.string().optional() })).default([]),
     draft: z.boolean().default(false),
   }),
 });
