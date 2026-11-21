@@ -15,15 +15,19 @@ accent: "#75502D"
 document: https://canva.link/g7xpm00mu21mlgc
 more:
   - { group: "Website & blog", after: castuo-concepto-movil.webp, label: "See full website", note: "Proposed redesign: an unofficial concept (in Spanish); the cooperative's current website is castuo.es.", href: "https://teresabarrero.github.io/castuo-rediseno/" }
+  - { group: "Website & blog", after: castuo-blog-movil.webp, label: "See the blog", note: "Cuaderno Castúo: 22 articles, search and a farming calendar (in Spanish).", href: "https://teresabarrero.github.io/castuo-rediseno/blog/" }
 challenge: Castúo Cooperativa (Cooperativa del campo San Pedro, Guareña) has an award-winning product and a story to tell, but little visibility outside its area. Its website, which is also its online shop, had incomplete content and SEO gaps, no blog and no newsletter, and in the competitor analysis it had the weakest figures for blog and social media, and the fewest backlinks and lowest Authority Score for its website.
 solution: I analysed the company and three competing cooperatives, built the SWOT, the CAME, the Business Model Canvas and two buyer personas, and from there set SMART goals and a plan for May, June and July. I designed the pieces to carry it out — a website redesign, a blog with SEO-optimised posts, two newsletters, two landing pages, Google Ads display and search ads and Meta ads, and social media posts — with KPIs for each goal and a fixed budget.
 highlights:
   - { value: "3", label: "competing cooperatives analysed" }
   - { value: "26", label: "social media posts planned" }
+  - { value: "22", label: "articles in the concept website's blog" }
 gallery:
   - { src: castuo-concepto-inicio.webp, alt: "Website redesign · home page on desktop", layout: browser, group: "Website & blog" }
   - { src: castuo-concepto-movil.webp, alt: "Website redesign · home page on mobile", layout: mobile, group: "Website & blog" }
-  - { src: castuo-blog.webp, alt: "Blog · launch post", layout: full, group: "Website & blog" }
+  - { src: castuo-blog-portada.webp, alt: "Cuaderno Castúo blog · home page on desktop", layout: browser, group: "Website & blog" }
+  - { src: castuo-blog-movil.webp, alt: "Cuaderno Castúo blog · article on mobile", layout: mobile, group: "Website & blog" }
+  - { src: castuo-blog.webp, alt: "Blog · first proposal, before the redesign", layout: full, group: "Website & blog" }
   - { src: castuo-landing-vino.webp, alt: "Wine tourism · buyer persona 1", layout: wide, group: "Landing pages" }
   - { src: castuo-landing-cocina.webp, alt: "Artisan produce · buyer persona 2", layout: wide, group: "Landing pages" }
   - { src: castuo-newsletter-1.webp, alt: "Newsletter 1 · buyer persona 1", layout: wide, group: "Newsletters" }
@@ -82,6 +86,15 @@ Four goals, all over three months. They are the plan’s targets, not measured r
 | Build customer loyalty | 15% open rate and 8% click rate | A weekly newsletter per buyer persona |
 | Launch a blog with good content | About 10 posts and 15% of website traffic | Keyword research and a calendar per audience |
 
+## The blog: Cuaderno Castúo
+
+The plan proposed a blog with around ten posts. In the concept website I took it further: **Cuaderno Castúo** («the Castúo notebook»), with 22 articles.
+
+- **From the first proposal to the redesign:** its own name, a single headline per page and text in a comfortable reading column, instead of small white text on green. The «news», which were just links to other sections, become a real category.
+- **Content that answers real searches:** the launch post explains what «castúo» means with verifiable facts (the poet Luis Chamizo, 1921; the cooperative, from 137 to over 1,100 members). It is followed by olive oil guides, recipes and a month-by-month calendar of the olive grove and the vineyard.
+- **Built for search and for sales:** every article links to a product, a page of the website and two other articles, with structured data (BlogPosting, Recipe, FAQPage) and RSS.
+- **Lighthouse (mobile):** performance 96 to 99 and accessibility 100.
+
 ## Context
 
-An academic project for the Master’s in Digital Marketing and Web Design at CEI: an improvement proposal that the cooperative neither commissioned nor endorses, and its brands belong to their owners. The goal figures are the plan’s targets, not measured results.
+An academic project for the Master’s in Digital Marketing and Web Design at CEI: an improvement proposal that the cooperative neither commissioned nor endorses, and its brands belong to their owners. The goal figures are the plan’s targets, not measured results. The concept website is not indexed by search engines, does not sell anything or collect data, and always links to the official website, castuo.es; in its blog, the news items are sample content and some recipe photos are illustrative (from Wikimedia Commons or AI-generated), as stated on each one.

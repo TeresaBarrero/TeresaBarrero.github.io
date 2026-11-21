@@ -15,15 +15,19 @@ accent: "#75502D"
 document: https://canva.link/g7xpm00mu21mlgc
 more:
   - { group: "Web y blog", after: castuo-concepto-movil.webp, label: "Ver web completa", note: "Rediseño propuesto: concepto no oficial, la web actual de la cooperativa es castuo.es.", href: "https://teresabarrero.github.io/castuo-rediseno/" }
+  - { group: "Web y blog", after: castuo-blog-movil.webp, label: "Ver el blog", note: "Cuaderno Castúo: 22 artículos, buscador y calendario del campo.", href: "https://teresabarrero.github.io/castuo-rediseno/blog/" }
 challenge: Castúo Cooperativa (Cooperativa del campo San Pedro, Guareña) tiene un producto premiado y una historia que contar, pero poca visibilidad fuera de su zona. Su web, que también es su tienda online, tenía contenido incompleto y carencias de SEO, no tenía blog ni newsletter, y en el análisis de la competencia era la que peores métricas tenía en blog y redes sociales, y en la web, la que menos backlinks y Authority Score tenía.
 solution: Analicé la empresa y a tres cooperativas competidoras, hice el DAFO, el CAME, el Business Model Canvas y dos buyer personas, y con eso definí objetivos SMART y un plan para mayo, junio y julio. Diseñé las piezas para ejecutarlo — rediseño de la web, un blog con entradas optimizadas para SEO, dos newsletters, dos landing pages, anuncios de display y búsqueda en Google Ads y de Meta, y publicaciones para redes —, con KPIs para medir cada objetivo y un presupuesto cerrado.
 highlights:
   - { value: "3", label: "cooperativas competidoras analizadas" }
   - { value: "26", label: "publicaciones planificadas en redes" }
+  - { value: "22", label: "artículos en el blog del concepto web" }
 gallery:
   - { src: castuo-concepto-inicio.webp, alt: "Rediseño de la web · inicio en escritorio", layout: browser, group: "Web y blog" }
   - { src: castuo-concepto-movil.webp, alt: "Rediseño de la web · inicio en móvil", layout: mobile, group: "Web y blog" }
-  - { src: castuo-blog.webp, alt: "Blog · entrada de presentación", layout: full, group: "Web y blog" }
+  - { src: castuo-blog-portada.webp, alt: "Blog Cuaderno Castúo · portada en escritorio", layout: browser, group: "Web y blog" }
+  - { src: castuo-blog-movil.webp, alt: "Blog Cuaderno Castúo · artículo en móvil", layout: mobile, group: "Web y blog" }
+  - { src: castuo-blog.webp, alt: "Blog · primera propuesta, antes del rediseño", layout: full, group: "Web y blog" }
   - { src: castuo-landing-vino.webp, alt: "Enoturismo · buyer persona 1", layout: wide, group: "Landing pages" }
   - { src: castuo-landing-cocina.webp, alt: "Producto artesano · buyer persona 2", layout: wide, group: "Landing pages" }
   - { src: castuo-newsletter-1.webp, alt: "Newsletter 1 · buyer persona 1", layout: wide, group: "Newsletters" }
@@ -82,6 +86,15 @@ Cuatro objetivos, todos a tres meses. Son metas del plan, no resultados medidos.
 | Fidelizar a los clientes | 15 % de apertura y 8 % de clics | Una newsletter semanal por buyer persona |
 | Crear un blog con buen contenido | Unas 10 entradas y el 15 % del tráfico web | Estudio de palabras clave y calendario por público |
 
+## El blog: Cuaderno Castúo
+
+El plan proponía un blog con unas diez entradas. En el concepto web lo llevé más allá: **Cuaderno Castúo**, con 22 artículos.
+
+- **De la primera propuesta al rediseño:** nombre propio, un solo titular por página y el texto en una columna de lectura cómoda, en lugar de texto blanco pequeño sobre verde. Las «noticias», que eran accesos a otras secciones, pasan a ser una categoría real.
+- **Contenido que responde a búsquedas reales:** la entrada de presentación explica qué significa «castúo» con datos verificables (Luis Chamizo, 1921; la cooperativa, de 137 a más de 1.100 socios). Le siguen guías de aceite, recetas y un calendario del olivar y la viña mes a mes.
+- **Pensado para buscadores y para vender:** cada artículo enlaza a un producto, a una página de la web y a otros dos artículos, con datos estructurados (BlogPosting, Recipe, FAQPage) y RSS.
+- **Lighthouse en móvil:** rendimiento de 96 a 99 y accesibilidad 100.
+
 ## Contexto
 
-Proyecto académico del Máster en Marketing Digital y Diseño Web del CEI: es una propuesta de mejora que la cooperativa no encargó ni avala, y sus marcas pertenecen a sus titulares. Las cifras de los objetivos son metas del plan, no resultados medidos.
+Proyecto académico del Máster en Marketing Digital y Diseño Web del CEI: es una propuesta de mejora que la cooperativa no encargó ni avala, y sus marcas pertenecen a sus titulares. Las cifras de los objetivos son metas del plan, no resultados medidos. La web del concepto no está indexada en buscadores, no vende ni recoge datos y enlaza siempre a la web oficial, castuo.es; en su blog, las noticias son contenido de ejemplo y algunas fotos de recetas son ilustrativas (de Wikimedia Commons o generadas con IA) y se indica en cada una.
