@@ -27,7 +27,6 @@ gallery:
   - { src: castuo-concepto-movil.webp, alt: "Website redesign · home page on mobile", layout: mobile, group: "Website & blog" }
   - { src: castuo-blog-portada.webp, alt: "Cuaderno Castúo blog · home page on desktop", layout: browser, group: "Website & blog" }
   - { src: castuo-blog-movil.webp, alt: "Cuaderno Castúo blog · article on mobile", layout: mobile, group: "Website & blog" }
-  - { src: castuo-blog.webp, alt: "Blog · first proposal, before the redesign", layout: full, group: "Website & blog" }
   - { src: castuo-landing-vino.webp, alt: "Wine tourism · buyer persona 1", layout: wide, group: "Landing pages" }
   - { src: castuo-landing-cocina.webp, alt: "Artisan produce · buyer persona 2", layout: wide, group: "Landing pages" }
   - { src: castuo-newsletter-1.webp, alt: "Newsletter 1 · buyer persona 1", layout: wide, group: "Newsletters" }

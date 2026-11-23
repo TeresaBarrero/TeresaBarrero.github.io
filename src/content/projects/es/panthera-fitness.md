@@ -6,7 +6,7 @@ lang: es
 order: 1
 year: 2026
 type: Diseño web y community management · Cliente
-lead: La presencia online de un gimnasio nuevo en Guareña (Badajoz) — web, redes sociales y SEO local —, pensada para el móvil y para convertir visitas en conversaciones de WhatsApp.
+lead: La presencia online de un gimnasio nuevo en Guareña (Badajoz) — web, redes sociales y SEO local —, pensada para el móvil y para convertir visitas en contactos por WhatsApp y por la web.
 role: Diseño, desarrollo, contenido y SEO
 services: UX/UI, desarrollo, community management, SEO local
 tools: HTML · CSS · JS · Cloudflare · GA4 · Claude Code · Canva · Photoshop · Illustrator · CapCut · Google Business Profile · Search Console · Schema.org
@@ -20,7 +20,7 @@ links:
   - { label: "Instagram", href: "https://www.instagram.com/_pantherafitness/" }
   - { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61595732023791" }
   - { label: "Google Business Profile", href: "https://share.google/XEuR1vaW7TVSyvZUI" }
-challenge: Un gimnasio a punto de abrir, sin presencia online, que necesitaba captar socios desde el móvil con un único canal de contacto, WhatsApp; crear comunidad en el pueblo antes de abrir, llenar las jornadas de puertas abiertas, y aparecer en Google sin reseñas, sin enlaces y sin historial.
+challenge: Un gimnasio a punto de abrir, sin presencia online, que necesitaba captar socios desde el móvil con dos vías de contacto, WhatsApp y la web; crear comunidad en el pueblo antes de abrir, llenar las jornadas de puertas abiertas, y aparecer en Google sin reseñas, sin enlaces y sin historial.
 solution: Diseñé y desarrollé la web, llevé las redes sociales desde la base de marca hasta el calendario de apertura y trabajé el SEO local, con una misma línea visual en gris carbón y turquesa en todos los canales.
 highlights:
   - { value: "4", label: "canales: web, Instagram, Facebook y Google Business Profile" }
@@ -37,7 +37,7 @@ gallery:
 
 ## Web
 
-Una landing estática con la identidad de la marca, en gris carbón y turquesa, con actividades, tarifas, horario y novedades. El diseño empieza en el móvil (390 px) y todo lleva a WhatsApp, el único canal de contacto.
+Una landing estática con la identidad de la marca, en gris carbón y turquesa, con actividades, tarifas, horario y novedades. El diseño empieza en el móvil (390 px) y todo lleva al contacto: WhatsApp o el formulario de la propia web.
 
 - Formulario propio con base de datos y un panel privado para el dueño.
 - Banner de cookies con consentimiento granular y GA4 en Consent Mode v2, con tres eventos de conversión.

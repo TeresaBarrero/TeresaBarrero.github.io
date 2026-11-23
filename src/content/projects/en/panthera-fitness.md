@@ -6,7 +6,7 @@ lang: en
 order: 1
 year: 2026
 type: Web design & community management · Client
-lead: The online presence of a new gym in Guareña (Badajoz, Spain) — website, social media and local SEO — built for mobile and for turning visits into WhatsApp conversations.
+lead: The online presence of a new gym in Guareña (Badajoz, Spain) — website, social media and local SEO — built for mobile and for turning visits into contacts through WhatsApp and the website.
 role: Design, development, content & SEO
 services: UX/UI, development, community management, local SEO
 tools: HTML · CSS · JS · Cloudflare · GA4 · Claude Code · Canva · Photoshop · Illustrator · CapCut · Google Business Profile · Search Console · Schema.org
@@ -20,7 +20,7 @@ links:
   - { label: "Instagram", href: "https://www.instagram.com/_pantherafitness/" }
   - { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61595732023791" }
   - { label: "Google Business Profile", href: "https://share.google/XEuR1vaW7TVSyvZUI" }
-challenge: A gym about to open, with no online presence, that needed to win members from mobile with a single contact channel, WhatsApp; build a local community before opening, fill the open days, and show up on Google with no reviews, no links and no history.
+challenge: A gym about to open, with no online presence, that needed to win members from mobile with two contact channels, WhatsApp and the website; build a local community before opening, fill the open days, and show up on Google with no reviews, no links and no history.
 solution: I designed and built the website, ran the social media from brand foundations to the opening calendar and worked on local SEO, with one visual line in charcoal and turquoise across every channel.
 highlights:
   - { value: "4", label: "channels: website, Instagram, Facebook & Google Business Profile" }
@@ -37,7 +37,7 @@ gallery:
 
 ## Website
 
-A static landing page in the brand’s charcoal and turquoise, with activities, prices, timetable and news. The design starts on mobile (390 px) and everything leads to WhatsApp, the only contact channel.
+A static landing page in the brand’s charcoal and turquoise, with activities, prices, timetable and news. The design starts on mobile (390 px) and everything leads to getting in touch: WhatsApp or the website’s own form.
 
 - Custom form with a database and a private panel for the owner.
 - Granular cookie banner and GA4 in Consent Mode v2, with three conversion events.
