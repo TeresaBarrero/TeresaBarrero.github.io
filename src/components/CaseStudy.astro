@@ -78,13 +78,13 @@ const jsonLd = {
 ---
 <Base lang={lang} title={`${d.title} · ${profile.name}`} description={d.lead} alternate={projectPath(other, slug)} jsonLd={jsonLd}>
   <div class={d.theme ? `case-page theme-${d.theme}` : "case-page"}>
-    <div class="case-top"><div class="wrap">
+    <header class="case-top"><div class="wrap">
       <a class="mono muted" href={workHref} style="text-decoration:none">← {s['case.back']} / {d.title}</a>
       <div class="top-r">
         <LangSwitch lang={lang} alternate={projectPath(other, slug)} />
         <a class="close" href={workHref}><span>{s.close}</span><b aria-hidden="true">✕</b></a>
       </div>
-    </div></div>
+    </div></header>
     <main id="contenido">
       <section class="case-hero wrap">
         <span class="mono muted">{d.type} · {d.year}</span>

@@ -330,3 +330,12 @@ demoLoad?.addEventListener('click', () => {
   demoLoad.remove();
   demoFrame.focus();
 });
+
+/* ---------- Tablas y cronogramas con desplazamiento horizontal: accesibles con el teclado ---------- */
+document.querySelectorAll<HTMLElement>('.case-md table, .az-timeline').forEach((el) => {
+  el.tabIndex = 0;
+  if (el.tagName === 'TABLE' && !el.getAttribute('aria-label')) {
+    const head = el.querySelector('th')?.textContent?.trim();
+    if (head) el.setAttribute('aria-label', head);
+  }
+});

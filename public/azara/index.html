@@ -20,7 +20,7 @@
 </style>
 <style>
 :root{
-  --verde:#1A3C2F;--verde-2:#0F2A20;--naranja:#F39C12;--naranja-txt:#B5690A;--cal:#FBFBF9;--oro:#D4AF37;
+  --verde:#1A3C2F;--verde-2:#0F2A20;--naranja:#F39C12;--naranja-txt:#9E5B08;--cal:#FBFBF9;--oro:#D4AF37;
   --texto:#22302A;--suave:#4A5A52;--arena:#F3E9DC;--linea:#E2DDD2;--cafe:#4A2C17;--crema:#A4703A;
   --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
   --ease:cubic-bezier(.2,.7,.1,1);--hdr:72px
@@ -506,7 +506,7 @@ footer a{color:#F7D9A8}
  </div>
  <a class="scroll-cue" href="#ritual" aria-label="Bajar al ritual"><svg width="18" height="26" viewBox="0 0 18 26" aria-hidden="true"><ellipse cx="9" cy="13" rx="8" ry="12" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 3 C5 9 13 17 9 23" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Baja</a>
 </div>
-<div class="banner" aria-label="Abrimos el 4 de marzo, con la temporada de azahar">
+<div class="banner" role="marquee" aria-label="Abrimos el 4 de marzo, con la temporada de azahar">
  <div class="tr" aria-hidden="true"></div>
 </div>
 
@@ -858,10 +858,10 @@ if(RM){go(3);stepsBox.classList.remove('autoplay')}
 
 /* Temporadas: datos, color de cada estación y temporada actual */
 const S={
- primavera:{n:'I',aroma:'Azahar',cafe:'Etiopía lavado',meses:'Marzo a mayo',c:'#F6D9A0',ct:'#B5690A',tint:'#F7EBD6',texto:'Las notas florales y de bergamota del café etíope despiertan con el azahar, la flor que da nombre a AZARA.'},
+ primavera:{n:'I',aroma:'Azahar',cafe:'Etiopía lavado',meses:'Marzo a mayo',c:'#F6D9A0',ct:'#9E5B08',tint:'#F7EBD6',texto:'Las notas florales y de bergamota del café etíope despiertan con el azahar, la flor que da nombre a AZARA.'},
  verano:{n:'II',aroma:'Jazmín y hierbabuena',cafe:'Kenia, también en cold brew',meses:'Junio a septiembre',c:'#8DB59A',ct:'#2F6B47',tint:'#E8EFE6',texto:'La acidez brillante del café keniano, con la frescura del jazmín y la dama de noche de las noches sevillanas.'},
  otono:{n:'III',aroma:'Membrillo y castaña',cafe:'Colombia o Guatemala',meses:'Octubre y noviembre',c:'#D4AF37',ct:'#8A6D12',tint:'#F3EAD2',texto:'Dulzor de caramelo y fruta madura, con el olor del membrillo y las castañas asadas.'},
- invierno:{n:'IV',aroma:'Naranja amarga y canela',cafe:'Brasil o Perú',meses:'Diciembre a febrero',c:'#F39C12',ct:'#B5690A',tint:'#F6E5CC',texto:'Chocolate y frutos secos, con la naranja amarga que Sevilla recoge en enero y la canela de sus dulces.'}
+ invierno:{n:'IV',aroma:'Naranja amarga y canela',cafe:'Brasil o Perú',meses:'Diciembre a febrero',c:'#F39C12',ct:'#9E5B08',tint:'#F6E5CC',texto:'Chocolate y frutos secos, con la naranja amarga que Sevilla recoge en enero y la canela de sus dulces.'}
 };
 const mo=new Date().getMonth()+1;
 const NOW=mo>=3&&mo<=5?'primavera':mo>=6&&mo<=9?'verano':mo>=10&&mo<=11?'otono':'invierno';
