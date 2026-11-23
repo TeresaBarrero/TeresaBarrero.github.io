@@ -23,7 +23,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const altUrl = new URL(alternate, Astro.site);
 const esUrl = lang === 'es' ? canonical : altUrl;
 const enUrl = lang === 'en' ? canonical : altUrl;
-const ogImage = new URL(u('/og.png'), Astro.site);
+const ogImage = new URL(u(lang === 'es' ? '/og.png' : '/og-en.png'), Astro.site);
 ---
 <!doctype html>
 <html lang={lang}>
@@ -47,6 +47,10 @@ const ogImage = new URL(u('/og.png'), Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={lang === 'es' ? `${profile.name} · Full Stack Marketer. Portfolio 2026, abierta a nuevas oportunidades.` : `${profile.name} · Full Stack Marketer. 2026 portfolio, open to new opportunities.`} />
+    <meta property="og:site_name" content={profile.name} />
     <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_GB'} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="sitemap" href={u('/sitemap-index.xml')} />
