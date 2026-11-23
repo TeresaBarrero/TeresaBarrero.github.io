@@ -1,10 +1,11 @@
 // Piezas del Archivo. Para añadir una: copia la imagen en public/images/ y añade una línea aquí.
+// proposal: true muestra un botón «?» que avisa de que es una propuesta académica, no un trabajo real.
 // col: columna en escritorio (1, 2 o 3; en móvil solo se ven la 1 y la 2). w y h: tamaño real de la imagen.
 export const archive = [
   { src: 'post-abrimos.webp', w: 640, h: 800, col: 1, es: 'Panthera Fitness · Apertura', en: 'Panthera Fitness · Opening' },
-  { src: 'castuo-post.webp', w: 1080, h: 1080, col: 1, es: 'Castúo (propuesta) · Post de Instagram', en: 'Castúo (proposal) · Instagram post' },
-  { src: 'castuo-historia.webp', w: 1080, h: 1920, col: 2, es: 'Castúo (propuesta) · Historia de Instagram', en: 'Castúo (proposal) · Instagram story' },
+  { src: 'castuo-post.webp', w: 1080, h: 1080, col: 1, es: 'Castúo (propuesta) · Post de Instagram', en: 'Castúo (proposal) · Instagram post', proposal: true },
+  { src: 'castuo-historia.webp', w: 1080, h: 1920, col: 2, es: 'Castúo (propuesta) · Historia de Instagram', en: 'Castúo (proposal) · Instagram story', proposal: true },
   { src: 'post-horarios-tarifas.webp', w: 640, h: 800, col: 2, es: 'Panthera Fitness · Horarios y tarifas', en: 'Panthera Fitness · Hours & prices' },
   { src: 'post-promocion.webp', w: 640, h: 800, col: 3, es: 'Panthera Fitness · Promoción de apertura', en: 'Panthera Fitness · Opening offer' },
-  { src: 'castuo-landing-vino.webp', w: 1021, h: 562, col: 3, es: 'Castúo (propuesta) · Landing page', en: 'Castúo (proposal) · Landing page' },
+  { src: 'castuo-landing-vino.webp', w: 1021, h: 562, col: 3, es: 'Castúo (propuesta) · Landing page', en: 'Castúo (proposal) · Landing page', proposal: true },
 ] as const;

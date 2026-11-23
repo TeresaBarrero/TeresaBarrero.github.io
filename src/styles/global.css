@@ -173,6 +173,11 @@ body.menu-open .menu li a{transform:none}
 .arch-anim .piece.in img{clip-path:inset(0 0 0 0);transform:none}
 .piece figcaption{position:absolute;left:10px;bottom:10px;background:var(--paper);font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px;opacity:0;transform:translateY(8px);transition:all .4s var(--ease)}
 .piece:hover figcaption{opacity:1;transform:none}
+/* Botón «?» de las piezas que son propuestas académicas (Castúo) */
+.pq{position:absolute;top:10px;right:10px;z-index:2;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#F6E8E4;color:#5B3A37;font-family:var(--f-display);font-weight:600;font-size:15px;line-height:1;box-shadow:0 1px 4px rgba(14,15,18,.18);cursor:help;transition:transform .3s var(--ease)}
+.pq:hover,.pq:focus-visible,.piece.pq-open .pq{transform:scale(1.08)}
+.pq-tip{position:absolute;top:48px;right:10px;left:10px;z-index:2;max-width:240px;margin-left:auto;background:var(--ink);color:var(--paper);font-size:12.5px;line-height:1.4;padding:9px 11px;border-radius:8px;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .25s,transform .25s var(--ease)}
+.pq:hover+.pq-tip,.pq:focus-visible+.pq-tip,.piece.pq-open .pq-tip{opacity:1;transform:none}
 @media (max-width:640px){.cols{grid-template-columns:repeat(2,1fr)}.col:nth-child(3){display:none}}
 
 

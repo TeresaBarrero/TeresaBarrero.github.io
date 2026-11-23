@@ -239,7 +239,9 @@ if (cur && fine && !reduce) {
   const loop = () => { cx += (mx - cx) * 0.2; cy += (my - cy) * 0.2; cur.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); };
   loop();
   document.addEventListener('pointerover', (e) => {
-    cur.classList.toggle('big', !!(e.target as HTMLElement).closest('.card:not(.soon),.d-btn,.name,.piece,.next,.gal .zoom'));
+    const el = e.target as HTMLElement;
+    // Sobre el botón «?» del Archivo el cursor no crece, para no taparlo
+    cur.classList.toggle('big', !!el.closest('.card:not(.soon),.d-btn,.name,.piece,.next,.gal .zoom') && !el.closest('.pq'));
   });
 } else if (cur) cur.style.display = 'none';
 
@@ -339,3 +341,20 @@ document.querySelectorAll<HTMLElement>('.case-md table, .az-timeline').forEach((
     if (head) el.setAttribute('aria-label', head);
   }
 });
+
+/* ---------- Archivo: botón «?» de las propuestas (también al tocar en el móvil) ---------- */
+const pqClose = (except?: Element) => document.querySelectorAll('.piece.pq-open').forEach((f) => {
+  if (f === except) return;
+  f.classList.remove('pq-open');
+  f.querySelector('.pq')?.setAttribute('aria-expanded', 'false');
+});
+document.querySelectorAll<HTMLButtonElement>('.pq').forEach((b) => b.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const fig = b.closest('.piece');
+  if (!fig) return;
+  pqClose(fig);
+  const open = fig.classList.toggle('pq-open');
+  b.setAttribute('aria-expanded', String(open));
+}));
+document.addEventListener('click', () => pqClose());
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') pqClose(); });

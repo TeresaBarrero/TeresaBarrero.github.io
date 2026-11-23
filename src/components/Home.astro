@@ -155,7 +155,7 @@ const jsonLd = {
       <div class="cols" id="cols">
         {cols.map((c) => (
           <div class="col">{c.map((a) => (
-            <figure class="piece" style="margin:0"><img src={img(a.src)} width={a.w} height={a.h} alt={a[lang]} loading="lazy" decoding="async" /><figcaption>{a[lang]}</figcaption></figure>
+            <figure class="piece" style="margin:0"><img src={img(a.src)} width={a.w} height={a.h} alt={a[lang]} loading="lazy" decoding="async" /><figcaption>{a[lang]}</figcaption>{('proposal' in a && a.proposal) && <><button type="button" class="pq" aria-label={s['ar.prop']} aria-expanded="false">?</button><span class="pq-tip" aria-hidden="true">{s['ar.prop']}</span></>}</figure>
           ))}</div>
         ))}
       </div>
