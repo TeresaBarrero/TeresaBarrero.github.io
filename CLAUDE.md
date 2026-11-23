@@ -11,6 +11,7 @@ Portfolio bilingüe (es/en) en Astro 5, estático, publicado en GitHub Pages con
 - Fuentes autoalojadas con @fontsource (no cargar Google Fonts).
 
 ## Reglas de contenido
+- El portfolio es para buscar empleo: Teresa no es autónoma ni quiere captar clientes. Nada de «¿Tienes un proyecto en mente?» ni «Disponible para proyectos»: usar «Abierta a nuevas oportunidades».
 - No inventar proyectos, cifras ni resultados. Los `highlights` son solo datos reales.
 - Panthera Fitness Guareña es un cliente real (web: https://pantherafitnessguarena.com/).
 - La web de anda CONMiGO fue una propuesta que no se llegó a publicar: preséntala como "Propuesta".
